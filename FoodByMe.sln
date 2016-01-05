@@ -1,0 +1,73 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodByMe.Core", "src\FoodByMe.Core\FoodByMe.Core.csproj", "{76D17FFC-01DC-4950-85B7-4CEE5F51AFDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodByMe.Android", "src\FoodByMe.Android\FoodByMe.Android.csproj", "{0313C3DB-09DA-483E-9D90-D2D395398874}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sources", "Sources", "{0DD07BE7-81EB-4330-8D35-35100CD463E1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{4C755CA1-8F53-4D49-921C-F46E8297BAF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmCross.Droid.Support.V7.Fragging", "lib\MvvmCross.Droid.Support.V7.Fragging\MvvmCross.Droid.Support.V7.Fragging.csproj", "{5B74F15E-E377-4662-9636-4233049EDDC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmCross.Droid.Support.V7.AppCompat", "lib\MvvmCross.Droid.Support.V7.AppCompat\MvvmCross.Droid.Support.V7.AppCompat.csproj", "{911D9032-EA82-41B9-80D7-5DB84951B6E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmCross.Droid.Support.Design", "lib\MvvmCross.Droid.Support.Design\MvvmCross.Droid.Support.Design.csproj", "{AC97FC60-7A13-47F9-B3AC-2B2C25147EB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmCross.Droid.Support.V7.RecyclerView", "lib\MvvmCross.Droid.Support.V7.RecyclerView\MvvmCross.Droid.Support.V7.RecyclerView.csproj", "{31C39E0F-116E-4EAC-921D-A79E6AA28204}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmCross.Droid.Support.V4", "lib\MvvmCross.Droid.Support.V4\MvvmCross.Droid.Support.V4.csproj", "{24C19002-AD02-4B88-9E57-1C254819D30E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{76D17FFC-01DC-4950-85B7-4CEE5F51AFDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76D17FFC-01DC-4950-85B7-4CEE5F51AFDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76D17FFC-01DC-4950-85B7-4CEE5F51AFDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76D17FFC-01DC-4950-85B7-4CEE5F51AFDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0313C3DB-09DA-483E-9D90-D2D395398874}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0313C3DB-09DA-483E-9D90-D2D395398874}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0313C3DB-09DA-483E-9D90-D2D395398874}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{0313C3DB-09DA-483E-9D90-D2D395398874}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0313C3DB-09DA-483E-9D90-D2D395398874}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0313C3DB-09DA-483E-9D90-D2D395398874}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{5B74F15E-E377-4662-9636-4233049EDDC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B74F15E-E377-4662-9636-4233049EDDC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B74F15E-E377-4662-9636-4233049EDDC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B74F15E-E377-4662-9636-4233049EDDC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{911D9032-EA82-41B9-80D7-5DB84951B6E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{911D9032-EA82-41B9-80D7-5DB84951B6E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{911D9032-EA82-41B9-80D7-5DB84951B6E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{911D9032-EA82-41B9-80D7-5DB84951B6E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC97FC60-7A13-47F9-B3AC-2B2C25147EB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC97FC60-7A13-47F9-B3AC-2B2C25147EB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC97FC60-7A13-47F9-B3AC-2B2C25147EB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC97FC60-7A13-47F9-B3AC-2B2C25147EB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31C39E0F-116E-4EAC-921D-A79E6AA28204}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31C39E0F-116E-4EAC-921D-A79E6AA28204}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31C39E0F-116E-4EAC-921D-A79E6AA28204}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31C39E0F-116E-4EAC-921D-A79E6AA28204}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24C19002-AD02-4B88-9E57-1C254819D30E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24C19002-AD02-4B88-9E57-1C254819D30E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24C19002-AD02-4B88-9E57-1C254819D30E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24C19002-AD02-4B88-9E57-1C254819D30E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{76D17FFC-01DC-4950-85B7-4CEE5F51AFDB} = {0DD07BE7-81EB-4330-8D35-35100CD463E1}
+		{0313C3DB-09DA-483E-9D90-D2D395398874} = {0DD07BE7-81EB-4330-8D35-35100CD463E1}
+		{5B74F15E-E377-4662-9636-4233049EDDC3} = {4C755CA1-8F53-4D49-921C-F46E8297BAF1}
+		{911D9032-EA82-41B9-80D7-5DB84951B6E5} = {4C755CA1-8F53-4D49-921C-F46E8297BAF1}
+		{AC97FC60-7A13-47F9-B3AC-2B2C25147EB8} = {4C755CA1-8F53-4D49-921C-F46E8297BAF1}
+		{31C39E0F-116E-4EAC-921D-A79E6AA28204} = {4C755CA1-8F53-4D49-921C-F46E8297BAF1}
+		{24C19002-AD02-4B88-9E57-1C254819D30E} = {4C755CA1-8F53-4D49-921C-F46E8297BAF1}
+	EndGlobalSection
+EndGlobal
