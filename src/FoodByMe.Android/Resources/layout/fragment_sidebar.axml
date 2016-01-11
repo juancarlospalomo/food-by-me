@@ -7,4 +7,4 @@
     android:layout_gravity="start"
     android:fitsSystemWindows="true"
     android:theme="@style/AppTheme.Menu"
-    local:headerLayout="@layout/template_sidebar_header"/>
+    local:headerLayout="@layout/view_sidebar_header"/>

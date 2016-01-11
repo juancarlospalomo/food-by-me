@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="@dimen/spacing_normal">
+    <Mvx.MvxImageView
+        android:id="@+id/recipe_item_iv"
+        android:layout_width="50dp"
+        android:layout_height="50dp" />
+    <TextView
+        android:id="@+id/recipe_item_time_tv"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/Text.ListItem.Tag"
+        android:maxLines="1"
+        android:text="2h 30m" />
+    <TextView
+        android:id="@+id/recipe_item_title_tv"
+        android:layout_toRightOf="@id/recipe_item_iv"
+        android:layout_toLeftOf="@id/recipe_item_time_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/Text.ListItem.Primary"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:text="Recipe Name which can also be a lenghty string with many words" />
+    <ToggleButton
+        android:id="@+id/recipe_item_favorite_btn"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        style="@style/Button.Favorite" />
+    <TextView
+        android:id="@+id/recipe_item_summary_tv"
+        android:layout_below="@id/recipe_item_title_tv"
+        android:layout_alignLeft="@id/recipe_item_title_tv"
+        android:layout_toLeftOf="@id/recipe_item_favorite_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/Text.ListItem.Secondary"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:text="Recipe description which can be event longer than recipe name and take a lot of space and even go more than one line in length oh so many words" />
+</RelativeLayout>
