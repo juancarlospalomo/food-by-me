@@ -1,6 +1,7 @@
 ﻿using Android.OS;
 using Android.Runtime;
 using Android.Views;
+using Cirrious.MvvmCross.Binding.Droid.Views;
 using FoodByMe.Core.ViewModels;
 using MvvmCross.Droid.Support.V7.Fragging.Attributes;
 

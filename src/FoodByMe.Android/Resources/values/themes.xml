@@ -19,6 +19,10 @@
     <item name="android:statusBarColor">@android:color/transparent</item>
 
     <item name="android:textCursorDrawable">@null</item>
+
+    <item name="colorControlNormal">@color/primary_text</item>
+    <item name="colorControlActivated">@color/primary</item>
+    <item name="colorControlHighlight">@color/primary</item>
   </style>
 
   <style name="AppTheme.Menu" parent="AppTheme.Base">

@@ -32,7 +32,7 @@ namespace FoodByMe.Android.Views
             var item = navigationView.Menu.Add("All Recipes");
             item.SetIcon(Resource.Drawable.Icon);
 
-            var categoriesSubMenu = navigationView.Menu.AddSubMenu("Categories");
+            var categoriesSubMenu = navigationView.Menu.AddSubMenu("Measures");
             categoriesSubMenu.Add("Category 1");
             categoriesSubMenu.Add("Category 2");
 

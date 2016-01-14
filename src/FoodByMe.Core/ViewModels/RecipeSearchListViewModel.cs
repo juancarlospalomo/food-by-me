@@ -12,8 +12,8 @@ namespace FoodByMe.Core.ViewModels
         public RecipeSearchListViewModel()
         {
             _recipes = new ObservableCollection<RecipeListItemViewModel> {
-                new RecipeListItemViewModel() { Category = RecipeCategory.Bakery, Title = "Search 1"},
-                new RecipeListItemViewModel() { Category = RecipeCategory.Deserts, Title = "Search 2"}
+                new RecipeListItemViewModel() { Category = RecipeCategory.Appetizer, Title = "Search 1"},
+                new RecipeListItemViewModel() { Category = RecipeCategory.Soup, Title = "Search 2"}
             };
         }
 

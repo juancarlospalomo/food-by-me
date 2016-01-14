@@ -1,5 +1,10 @@
+using Cirrious.CrossCore;
 using Cirrious.CrossCore.IoC;
+using Cirrious.MvvmCross.Localization;
+using FoodByMe.Core.Framework;
+using FoodByMe.Core.Resources;
 using FoodByMe.Core.ViewModels;
+using Microsoft.VisualBasic;
 
 namespace FoodByMe.Core
 {
@@ -11,6 +16,8 @@ namespace FoodByMe.Core
                 .EndingWith("Service")
                 .AsInterfaces()
                 .RegisterAsLazySingleton();
+
+            Mvx.RegisterSingleton<IMvxTextProvider>(new ResxTextProvider(Text.ResourceManager));
 
             RegisterAppStart<MainViewModel>();
         }

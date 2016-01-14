@@ -2,7 +2,17 @@
 {
     public enum RecipeCategory
     {
-        Bakery,
-        Deserts
+        Appetizer,
+        Soup,
+        Dinner,
+        Dessert,
+        Drink,
+        Salad
+    }
+
+    public enum Measure
+    {
+        Gr,
+        Kgr
     }
 }
