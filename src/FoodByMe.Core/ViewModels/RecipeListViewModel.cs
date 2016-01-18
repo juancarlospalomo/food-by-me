@@ -1,7 +1,7 @@
 using System.Collections.ObjectModel;
 using System.Windows.Input;
-using Cirrious.MvvmCross.ViewModels;
 using FoodByMe.Core.Model;
+using MvvmCross.Core.ViewModels;
 
 namespace FoodByMe.Core.ViewModels
 {

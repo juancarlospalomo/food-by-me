@@ -2,7 +2,7 @@
 using Android.OS;
 using Android.Support.V7.Widget;
 using Android.Views;
-using Cirrious.MvvmCross.Binding.Droid.BindingContext;
+using MvvmCross.Binding.Droid.BindingContext;
 using MvvmCross.Droid.Support.V7.AppCompat;
 using MvvmCross.Droid.Support.V7.Fragging.Fragments;
 

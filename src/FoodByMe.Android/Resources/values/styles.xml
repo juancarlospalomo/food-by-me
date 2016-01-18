@@ -34,6 +34,11 @@
     <item name="android:textSize">@dimen/font_small</item>
   </style>
 
+  <style name="Text.Form.Label.Accent">
+    <item name="android:textColor">@color/primary_text</item>
+    <item name="android:textSize">@dimen/font_normal</item>
+  </style>
+
   <style name="Text.Form.LabelHint">
     <item name="android:textSize">@dimen/font_small</item>
     <item name="android:textColor">@color/primary</item>
@@ -46,6 +51,11 @@
   <style name="TextView.Form.Label">
     <item name="android:layout_marginLeft">@dimen/spacing_small</item>
     <item name="android:textAppearance">@style/Text.Form.Label</item>
+  </style>
+  <style name="TextView.Form.Label.Accent">
+    <item name="android:textAppearance">@style/Text.Form.Label.Accent</item>
+    <item name="android:layout_marginBottom">@dimen/spacing_small</item>
+    <item name="android:layout_marginTop">@dimen/spacing_small</item>
   </style>
 
   <style name="TextView.ListIndex">

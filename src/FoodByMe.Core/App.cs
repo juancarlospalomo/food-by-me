@@ -1,14 +1,14 @@
-using Cirrious.CrossCore;
-using Cirrious.CrossCore.IoC;
-using Cirrious.MvvmCross.Localization;
 using FoodByMe.Core.Framework;
 using FoodByMe.Core.Resources;
 using FoodByMe.Core.ViewModels;
-using Microsoft.VisualBasic;
+using MvvmCross.Core.ViewModels;
+using MvvmCross.Localization;
+using MvvmCross.Platform;
+using MvvmCross.Platform.IoC;
 
 namespace FoodByMe.Core
 {
-    public class App : Cirrious.MvvmCross.ViewModels.MvxApplication
+    public class App : MvxApplication
     {
         public override void Initialize()
         {

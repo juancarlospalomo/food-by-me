@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Input;
-using Cirrious.MvvmCross.ViewModels;
 using FoodByMe.Core.Messages;
 using FoodByMe.Core.Model;
+using MvvmCross.Core.ViewModels;
 using MvvmCross.Plugins.Messenger;
 
 namespace FoodByMe.Core.ViewModels

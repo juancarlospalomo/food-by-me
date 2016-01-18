@@ -21,6 +21,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmCross.Droid.Support.V7.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmCross.Droid.Support.V4", "lib\MvvmCross.Droid.Support.V4\MvvmCross.Droid.Support.V4.csproj", "{24C19002-AD02-4B88-9E57-1C254819D30E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{6B36F508-A981-4C3D-A46D-52EA38001262}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodByMe.Tests", "tests\FoodByMe.Tests\FoodByMe.Tests.csproj", "{3A22814D-A6FE-4AF3-BB69-D3A7DBBE97F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +61,10 @@ Global
 		{24C19002-AD02-4B88-9E57-1C254819D30E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24C19002-AD02-4B88-9E57-1C254819D30E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24C19002-AD02-4B88-9E57-1C254819D30E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A22814D-A6FE-4AF3-BB69-D3A7DBBE97F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A22814D-A6FE-4AF3-BB69-D3A7DBBE97F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A22814D-A6FE-4AF3-BB69-D3A7DBBE97F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A22814D-A6FE-4AF3-BB69-D3A7DBBE97F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,5 +77,6 @@ Global
 		{AC97FC60-7A13-47F9-B3AC-2B2C25147EB8} = {4C755CA1-8F53-4D49-921C-F46E8297BAF1}
 		{31C39E0F-116E-4EAC-921D-A79E6AA28204} = {4C755CA1-8F53-4D49-921C-F46E8297BAF1}
 		{24C19002-AD02-4B88-9E57-1C254819D30E} = {4C755CA1-8F53-4D49-921C-F46E8297BAF1}
+		{3A22814D-A6FE-4AF3-BB69-D3A7DBBE97F5} = {6B36F508-A981-4C3D-A46D-52EA38001262}
 	EndGlobalSection
 EndGlobal

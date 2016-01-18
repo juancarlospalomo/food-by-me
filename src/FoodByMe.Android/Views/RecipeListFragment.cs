@@ -5,16 +5,10 @@ using Android.Support.Design.Widget;
 using Android.Support.V4.View;
 using Android.Support.V7.Widget;
 using Android.Views;
-using Android.Widget;
-using Cirrious.CrossCore.WeakSubscription;
-using Cirrious.MvvmCross.Binding.Droid.BindingContext;
 using FoodByMe.Core.ViewModels;
-using MvvmCross.Droid.Support.V4;
 using MvvmCross.Droid.Support.V7.Fragging.Attributes;
-using MvvmCross.Droid.Support.V7.Fragging.Fragments;
 using MvvmCross.Droid.Support.V7.RecyclerView;
 using SearchView = Android.Support.V7.Widget.SearchView;
-using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace FoodByMe.Android.Views
 {

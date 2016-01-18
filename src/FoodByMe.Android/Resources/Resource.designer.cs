@@ -26,27 +26,27 @@ namespace FoodByMe.Android
 		
 		public static void UpdateIdValues()
 		{
-			global::Cirrious.MvvmCross.Binding.Droid.Resource.Attribute.MvxBind = global::FoodByMe.Android.Resource.Attribute.MvxBind;
-			global::Cirrious.MvvmCross.Binding.Droid.Resource.Attribute.MvxDropDownItemTemplate = global::FoodByMe.Android.Resource.Attribute.MvxDropDownItemTemplate;
-			global::Cirrious.MvvmCross.Binding.Droid.Resource.Attribute.MvxGroupItemTemplate = global::FoodByMe.Android.Resource.Attribute.MvxGroupItemTemplate;
-			global::Cirrious.MvvmCross.Binding.Droid.Resource.Attribute.MvxItemTemplate = global::FoodByMe.Android.Resource.Attribute.MvxItemTemplate;
-			global::Cirrious.MvvmCross.Binding.Droid.Resource.Attribute.MvxLang = global::FoodByMe.Android.Resource.Attribute.MvxLang;
-			global::Cirrious.MvvmCross.Binding.Droid.Resource.Attribute.MvxSource = global::FoodByMe.Android.Resource.Attribute.MvxSource;
-			global::Cirrious.MvvmCross.Binding.Droid.Resource.Attribute.MvxTemplate = global::FoodByMe.Android.Resource.Attribute.MvxTemplate;
-			global::Cirrious.MvvmCross.Binding.Droid.Resource.Id.MvvmCrossTagId = global::FoodByMe.Android.Resource.Id.MvvmCrossTagId;
-			global::Cirrious.MvvmCross.Binding.Droid.Resource.Id.MvxBindingTagUnique = global::FoodByMe.Android.Resource.Id.MvxBindingTagUnique;
-			global::Cirrious.MvvmCross.Binding.Droid.Resource.Styleable.MvxBinding = global::FoodByMe.Android.Resource.Styleable.MvxBinding;
-			global::Cirrious.MvvmCross.Binding.Droid.Resource.Styleable.MvxBinding_MvxBind = global::FoodByMe.Android.Resource.Styleable.MvxBinding_MvxBind;
-			global::Cirrious.MvvmCross.Binding.Droid.Resource.Styleable.MvxBinding_MvxLang = global::FoodByMe.Android.Resource.Styleable.MvxBinding_MvxLang;
-			global::Cirrious.MvvmCross.Binding.Droid.Resource.Styleable.MvxControl = global::FoodByMe.Android.Resource.Styleable.MvxControl;
-			global::Cirrious.MvvmCross.Binding.Droid.Resource.Styleable.MvxControl_MvxTemplate = global::FoodByMe.Android.Resource.Styleable.MvxControl_MvxTemplate;
-			global::Cirrious.MvvmCross.Binding.Droid.Resource.Styleable.MvxExpandableListView = global::FoodByMe.Android.Resource.Styleable.MvxExpandableListView;
-			global::Cirrious.MvvmCross.Binding.Droid.Resource.Styleable.MvxExpandableListView_MvxGroupItemTemplate = global::FoodByMe.Android.Resource.Styleable.MvxExpandableListView_MvxGroupItemTemplate;
-			global::Cirrious.MvvmCross.Binding.Droid.Resource.Styleable.MvxImageView = global::FoodByMe.Android.Resource.Styleable.MvxImageView;
-			global::Cirrious.MvvmCross.Binding.Droid.Resource.Styleable.MvxImageView_MvxSource = global::FoodByMe.Android.Resource.Styleable.MvxImageView_MvxSource;
-			global::Cirrious.MvvmCross.Binding.Droid.Resource.Styleable.MvxListView = global::FoodByMe.Android.Resource.Styleable.MvxListView;
-			global::Cirrious.MvvmCross.Binding.Droid.Resource.Styleable.MvxListView_MvxDropDownItemTemplate = global::FoodByMe.Android.Resource.Styleable.MvxListView_MvxDropDownItemTemplate;
-			global::Cirrious.MvvmCross.Binding.Droid.Resource.Styleable.MvxListView_MvxItemTemplate = global::FoodByMe.Android.Resource.Styleable.MvxListView_MvxItemTemplate;
+			global::MvvmCross.Binding.Droid.Resource.Attribute.MvxBind = global::FoodByMe.Android.Resource.Attribute.MvxBind;
+			global::MvvmCross.Binding.Droid.Resource.Attribute.MvxDropDownItemTemplate = global::FoodByMe.Android.Resource.Attribute.MvxDropDownItemTemplate;
+			global::MvvmCross.Binding.Droid.Resource.Attribute.MvxGroupItemTemplate = global::FoodByMe.Android.Resource.Attribute.MvxGroupItemTemplate;
+			global::MvvmCross.Binding.Droid.Resource.Attribute.MvxItemTemplate = global::FoodByMe.Android.Resource.Attribute.MvxItemTemplate;
+			global::MvvmCross.Binding.Droid.Resource.Attribute.MvxLang = global::FoodByMe.Android.Resource.Attribute.MvxLang;
+			global::MvvmCross.Binding.Droid.Resource.Attribute.MvxSource = global::FoodByMe.Android.Resource.Attribute.MvxSource;
+			global::MvvmCross.Binding.Droid.Resource.Attribute.MvxTemplate = global::FoodByMe.Android.Resource.Attribute.MvxTemplate;
+			global::MvvmCross.Binding.Droid.Resource.Id.MvvmCrossTagId = global::FoodByMe.Android.Resource.Id.MvvmCrossTagId;
+			global::MvvmCross.Binding.Droid.Resource.Id.MvxBindingTagUnique = global::FoodByMe.Android.Resource.Id.MvxBindingTagUnique;
+			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxBinding = global::FoodByMe.Android.Resource.Styleable.MvxBinding;
+			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxBinding_MvxBind = global::FoodByMe.Android.Resource.Styleable.MvxBinding_MvxBind;
+			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxBinding_MvxLang = global::FoodByMe.Android.Resource.Styleable.MvxBinding_MvxLang;
+			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxControl = global::FoodByMe.Android.Resource.Styleable.MvxControl;
+			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxControl_MvxTemplate = global::FoodByMe.Android.Resource.Styleable.MvxControl_MvxTemplate;
+			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxExpandableListView = global::FoodByMe.Android.Resource.Styleable.MvxExpandableListView;
+			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxExpandableListView_MvxGroupItemTemplate = global::FoodByMe.Android.Resource.Styleable.MvxExpandableListView_MvxGroupItemTemplate;
+			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxImageView = global::FoodByMe.Android.Resource.Styleable.MvxImageView;
+			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxImageView_MvxSource = global::FoodByMe.Android.Resource.Styleable.MvxImageView_MvxSource;
+			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxListView = global::FoodByMe.Android.Resource.Styleable.MvxListView;
+			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxListView_MvxDropDownItemTemplate = global::FoodByMe.Android.Resource.Styleable.MvxListView_MvxDropDownItemTemplate;
+			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxListView_MvxItemTemplate = global::FoodByMe.Android.Resource.Styleable.MvxListView_MvxItemTemplate;
 		}
 		
 		public partial class Animation
@@ -1613,6 +1613,9 @@ namespace FoodByMe.Android
 			// aapt resource value: 0x7f05004b
 			public const int notification_subtext_size = 2131034187;
 			
+			// aapt resource value: 0x7f05006f
+			public const int picture_height = 2131034223;
+			
 			// aapt resource value: 0x7f05006b
 			public const int spacing_huge = 2131034219;
 			
@@ -1846,58 +1849,61 @@ namespace FoodByMe.Android
 			public const int abc_textfield_search_material = 2130837572;
 			
 			// aapt resource value: 0x7f020045
-			public const int circle = 2130837573;
+			public const int cake = 2130837573;
 			
 			// aapt resource value: 0x7f020046
-			public const int design_fab_background = 2130837574;
+			public const int circle = 2130837574;
 			
 			// aapt resource value: 0x7f020047
-			public const int design_snackbar_background = 2130837575;
+			public const int design_fab_background = 2130837575;
 			
 			// aapt resource value: 0x7f020048
-			public const int ic_add_white_24dp = 2130837576;
+			public const int design_snackbar_background = 2130837576;
 			
 			// aapt resource value: 0x7f020049
-			public const int ic_delete_black_24dp = 2130837577;
+			public const int ic_add_white_24dp = 2130837577;
 			
 			// aapt resource value: 0x7f02004a
-			public const int ic_delete_white_24dp = 2130837578;
+			public const int ic_delete_black_24dp = 2130837578;
 			
 			// aapt resource value: 0x7f02004b
-			public const int ic_mode_edit_white_24dp = 2130837579;
+			public const int ic_delete_white_24dp = 2130837579;
 			
 			// aapt resource value: 0x7f02004c
-			public const int ic_photo_camera_black_24dp = 2130837580;
+			public const int ic_mode_edit_white_24dp = 2130837580;
 			
 			// aapt resource value: 0x7f02004d
-			public const int ic_photo_camera_white_24dp = 2130837581;
+			public const int ic_photo_camera_black_24dp = 2130837581;
 			
 			// aapt resource value: 0x7f02004e
-			public const int ic_save_white_24dp = 2130837582;
+			public const int ic_photo_camera_white_24dp = 2130837582;
 			
 			// aapt resource value: 0x7f02004f
-			public const int ic_search_white_24dp = 2130837583;
+			public const int ic_save_white_24dp = 2130837583;
 			
 			// aapt resource value: 0x7f020050
-			public const int ic_star_border_black_24dp = 2130837584;
+			public const int ic_search_white_24dp = 2130837584;
 			
 			// aapt resource value: 0x7f020051
-			public const int ic_star_yellow_24dp = 2130837585;
+			public const int ic_star_border_black_24dp = 2130837585;
 			
 			// aapt resource value: 0x7f020052
-			public const int Icon = 2130837586;
+			public const int ic_star_yellow_24dp = 2130837586;
 			
 			// aapt resource value: 0x7f020053
-			public const int MvvmCrossLogo = 2130837587;
-			
-			// aapt resource value: 0x7f020056
-			public const int notification_template_icon_bg = 2130837590;
+			public const int Icon = 2130837587;
 			
 			// aapt resource value: 0x7f020054
-			public const int splash = 2130837588;
+			public const int MvvmCrossLogo = 2130837588;
+			
+			// aapt resource value: 0x7f020057
+			public const int notification_template_icon_bg = 2130837591;
 			
 			// aapt resource value: 0x7f020055
-			public const int star_yellow = 2130837589;
+			public const int splash = 2130837589;
+			
+			// aapt resource value: 0x7f020056
+			public const int star_yellow = 2130837590;
 			
 			static Drawable()
 			{
@@ -1918,8 +1924,8 @@ namespace FoodByMe.Android
 			// aapt resource value: 0x7f06000c
 			public const int MvxBindingTagUnique = 2131099660;
 			
-			// aapt resource value: 0x7f060083
-			public const int action0 = 2131099779;
+			// aapt resource value: 0x7f060087
+			public const int action0 = 2131099783;
 			
 			// aapt resource value: 0x7f06005c
 			public const int action_bar = 2131099740;
@@ -1945,8 +1951,8 @@ namespace FoodByMe.Android
 			// aapt resource value: 0x7f06005d
 			public const int action_context_bar = 2131099741;
 			
-			// aapt resource value: 0x7f060087
-			public const int action_divider = 2131099783;
+			// aapt resource value: 0x7f06008b
+			public const int action_divider = 2131099787;
 			
 			// aapt resource value: 0x7f060003
 			public const int action_menu_divider = 2131099651;
@@ -1966,8 +1972,8 @@ namespace FoodByMe.Android
 			// aapt resource value: 0x7f06003f
 			public const int activity_chooser_view_content = 2131099711;
 			
-			// aapt resource value: 0x7f060080
-			public const int add_recipe_button = 2131099776;
+			// aapt resource value: 0x7f060084
+			public const int add_recipe_button = 2131099780;
 			
 			// aapt resource value: 0x7f06004b
 			public const int alertTitle = 2131099723;
@@ -1987,8 +1993,8 @@ namespace FoodByMe.Android
 			// aapt resource value: 0x7f060046
 			public const int buttonPanel = 2131099718;
 			
-			// aapt resource value: 0x7f060084
-			public const int cancel_action = 2131099780;
+			// aapt resource value: 0x7f060088
+			public const int cancel_action = 2131099784;
 			
 			// aapt resource value: 0x7f06002d
 			public const int center = 2131099693;
@@ -2002,8 +2008,8 @@ namespace FoodByMe.Android
 			// aapt resource value: 0x7f060054
 			public const int checkbox = 2131099732;
 			
-			// aapt resource value: 0x7f06008a
-			public const int chronometer = 2131099786;
+			// aapt resource value: 0x7f06008e
+			public const int chronometer = 2131099790;
 			
 			// aapt resource value: 0x7f060035
 			public const int clip_horizontal = 2131099701;
@@ -2035,8 +2041,8 @@ namespace FoodByMe.Android
 			// aapt resource value: 0x7f060042
 			public const int default_activity_button = 2131099714;
 			
-			// aapt resource value: 0x7f06009a
-			public const int delete_recipe_menu_item = 2131099802;
+			// aapt resource value: 0x7f06009e
+			public const int delete_recipe_menu_item = 2131099806;
 			
 			// aapt resource value: 0x7f060075
 			public const int design_menu_item_action_area = 2131099765;
@@ -2053,20 +2059,29 @@ namespace FoodByMe.Android
 			// aapt resource value: 0x7f060010
 			public const int disableHome = 2131099664;
 			
+			// aapt resource value: 0x7f06007d
+			public const int display_recipe_category_tv = 2131099773;
+			
+			// aapt resource value: 0x7f06007a
+			public const int display_recipe_image_iv = 2131099770;
+			
+			// aapt resource value: 0x7f06007c
+			public const int display_recipe_title_tv = 2131099772;
+			
 			// aapt resource value: 0x7f06006b
 			public const int drawer_layout = 2131099755;
 			
 			// aapt resource value: 0x7f06005e
 			public const int edit_query = 2131099742;
 			
-			// aapt resource value: 0x7f060099
-			public const int edit_recipe_menu_item = 2131099801;
+			// aapt resource value: 0x7f06009d
+			public const int edit_recipe_menu_item = 2131099805;
 			
 			// aapt resource value: 0x7f06001d
 			public const int end = 2131099677;
 			
-			// aapt resource value: 0x7f06008f
-			public const int end_padder = 2131099791;
+			// aapt resource value: 0x7f060093
+			public const int end_padder = 2131099795;
 			
 			// aapt resource value: 0x7f060025
 			public const int enterAlways = 2131099685;
@@ -2110,20 +2125,20 @@ namespace FoodByMe.Android
 			// aapt resource value: 0x7f060041
 			public const int image = 2131099713;
 			
-			// aapt resource value: 0x7f060095
-			public const int image_view_row_icon = 2131099797;
+			// aapt resource value: 0x7f060099
+			public const int image_view_row_icon = 2131099801;
 			
-			// aapt resource value: 0x7f06008e
-			public const int info = 2131099790;
+			// aapt resource value: 0x7f060092
+			public const int info = 2131099794;
 			
-			// aapt resource value: 0x7f06007d
-			public const int ingredients_list_view = 2131099773;
+			// aapt resource value: 0x7f060081
+			public const int ingredients_list_view = 2131099777;
 			
-			// aapt resource value: 0x7f06007e
-			public const int input_layout_password = 2131099774;
+			// aapt resource value: 0x7f060082
+			public const int input_layout_password = 2131099778;
 			
-			// aapt resource value: 0x7f06007c
-			public const int input_password = 2131099772;
+			// aapt resource value: 0x7f060080
+			public const int input_password = 2131099776;
 			
 			// aapt resource value: 0x7f060000
 			public const int item_touch_helper_previous_elevation = 2131099648;
@@ -2131,11 +2146,11 @@ namespace FoodByMe.Android
 			// aapt resource value: 0x7f060031
 			public const int left = 2131099697;
 			
-			// aapt resource value: 0x7f060088
-			public const int line1 = 2131099784;
-			
 			// aapt resource value: 0x7f06008c
-			public const int line3 = 2131099788;
+			public const int line1 = 2131099788;
+			
+			// aapt resource value: 0x7f060090
+			public const int line3 = 2131099792;
 			
 			// aapt resource value: 0x7f06000d
 			public const int listMode = 2131099661;
@@ -2149,8 +2164,8 @@ namespace FoodByMe.Android
 			// aapt resource value: 0x7f06006c
 			public const int main_frame = 2131099756;
 			
-			// aapt resource value: 0x7f060086
-			public const int media_actions = 2131099782;
+			// aapt resource value: 0x7f06008a
+			public const int media_actions = 2131099786;
 			
 			// aapt resource value: 0x7f06001e
 			public const int middle = 2131099678;
@@ -2167,8 +2182,8 @@ namespace FoodByMe.Android
 			// aapt resource value: 0x7f060071
 			public const int navigation_header_container = 2131099761;
 			
-			// aapt resource value: 0x7f060082
-			public const int navigation_view = 2131099778;
+			// aapt resource value: 0x7f060086
+			public const int navigation_view = 2131099782;
 			
 			// aapt resource value: 0x7f060022
 			public const int never = 2131099682;
@@ -2197,29 +2212,32 @@ namespace FoodByMe.Android
 			// aapt resource value: 0x7f060056
 			public const int radio = 2131099734;
 			
-			// aapt resource value: 0x7f06007a
-			public const int recipe_image_view = 2131099770;
+			// aapt resource value: 0x7f06007b
+			public const int recipe_display_title_layout = 2131099771;
 			
-			// aapt resource value: 0x7f060093
-			public const int recipe_item_favorite_btn = 2131099795;
+			// aapt resource value: 0x7f06007e
+			public const int recipe_image_view = 2131099774;
 			
-			// aapt resource value: 0x7f060090
-			public const int recipe_item_iv = 2131099792;
+			// aapt resource value: 0x7f060097
+			public const int recipe_item_favorite_btn = 2131099799;
 			
 			// aapt resource value: 0x7f060094
-			public const int recipe_item_summary_tv = 2131099796;
+			public const int recipe_item_iv = 2131099796;
 			
-			// aapt resource value: 0x7f060091
-			public const int recipe_item_time_tv = 2131099793;
+			// aapt resource value: 0x7f060098
+			public const int recipe_item_summary_tv = 2131099800;
 			
-			// aapt resource value: 0x7f060092
-			public const int recipe_item_title_tv = 2131099794;
+			// aapt resource value: 0x7f060095
+			public const int recipe_item_time_tv = 2131099797;
 			
-			// aapt resource value: 0x7f06007f
-			public const int recipe_list_recycler_view = 2131099775;
+			// aapt resource value: 0x7f060096
+			public const int recipe_item_title_tv = 2131099798;
 			
-			// aapt resource value: 0x7f060081
-			public const int recipe_search_list_recycler_view = 2131099777;
+			// aapt resource value: 0x7f060083
+			public const int recipe_list_recycler_view = 2131099779;
+			
+			// aapt resource value: 0x7f060085
+			public const int recipe_search_list_recycler_view = 2131099781;
 			
 			// aapt resource value: 0x7f060032
 			public const int right = 2131099698;
@@ -2266,8 +2284,8 @@ namespace FoodByMe.Android
 			// aapt resource value: 0x7f060064
 			public const int search_plate = 2131099748;
 			
-			// aapt resource value: 0x7f06009b
-			public const int search_recipes_menu_item = 2131099803;
+			// aapt resource value: 0x7f06009f
+			public const int search_recipes_menu_item = 2131099807;
 			
 			// aapt resource value: 0x7f060065
 			public const int search_src_text = 2131099749;
@@ -2317,8 +2335,8 @@ namespace FoodByMe.Android
 			// aapt resource value: 0x7f060033
 			public const int start = 2131099699;
 			
-			// aapt resource value: 0x7f060085
-			public const int status_bar_latest_event_content = 2131099781;
+			// aapt resource value: 0x7f060089
+			public const int status_bar_latest_event_content = 2131099785;
 			
 			// aapt resource value: 0x7f060067
 			public const int submit_area = 2131099751;
@@ -2326,26 +2344,26 @@ namespace FoodByMe.Android
 			// aapt resource value: 0x7f06000f
 			public const int tabMode = 2131099663;
 			
-			// aapt resource value: 0x7f06008d
-			public const int text = 2131099789;
+			// aapt resource value: 0x7f060091
+			public const int text = 2131099793;
 			
-			// aapt resource value: 0x7f06008b
-			public const int text2 = 2131099787;
+			// aapt resource value: 0x7f06008f
+			public const int text2 = 2131099791;
 			
 			// aapt resource value: 0x7f06004f
 			public const int textSpacerNoButtons = 2131099727;
 			
-			// aapt resource value: 0x7f060096
-			public const int text_container = 2131099798;
+			// aapt resource value: 0x7f06009a
+			public const int text_container = 2131099802;
 			
-			// aapt resource value: 0x7f060097
-			public const int text_view_fullname = 2131099799;
+			// aapt resource value: 0x7f06009b
+			public const int text_view_fullname = 2131099803;
 			
-			// aapt resource value: 0x7f060098
-			public const int text_view_username = 2131099800;
+			// aapt resource value: 0x7f06009c
+			public const int text_view_username = 2131099804;
 			
-			// aapt resource value: 0x7f060089
-			public const int time = 2131099785;
+			// aapt resource value: 0x7f06008d
+			public const int time = 2131099789;
 			
 			// aapt resource value: 0x7f060045
 			public const int title = 2131099717;
@@ -2353,8 +2371,8 @@ namespace FoodByMe.Android
 			// aapt resource value: 0x7f06004a
 			public const int title_template = 2131099722;
 			
-			// aapt resource value: 0x7f06007b
-			public const int toolbar = 2131099771;
+			// aapt resource value: 0x7f06007f
+			public const int toolbar = 2131099775;
 			
 			// aapt resource value: 0x7f060034
 			public const int top = 2131099700;
@@ -2596,16 +2614,22 @@ namespace FoodByMe.Android
 			public const int view_cooking_step_edit_item = 2130903096;
 			
 			// aapt resource value: 0x7f030039
-			public const int view_ingredient_edit_item = 2130903097;
+			public const int view_cooking_step_item = 2130903097;
 			
 			// aapt resource value: 0x7f03003a
-			public const int view_recipe_item = 2130903098;
+			public const int view_ingredient_edit_item = 2130903098;
 			
 			// aapt resource value: 0x7f03003b
-			public const int view_sidebar_header = 2130903099;
+			public const int view_ingredient_item = 2130903099;
 			
 			// aapt resource value: 0x7f03003c
-			public const int view_toolbar = 2130903100;
+			public const int view_recipe_item = 2130903100;
+			
+			// aapt resource value: 0x7f03003d
+			public const int view_sidebar_header = 2130903101;
+			
+			// aapt resource value: 0x7f03003e
+			public const int view_toolbar = 2130903102;
 			
 			static Layout()
 			{
@@ -2745,17 +2769,17 @@ namespace FoodByMe.Android
 			// aapt resource value: 0x7f090080
 			public const int Animation_AppCompat_DropDownUp = 2131296384;
 			
-			// aapt resource value: 0x7f090152
-			public const int AppTheme = 2131296594;
-			
-			// aapt resource value: 0x7f090153
-			public const int AppTheme_Base = 2131296595;
-			
 			// aapt resource value: 0x7f090154
-			public const int AppTheme_Menu = 2131296596;
+			public const int AppTheme = 2131296596;
 			
 			// aapt resource value: 0x7f090155
-			public const int AppTheme_Splash = 2131296597;
+			public const int AppTheme_Base = 2131296597;
+			
+			// aapt resource value: 0x7f090156
+			public const int AppTheme_Menu = 2131296598;
+			
+			// aapt resource value: 0x7f090157
+			public const int AppTheme_Splash = 2131296599;
 			
 			// aapt resource value: 0x7f090081
 			public const int Base_AlertDialog_AppCompat = 2131296385;
@@ -3180,11 +3204,11 @@ namespace FoodByMe.Android
 			// aapt resource value: 0x7f090134
 			public const int Base_Widget_Design_TabLayout = 2131296564;
 			
-			// aapt resource value: 0x7f090150
-			public const int Button = 2131296592;
+			// aapt resource value: 0x7f090152
+			public const int Button = 2131296594;
 			
-			// aapt resource value: 0x7f090151
-			public const int Button_Favorite = 2131296593;
+			// aapt resource value: 0x7f090153
+			public const int Button_Favorite = 2131296595;
 			
 			// aapt resource value: 0x7f090010
 			public const int Platform_AppCompat = 2131296272;
@@ -3268,7 +3292,10 @@ namespace FoodByMe.Android
 			public const int Text_Form_Label = 2131296586;
 			
 			// aapt resource value: 0x7f09014b
-			public const int Text_Form_LabelHint = 2131296587;
+			public const int Text_Form_Label_Accent = 2131296587;
+			
+			// aapt resource value: 0x7f09014c
+			public const int Text_Form_LabelHint = 2131296588;
 			
 			// aapt resource value: 0x7f090145
 			public const int Text_ListItem = 2131296581;
@@ -3459,17 +3486,20 @@ namespace FoodByMe.Android
 			// aapt resource value: 0x7f0900db
 			public const int TextAppearance_Widget_AppCompat_Toolbar_Title = 2131296475;
 			
-			// aapt resource value: 0x7f09014c
-			public const int TextView = 2131296588;
-			
 			// aapt resource value: 0x7f09014d
-			public const int TextView_Form = 2131296589;
+			public const int TextView = 2131296589;
 			
 			// aapt resource value: 0x7f09014e
-			public const int TextView_Form_Label = 2131296590;
+			public const int TextView_Form = 2131296590;
 			
 			// aapt resource value: 0x7f09014f
-			public const int TextView_ListIndex = 2131296591;
+			public const int TextView_Form_Label = 2131296591;
+			
+			// aapt resource value: 0x7f090150
+			public const int TextView_Form_Label_Accent = 2131296592;
+			
+			// aapt resource value: 0x7f090151
+			public const int TextView_ListIndex = 2131296593;
 			
 			// aapt resource value: 0x7f0900dc
 			public const int Theme_AppCompat = 2131296476;

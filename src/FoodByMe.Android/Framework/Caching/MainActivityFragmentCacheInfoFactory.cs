@@ -13,27 +13,27 @@ namespace FoodByMe.Android.Framework.Caching
         {
             {
                 typeof (RecipeCategoryMenuViewModel).ToString(),
-                new CustomFragmentInfo(typeof (RecipeCategoryMenuViewModel).Name, typeof (SidebarFragment), typeof (RecipeCategoryMenuViewModel))
+                new CustomFragmentInfo(typeof (RecipeCategoryMenuViewModel).Name, typeof (SidebarFragment), typeof (RecipeCategoryMenuViewModel), cacheFragment:false)
             },
             {
                 typeof (RecipeDetailedListViewModel).ToString(),
                 new CustomFragmentInfo(typeof (RecipeDetailedListViewModel).Name, typeof (RecipeDetailedListFragment),
-                    typeof (RecipeDetailedListViewModel), isRoot: false, addToBackstack: true)
+                    typeof (RecipeDetailedListViewModel), isRoot: false, addToBackstack: true, cacheFragment:false)
             },
             {
                 typeof (RecipeListViewModel).ToString(),
                 new CustomFragmentInfo(typeof (RecipeListViewModel).Name, typeof (RecipeListFragment),
-                    typeof (RecipeListViewModel), isRoot: true)
+                    typeof (RecipeListViewModel), isRoot: true, cacheFragment:false)
             },
             {
                 typeof (RecipeSearchListViewModel).ToString(),
                 new CustomFragmentInfo(typeof (RecipeSearchListViewModel).Name, typeof (RecipeSearchListFragment),
-                    typeof (RecipeSearchListViewModel), isRoot: false, addToBackstack: true)
+                    typeof (RecipeSearchListViewModel), isRoot: false, addToBackstack: true, cacheFragment:false)
             },
             {
                 typeof (RecipeEditViewModel).ToString(),
                 new CustomFragmentInfo(typeof (RecipeEditViewModel).Name, typeof (RecipeEditFragment),
-                    typeof (RecipeEditViewModel), isRoot: false, addToBackstack: true)
+                    typeof (RecipeEditViewModel), isRoot: false, addToBackstack: true, cacheFragment:false)
             }
         };
 
@@ -42,12 +42,13 @@ namespace FoodByMe.Android.Framework.Caching
             return MyFragmentsInfo;
         }
 
-        public override IMvxCachedFragmentInfo CreateFragmentInfo(string tag, Type fragmentType, Type viewModelType,
+
+        public override IMvxCachedFragmentInfo CreateFragmentInfo(string tag, Type fragmentType, Type viewModelType, bool cacheFragment = true,
             bool addToBackstack = false)
         {
             var viewModelTypeString = viewModelType.ToString();
             if (!MyFragmentsInfo.ContainsKey(viewModelTypeString))
-                return base.CreateFragmentInfo(tag, fragmentType, viewModelType, addToBackstack);
+                return base.CreateFragmentInfo(tag, fragmentType, viewModelType, cacheFragment, addToBackstack);
 
             var fragInfo = MyFragmentsInfo[viewModelTypeString];
             return fragInfo;

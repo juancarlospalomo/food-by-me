@@ -1,7 +1,7 @@
 ﻿using Android.OS;
 using Android.Runtime;
+using Android.Support.V7.App;
 using Android.Views;
-using Cirrious.MvvmCross.Binding.Droid.Views;
 using FoodByMe.Core.ViewModels;
 using MvvmCross.Droid.Support.V7.Fragging.Attributes;
 
@@ -21,6 +21,13 @@ namespace FoodByMe.Android.Views
         {
             base.OnCreateOptionsMenu(menu, inflater);
             inflater.Inflate(Resource.Menu.recipe_edit_menu, menu);
+        }
+
+        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+        {
+            var view = base.OnCreateView(inflater, container, savedInstanceState);
+            (Activity as AppCompatActivity).SupportActionBar.Subtitle = "Abount";
+            return view;
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)

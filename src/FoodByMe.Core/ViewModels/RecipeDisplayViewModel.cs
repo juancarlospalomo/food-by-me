@@ -1,9 +1,9 @@
 using System;
-using Cirrious.MvvmCross.ViewModels;
+using System.Collections.Generic;
 
 namespace FoodByMe.Core.ViewModels
 {
-    public class RecipeDisplayViewModel : MvxViewModel
+    public class RecipeDisplayViewModel : BaseViewModel
     {
         private string _title;
 
@@ -11,6 +11,8 @@ namespace FoodByMe.Core.ViewModels
         {
             var r = new Random();
             _title = $"Recipe ${r.Next()}";
+            Ingredients = new List<IngredientDisplayViewModel>();
+            CookingSteps = new List<CookingStepDisplayViewModel>();
         }
 
         public string Title
@@ -21,6 +23,24 @@ namespace FoodByMe.Core.ViewModels
                 _title = value;
                 RaisePropertyChanged(() => Title);
             }
+        }
+
+        public List<IngredientDisplayViewModel> Ingredients { get; private set; }
+
+        public List<CookingStepDisplayViewModel> CookingSteps { get; private set; }
+
+        public override void Start()
+        {
+            base.Start();
+            Ingredients.Clear();
+            Ingredients.Add(new IngredientDisplayViewModel());
+            Ingredients.Add(new IngredientDisplayViewModel());
+            Ingredients.Add(new IngredientDisplayViewModel());
+            CookingSteps.Clear();
+            CookingSteps.Add(new CookingStepDisplayViewModel());
+            CookingSteps.Add(new CookingStepDisplayViewModel());
+            CookingSteps.Add(new CookingStepDisplayViewModel());
+            CookingSteps.Add(new CookingStepDisplayViewModel());
         }
     }
 }

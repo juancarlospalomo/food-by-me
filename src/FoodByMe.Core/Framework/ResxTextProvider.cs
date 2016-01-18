@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Resources;
-using Cirrious.MvvmCross.Localization;
+using MvvmCross.Localization;
 
 namespace FoodByMe.Core.Framework
 {

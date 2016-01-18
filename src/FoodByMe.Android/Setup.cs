@@ -3,14 +3,14 @@ using System.Globalization;
 using System.Reflection;
 using System.Threading;
 using Android.Content;
-using Cirrious.CrossCore.Converters;
-using Cirrious.CrossCore.Platform;
-using Cirrious.MvvmCross.Droid.Platform;
-using Cirrious.MvvmCross.Droid.Views;
-using Cirrious.MvvmCross.Localization;
-using Cirrious.MvvmCross.ViewModels;
 using FoodByMe.Android.Framework;
+using MvvmCross.Core.ViewModels;
+using MvvmCross.Droid.Platform;
 using MvvmCross.Droid.Support.V7.Fragging.Presenter;
+using MvvmCross.Droid.Views;
+using MvvmCross.Localization;
+using MvvmCross.Platform.Converters;
+using MvvmCross.Platform.Platform;
 
 namespace FoodByMe.Android
 {

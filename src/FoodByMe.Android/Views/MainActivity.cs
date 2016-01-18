@@ -73,7 +73,7 @@ namespace FoodByMe.Android.Views
         private void CheckIfMenuIsNeeded(CustomFragmentInfo myCustomInfo)
         {
             //If not root, we will block the menu sliding gesture and show the back button on top
-            if (myCustomInfo.IsRoot)
+            if (myCustomInfo == null || myCustomInfo.IsRoot)
                 ShowHamburguerMenu();
             else
                 ShowBackButton();
@@ -85,7 +85,7 @@ namespace FoodByMe.Android.Views
             //this.DrawerToggle.DrawerIndicatorEnabled = false;
 
             var fr = SupportFragmentManager.FindFragmentById(Resource.Id.content_frame) as ContentFragment;
-            if (fr != null)
+            if (fr?.DrawerToggle != null)
             {
                 fr.DrawerToggle.DrawerIndicatorEnabled = false;
             }
@@ -130,9 +130,9 @@ namespace FoodByMe.Android.Views
 
     public class CustomFragmentInfo : MvxCachedFragmentInfo
     {
-        public CustomFragmentInfo(string tag, Type fragmentType, Type viewModelType, bool addToBackstack = false,
+        public CustomFragmentInfo(string tag, Type fragmentType, Type viewModelType, bool cacheFragment, bool addToBackstack = false,
             bool isRoot = false)
-            : base(tag, fragmentType, viewModelType, addToBackstack)
+            : base(tag, fragmentType, viewModelType, cacheFragment, addToBackstack)
         {
             IsRoot = isRoot;
         }
