@@ -1,30 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using FoodByMe.Core.Contracts;
 using FoodByMe.Core.Contracts.Data;
 using FoodByMe.Core.Framework;
 using FoodByMe.Core.Services.Data.Indexing;
-using FoodByMe.Core.Services.Data.Indexing.Stemmers;
 using FoodByMe.Core.Services.Data.Serialization;
 using FoodByMe.Core.Services.Data.Types;
 using MvvmCross.Plugins.Sqlite;
-using Nito.AsyncEx;
-using SQLite.Net.Async;
+using SQLite.Net;
 
 namespace FoodByMe.Core.Services.Data
 {
-    public class SearchService : ISearchService, IReferenceBookService
+    public class SearchService : ISearchService, IDisposable
     {
         private readonly ICultureProvider _cultureProvider;
-        private readonly AsyncLock _lock = new AsyncLock();
-        private readonly SQLiteAsyncConnection _connection;
+        private SQLiteConnectionWithLock _connection;
         private readonly QueryParser _parser;
+        private bool _isDisposed;
 
         public SearchService(IMvxSqliteConnectionFactory connectionFactory, ICultureProvider cultureProvider, DatabaseSettings settings)
         {
-            _cultureProvider = cultureProvider;
             if (connectionFactory == null)
             {
                 throw new ArgumentNullException(nameof(connectionFactory));
@@ -37,41 +33,43 @@ namespace FoodByMe.Core.Services.Data
             {
                 throw new ArgumentNullException(nameof(settings));
             }
+            _cultureProvider = cultureProvider;
             _parser = new QueryParser(cultureProvider);
             var config = new SqLiteConfig(settings.DatabaseName, serializer: new JsonBlobSerializer());
-            _connection = connectionFactory.GetAsyncConnection(config);
+            _connection = connectionFactory.GetConnectionWithLock(config);
         }
 
-        public async Task<Recipe> FindRecipeAsync(int id)
+        public List<Recipe> SearchRecipes(RecipeQuery query)
         {
-            if (id <= 0)
+            if (_isDisposed)
             {
-                throw new ArgumentOutOfRangeException(nameof(id));
+                throw new ObjectDisposedException(nameof(SearchService));
             }
-            RecipeRow row = null;
-            using (await _lock.LockAsync())
+            //TODO filtering and sorting
+            query = query ?? new RecipeQuery();
+            var recipes = _connection.Table<RecipeRow>()
+                .ToList();
+            return recipes.Select(x => x.ToRecipe(this)).ToList();
+        }
+
+        public List<string> SearchIngredients(string query)
+        {
+            if (_isDisposed)
             {
-                row = await _connection.GetAsync<RecipeRow>(x => x.Id == id).ConfigureAwait(false);
+                throw new ObjectDisposedException(nameof(SearchService));
             }
-            return row?.ToRecipe(this);
-        }
-
-        public Task<List<Recipe>> SearchRecipesAsync(RecipeQuery query)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<List<string>> SearchIngredients(string query)
-        {
             var q = _parser.Parse(query);
             if (q == null)
             {
                 return new List<string>();
             }
-            var list = await _connection.Table<RecipeTextFieldRow>()
-                .Where(x => x.Type == RecipeTextType.Ingredient && x.Value.Contains(q))
-                .ToListAsync()
-                .ConfigureAwait(false);
+            List<RecipeTextFieldRow> list;
+            using (_connection.Lock())
+            {
+                list = _connection.Table<RecipeTextFieldRow>()
+                    .Where(x => x.Type == RecipeTextType.Ingredient && x.Value.Contains(q))
+                    .ToList();
+            }
             return list.Select(x => x.Value).ToList();
         }
 
@@ -95,14 +93,31 @@ namespace FoodByMe.Core.Services.Data
             return measures.ContainsKey(id) ? measures[id] : null;
         }
 
-        public Task<List<RecipeCategory>> ListCategoriesAsync()
+        public List<RecipeCategory> ListCategories()
         {
-            return Task.FromResult(StaticData.Categories(_cultureProvider.Culture).Values.ToList());
+            return StaticData.Categories(_cultureProvider.Culture).Values.ToList();
         }
 
-        public Task<List<Measure>> ListMeasuresAsync()
+        public List<Measure> ListMeasures()
         {
-            return Task.FromResult(StaticData.Measures(_cultureProvider.Culture).Values.ToList());
+            return StaticData.Measures(_cultureProvider.Culture).Values.ToList();
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected void Dispose(bool disposing)
+        {
+            if (_isDisposed || !disposing)
+            {
+                return;
+            }
+            _isDisposed = true;
+            _connection?.Close();
+            _connection = null;
         }
     }
 }

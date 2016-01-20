@@ -1,6 +1,7 @@
 using FoodByMe.Core.Framework;
 using FoodByMe.Core.Resources;
 using FoodByMe.Core.Services;
+using FoodByMe.Core.Services.Data;
 using FoodByMe.Core.ViewModels;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Localization;

@@ -1,9 +1,7 @@
-﻿using System.Threading.Tasks;
-
-namespace FoodByMe.Core.Services.Updates
+﻿namespace FoodByMe.Core.Services.Updates
 {
     internal interface IUpdate
     {
-        Task ApplyAsync();
+        void Apply();
     }
 }

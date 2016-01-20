@@ -41,7 +41,9 @@ namespace FoodByMe.Core.Services.Data
                 ImageUri = recipeBlob.ImageUri,
                 Notes = recipeBlob.Notes,
                 IsFavorite = recipeBlob.IsFavorite,
-                Category = referenceBook.LookupCategory(recipeBlob.CategoryId),
+                Category = recipeBlob.CategoryId > 0 
+                    ? referenceBook.LookupCategory(recipeBlob.CategoryId) 
+                    : null,
                 CookingMinutes = recipeBlob.CookingMinutes,
                 CookingSteps = recipeBlob.CookingSteps ?? new List<string>(),
                 Ingredients = recipeBlob.Ingredients
@@ -56,7 +58,9 @@ namespace FoodByMe.Core.Services.Data
             return new Ingredient
             {
                 Title = ingredient.Title,
-                Measure = referenceBook.LookupMeasure(ingredient.MeasureId),
+                Measure = ingredient.MeasureId > 0 
+                    ? referenceBook.LookupMeasure(ingredient.MeasureId)
+                    : null,
                 Quantity = ingredient.Quantity
             };
         }

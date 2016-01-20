@@ -105,9 +105,12 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Bootstrap\SqlitePclPluginBootstrap.cs" />
-    <Compile Include="DataServiceTest.cs" />
+    <Compile Include="DatabaseAwareTest.cs" />
+    <Compile Include="RecipePersistenceServiceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchServiceTest.cs" />
     <Compile Include="Utilities\ConsoleTrace.cs" />
+    <Compile Include="Utilities\TestCultureProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\FoodByMe.Core\FoodByMe.Core.csproj">

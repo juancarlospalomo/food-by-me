@@ -9,6 +9,6 @@ namespace FoodByMe.Core.Services.Data.Types
         public long Id { get; set; }
 
         [NotNull]
-        public string Text { get; set; }
+        public string Value { get; set; }
     }
 }

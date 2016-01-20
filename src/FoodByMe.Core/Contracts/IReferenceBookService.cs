@@ -1,17 +1,18 @@
 ﻿using System.Collections.Generic;
-using System.Threading.Tasks;
 using FoodByMe.Core.Contracts.Data;
 
 namespace FoodByMe.Core.Contracts
 {
     public interface IReferenceBookService
     {
+        List<string> SearchIngredients(string query);
+
         RecipeCategory LookupCategory(int id);
 
         Measure LookupMeasure(int id);
 
-        Task<List<RecipeCategory>> ListCategoriesAsync();
+        List<RecipeCategory> ListCategories();
 
-        Task<List<Measure>> ListMeasuresAsync();
+        List<Measure> ListMeasures();
     }
 }

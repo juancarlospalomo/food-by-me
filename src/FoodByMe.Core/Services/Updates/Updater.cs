@@ -2,23 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
 using FoodByMe.Core.Services.Data;
 using FoodByMe.Core.Services.Data.Types;
 using MvvmCross.Platform.Platform;
-using Nito.AsyncEx;
-using SQLite.Net.Async;
+using SQLite.Net;
 
 namespace FoodByMe.Core.Services.Updates
 {
     internal class Updater
     {
         private readonly Assembly _assembly;
-        private readonly SQLiteAsyncConnection _connection;
+        private readonly SQLiteConnectionWithLock _connection;
         private readonly IMvxTrace _trace;
-        private readonly AsyncLock _lock = new AsyncLock();
 
-        public Updater(Assembly assembly, SQLiteAsyncConnection connection, IMvxTrace trace)
+        public Updater(Assembly assembly, SQLiteConnectionWithLock connection, IMvxTrace trace)
         {
             if (assembly == null)
             {
@@ -37,31 +34,34 @@ namespace FoodByMe.Core.Services.Updates
             _connection = connection;
         }
 
-        public async Task UpdateToLatestVersionAsync()
+        public void UpdateToLatestVersion()
         {
-            using (await _lock.LockAsync())
+            var version = GetCurrentVersion();
+            var updates = GetPendingUpdates(version);
+            foreach (var update in updates)
             {
-                var version = await GetCurrentVersion().ConfigureAwait(false);
-                var updates = GetPendingUpdates(version);
-                foreach (var update in updates)
+                var meta = update.Item2;
+                var code = update.Item1;
+                Trace($"Applying updated #{meta.Version} [{meta.Tag}]...");
+                using (_connection.Lock())
                 {
-                    var meta = update.Item2;
-                    var code = update.Item1;
-                    Trace($"Applying updated #{meta.Version} [{meta.Tag}]...");
-                    await code.ApplyAsync().ConfigureAwait(false);
-                    var row = new VersionRow { Tag = meta.Tag, Timestamp = new DateTime(), Version = meta.Version };
-                    await _connection.InsertAsync(row).ConfigureAwait(false);
-                    Trace($"Update #{meta.Version} [{meta.Tag}] was successfully applied.");
+                    _connection.RunInTransaction(() =>
+                    {
+                        code.Apply();
+                        var row = new VersionRow { Tag = meta.Tag, Timestamp = new DateTime(), Version = meta.Version };
+                        _connection.Insert(row);
+                    });
                 }
+                Trace($"Update #{meta.Version} [{meta.Tag}] was successfully applied.");
             }
         }
 
-        private async Task<int> GetCurrentVersion()
+        private int GetCurrentVersion()
         {
-            await _connection.CreateTableAsync<VersionRow>();
-            var version = await _connection.Table<VersionRow>()
+            _connection.CreateTable<VersionRow>();
+            var version = _connection.Table<VersionRow>()
                 .OrderByDescending(x => x.Version)
-                .FirstOrDefaultAsync();
+                .FirstOrDefault();
             return version?.Version ?? 0;
         }
 

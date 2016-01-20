@@ -16,12 +16,15 @@ namespace FoodByMe.Core.Services.Data.Serialization
 
         public byte[] Serialize<T>(T obj)
         {
+            byte[] blob = null;
             using (var ms = new MemoryStream())
             using (var writer = new StreamWriter(ms))
             {
                 _serializer.Serialize(writer, obj);
-                return ms.ToArray();
+                writer.Flush();
+                blob = ms.ToArray();
             }
+            return blob;
         }
 
         public object Deserialize(byte[] data, Type type)

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FoodByMe.Core.Services
+namespace FoodByMe.Core.Services.Data
 {
     public class DatabaseSettings
     {

@@ -1,17 +1,19 @@
 ﻿using System;
 using System.Reflection;
-using System.Threading.Tasks;
 using FoodByMe.Core.Contracts;
 using FoodByMe.Core.Services.Data;
 using FoodByMe.Core.Services.Data.Serialization;
 using MvvmCross.Platform.Platform;
 using MvvmCross.Plugins.Sqlite;
+using SQLite.Net;
 
 namespace FoodByMe.Core.Services.Updates
 {
-    public class UpdateService : IUpdateService
+    public class UpdateService : IUpdateService, IDisposable
     {
         private readonly Updater _updater;
+        private bool _isDisposed;
+        private SQLiteConnectionWithLock _connection;
 
         public UpdateService(IMvxSqliteConnectionFactory factory, IMvxTrace trace, DatabaseSettings settings)
         {
@@ -28,13 +30,33 @@ namespace FoodByMe.Core.Services.Updates
                 throw new ArgumentNullException(nameof(settings));
             }
             var config = new SqLiteConfig(settings.DatabaseName, serializer: new JsonBlobSerializer());
-            var connection = factory.GetAsyncConnection(config);
-            _updater = new Updater(typeof(DatabaseSchema).GetTypeInfo().Assembly, connection, trace);
+            _connection = factory.GetConnectionWithLock(config);
+            _updater = new Updater(typeof(DatabaseSchemaInitialUpdate).GetTypeInfo().Assembly, _connection, trace);
         }
 
-        public Task UpdateToLatestVersionAsync()
+        public void UpdateToLatestVersion()
         {
-            return _updater.UpdateToLatestVersionAsync();
+            if (_isDisposed)
+            {
+                throw new ObjectDisposedException(nameof(UpdateService));
+            }
+            _updater.UpdateToLatestVersion();
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _connection?.Close();
+                _connection = null;
+            }
+            _isDisposed = true;
         }
     }
 }

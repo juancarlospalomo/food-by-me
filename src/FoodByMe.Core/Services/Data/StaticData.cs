@@ -9,7 +9,7 @@ namespace FoodByMe.Core.Services.Data
 {
     internal static class StaticData
     {
-        private const string MeasuresTag = "Categories";
+        private const string MeasuresTag = "Measures";
 
         private const string CategoriesTag = "Categories";
 
