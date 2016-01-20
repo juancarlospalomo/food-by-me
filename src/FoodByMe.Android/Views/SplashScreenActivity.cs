@@ -1,6 +1,8 @@
 using Android.App;
 using Android.Content.PM;
+using FoodByMe.Core.Contracts;
 using MvvmCross.Droid.Views;
+using MvvmCross.Platform;
 
 namespace FoodByMe.Android.Views
 {
@@ -16,6 +18,13 @@ namespace FoodByMe.Android.Views
     {
         public SplashScreenActivity() : base(Resource.Layout.activity_splash_screen)
         {
+        }
+
+        public override void InitializationComplete()
+        {
+            var updateService = Mvx.Resolve<IUpdateService>();
+            updateService.UpdateToLatestVersionAsync().Wait();
+            base.InitializationComplete();
         }
     }
 }

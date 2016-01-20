@@ -35,13 +35,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
-    <Compile Include="Contracts\Ingredient.cs" />
-    <Compile Include="Contracts\Measure.cs" />
-    <Compile Include="Contracts\Recipe.cs" />
-    <Compile Include="Contracts\RecipeCategory.cs" />
-    <Compile Include="Contracts\RecipeQuery.cs" />
+    <Compile Include="Contracts\Data\Ingredient.cs" />
+    <Compile Include="Contracts\IPersistenceService.cs" />
+    <Compile Include="Contracts\ISearchService.cs" />
+    <Compile Include="Contracts\IUpdateService.cs" />
+    <Compile Include="Contracts\Data\Measure.cs" />
+    <Compile Include="Contracts\Data\Recipe.cs" />
+    <Compile Include="Contracts\Data\RecipeCategory.cs" />
+    <Compile Include="Contracts\Data\RecipeQuery.cs" />
+    <Compile Include="Framework\ICultureProvider.cs" />
     <Compile Include="Framework\ResxTextProvider.cs" />
-    <Compile Include="Contracts\IDatabaseService.cs" />
     <Compile Include="Messages\CategoryChosenMessage.cs" />
     <Compile Include="Model\Recipe.cs" />
     <Compile Include="Model\RecipeCategory.cs" />
@@ -56,21 +59,46 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Text.ru.resx</DependentUpon>
     </Compile>
-    <Compile Include="Services\DatabaseService.cs" />
+    <Compile Include="Services\DataService.cs" />
     <Compile Include="Services\DatabaseSettings.cs" />
+    <Compile Include="Services\Data\Indexing\Tokenizer.cs" />
+    <Compile Include="Services\Data\Indexing\QueryParser.cs" />
+    <Compile Include="Services\Data\SearchService.cs" />
     <Compile Include="Services\Data\ConversionExtensions.cs" />
-    <Compile Include="Services\Data\RecipeIndexer.cs" />
+    <Compile Include="Services\Data\Indexing\FieldExtractor.cs" />
+    <Compile Include="Services\Data\Indexing\StemmerFactory.cs" />
+    <Compile Include="Services\Data\Indexing\Stemmers\Among.cs" />
+    <Compile Include="Services\Data\Indexing\Stemmers\CzechStemmer.cs" />
+    <Compile Include="Services\Data\Indexing\Stemmers\DanishStemmer.cs" />
+    <Compile Include="Services\Data\Indexing\Stemmers\DutchStemmer.cs" />
+    <Compile Include="Services\Data\Indexing\Stemmers\EnglishStemmer.cs" />
+    <Compile Include="Services\Data\Indexing\Stemmers\FinnishStemmer.cs" />
+    <Compile Include="Services\Data\Indexing\Stemmers\FrenchStemmer.cs" />
+    <Compile Include="Services\Data\Indexing\Stemmers\GermanStemmer.cs" />
+    <Compile Include="Services\Data\Indexing\Stemmers\HungarianStemmer.cs" />
+    <Compile Include="Services\Data\Indexing\Stemmers\IStemmer.cs" />
+    <Compile Include="Services\Data\Indexing\Stemmers\ItalianStemmer.cs" />
+    <Compile Include="Services\Data\Indexing\Stemmers\NorwegianStemmer.cs" />
+    <Compile Include="Services\Data\Indexing\Stemmers\PortugalStemmer.cs" />
+    <Compile Include="Services\Data\Indexing\Stemmers\RomanianStemmer.cs" />
+    <Compile Include="Services\Data\Indexing\Stemmers\RussianStemmer.cs" />
+    <Compile Include="Services\Data\Indexing\Stemmers\SpanishStemmer.cs" />
+    <Compile Include="Services\Data\Indexing\Stemmers\StemmerOperations.cs" />
+    <Compile Include="Contracts\IReferenceBookService.cs" />
+    <Compile Include="Services\Data\StaticData.cs" />
     <Compile Include="Services\Data\Types\IngredientBlob.cs" />
-    <Compile Include="Services\Data\IUpdate.cs" />
+    <Compile Include="Services\Updates\IUpdate.cs" />
     <Compile Include="Services\Data\Types\RecipeBlob.cs" />
-    <Compile Include="Services\Data\Types\RecipeTextFieldTable.cs" />
-    <Compile Include="Services\Data\Types\RecipeFieldType.cs" />
-    <Compile Include="Services\Data\Types\RecipeTable.cs" />
-    <Compile Include="Services\Data\Types\VersionTable.cs" />
-    <Compile Include="Services\Data\UpdateAttribute.cs" />
-    <Compile Include="Services\Data\Updater.cs" />
-    <Compile Include="Services\Data\Updates\InitialSchema.cs" />
-    <Compile Include="Services\Data\JsonBlobSerializer.cs" />
+    <Compile Include="Services\Data\Types\RecipeTextSearchRow.cs" />
+    <Compile Include="Services\Data\Types\RecipeTextFieldRow.cs" />
+    <Compile Include="Services\Data\Types\RecipeTextType.cs" />
+    <Compile Include="Services\Data\Types\RecipeRow.cs" />
+    <Compile Include="Services\Data\Types\VersionRow.cs" />
+    <Compile Include="Services\Updates\UpdateAttribute.cs" />
+    <Compile Include="Services\Updates\Updater.cs" />
+    <Compile Include="Services\Updates\01_DatabaseSchema.cs" />
+    <Compile Include="Services\Data\Serialization\JsonBlobSerializer.cs" />
+    <Compile Include="Services\Updates\UpdateService.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CookingStepDisplayViewModel.cs" />
     <Compile Include="ViewModels\CookingStepEditViewModel.cs" />
@@ -125,6 +153,14 @@
       <HintPath>..\..\packages\Newtonsoft.Json.8.0.2\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Nito.AsyncEx, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Nito.AsyncEx.3.0.1\lib\portable-net45+netcore45+wpa81\Nito.AsyncEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nito.AsyncEx.Concurrent, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Nito.AsyncEx.3.0.1\lib\portable-net45+netcore45+wpa81\Nito.AsyncEx.Concurrent.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="SQLite.Net, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\SQLite.Net-PCL.3.1.1\lib\portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1\SQLite.Net.dll</HintPath>
       <Private>True</Private>
@@ -137,6 +173,10 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Services\Data\search.sql" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -3,7 +3,7 @@ using System.IO;
 using Newtonsoft.Json;
 using SQLite.Net;
 
-namespace FoodByMe.Core.Services.Data
+namespace FoodByMe.Core.Services.Data.Serialization
 {
     public class JsonBlobSerializer : IBlobSerializer
     {

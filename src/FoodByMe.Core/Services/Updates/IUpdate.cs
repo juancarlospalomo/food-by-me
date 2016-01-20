@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace FoodByMe.Core.Services.Data
+namespace FoodByMe.Core.Services.Updates
 {
     internal interface IUpdate
     {

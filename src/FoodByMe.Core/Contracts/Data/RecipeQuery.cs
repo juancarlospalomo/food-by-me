@@ -1,4 +1,4 @@
-﻿namespace FoodByMe.Core.Contracts
+﻿namespace FoodByMe.Core.Contracts.Data
 {
     public class RecipeQuery
     {

@@ -18,7 +18,7 @@ namespace FoodByMe.Tests.Utilities
         public void Trace(MvxTraceLevel level, string tag, string message, params object[] args)
         {
             var formatted = string.Format(message, args);
-            Console.WriteLine($"{tag} [{level}]: ${formatted}");
+            Console.WriteLine($"{tag} [{level}]: {formatted}");
         }
     }
 }

@@ -47,6 +47,31 @@ namespace FoodByMe.Android
 			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxListView = global::FoodByMe.Android.Resource.Styleable.MvxListView;
 			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxListView_MvxDropDownItemTemplate = global::FoodByMe.Android.Resource.Styleable.MvxListView_MvxDropDownItemTemplate;
 			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxListView_MvxItemTemplate = global::FoodByMe.Android.Resource.Styleable.MvxListView_MvxItemTemplate;
+			global::MvvmCross.Plugins.Sqlite.Droid.Resource.Attribute.MvxBind = global::FoodByMe.Android.Resource.Attribute.MvxBind;
+			global::MvvmCross.Plugins.Sqlite.Droid.Resource.Attribute.MvxDropDownItemTemplate = global::FoodByMe.Android.Resource.Attribute.MvxDropDownItemTemplate;
+			global::MvvmCross.Plugins.Sqlite.Droid.Resource.Attribute.MvxGroupItemTemplate = global::FoodByMe.Android.Resource.Attribute.MvxGroupItemTemplate;
+			global::MvvmCross.Plugins.Sqlite.Droid.Resource.Attribute.MvxItemTemplate = global::FoodByMe.Android.Resource.Attribute.MvxItemTemplate;
+			global::MvvmCross.Plugins.Sqlite.Droid.Resource.Attribute.MvxLang = global::FoodByMe.Android.Resource.Attribute.MvxLang;
+			global::MvvmCross.Plugins.Sqlite.Droid.Resource.Attribute.MvxSource = global::FoodByMe.Android.Resource.Attribute.MvxSource;
+			global::MvvmCross.Plugins.Sqlite.Droid.Resource.Attribute.MvxTemplate = global::FoodByMe.Android.Resource.Attribute.MvxTemplate;
+			global::MvvmCross.Plugins.Sqlite.Droid.Resource.Id.MvvmCrossTagId = global::FoodByMe.Android.Resource.Id.MvvmCrossTagId;
+			global::MvvmCross.Plugins.Sqlite.Droid.Resource.Id.MvxBindingTagUnique = global::FoodByMe.Android.Resource.Id.MvxBindingTagUnique;
+			global::MvvmCross.Plugins.Sqlite.Droid.Resource.String.ApplicationName = global::FoodByMe.Android.Resource.String.ApplicationName;
+			global::MvvmCross.Plugins.Sqlite.Droid.Resource.String.Hello = global::FoodByMe.Android.Resource.String.Hello;
+			global::MvvmCross.Plugins.Sqlite.Droid.Resource.Styleable.MvxBinding = global::FoodByMe.Android.Resource.Styleable.MvxBinding;
+			global::MvvmCross.Plugins.Sqlite.Droid.Resource.Styleable.MvxBinding_MvxBind = global::FoodByMe.Android.Resource.Styleable.MvxBinding_MvxBind;
+			global::MvvmCross.Plugins.Sqlite.Droid.Resource.Styleable.MvxBinding_MvxLang = global::FoodByMe.Android.Resource.Styleable.MvxBinding_MvxLang;
+			global::MvvmCross.Plugins.Sqlite.Droid.Resource.Styleable.MvxControl = global::FoodByMe.Android.Resource.Styleable.MvxControl;
+			global::MvvmCross.Plugins.Sqlite.Droid.Resource.Styleable.MvxControl_MvxTemplate = global::FoodByMe.Android.Resource.Styleable.MvxControl_MvxTemplate;
+			global::MvvmCross.Plugins.Sqlite.Droid.Resource.Styleable.MvxExpandableListView = global::FoodByMe.Android.Resource.Styleable.MvxExpandableListView;
+			global::MvvmCross.Plugins.Sqlite.Droid.Resource.Styleable.MvxExpandableListView_MvxGroupItemTemplate = global::FoodByMe.Android.Resource.Styleable.MvxExpandableListView_MvxGroupItemTemplate;
+			global::MvvmCross.Plugins.Sqlite.Droid.Resource.Styleable.MvxImageView = global::FoodByMe.Android.Resource.Styleable.MvxImageView;
+			global::MvvmCross.Plugins.Sqlite.Droid.Resource.Styleable.MvxImageView_MvxSource = global::FoodByMe.Android.Resource.Styleable.MvxImageView_MvxSource;
+			global::MvvmCross.Plugins.Sqlite.Droid.Resource.Styleable.MvxListView = global::FoodByMe.Android.Resource.Styleable.MvxListView;
+			global::MvvmCross.Plugins.Sqlite.Droid.Resource.Styleable.MvxListView_MvxDropDownItemTemplate = global::FoodByMe.Android.Resource.Styleable.MvxListView_MvxDropDownItemTemplate;
+			global::MvvmCross.Plugins.Sqlite.Droid.Resource.Styleable.MvxListView_MvxItemTemplate = global::FoodByMe.Android.Resource.Styleable.MvxListView_MvxItemTemplate;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::FoodByMe.Android.Resource.String.ApplicationName;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::FoodByMe.Android.Resource.String.Hello;
 		}
 		
 		public partial class Animation
@@ -2666,6 +2691,12 @@ namespace FoodByMe.Android
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f070017
+			public const int ApplicationName = 2131165207;
+			
+			// aapt resource value: 0x7f070016
+			public const int Hello = 2131165206;
+			
 			// aapt resource value: 0x7f070000
 			public const int abc_action_bar_home_description = 2131165184;
 			
@@ -2723,8 +2754,8 @@ namespace FoodByMe.Android
 			// aapt resource value: 0x7f070012
 			public const int abc_toolbar_collapse_description = 2131165202;
 			
-			// aapt resource value: 0x7f070017
-			public const int app_name = 2131165207;
+			// aapt resource value: 0x7f070019
+			public const int app_name = 2131165209;
 			
 			// aapt resource value: 0x7f070014
 			public const int appbar_scrolling_view_behavior = 2131165204;
@@ -2732,14 +2763,14 @@ namespace FoodByMe.Android
 			// aapt resource value: 0x7f070015
 			public const int character_counter_pattern = 2131165205;
 			
-			// aapt resource value: 0x7f070019
-			public const int drawer_close = 2131165209;
+			// aapt resource value: 0x7f07001b
+			public const int drawer_close = 2131165211;
+			
+			// aapt resource value: 0x7f07001a
+			public const int drawer_open = 2131165210;
 			
 			// aapt resource value: 0x7f070018
-			public const int drawer_open = 2131165208;
-			
-			// aapt resource value: 0x7f070016
-			public const int hello = 2131165206;
+			public const int hello = 2131165208;
 			
 			// aapt resource value: 0x7f070013
 			public const int status_bar_notification_info_overflow = 2131165203;

@@ -7,7 +7,7 @@ using MvvmCross.Localization;
 
 namespace FoodByMe.Core.Framework
 {
-    public class ResxTextProvider : IMvxTextProvider
+    public class ResxTextProvider : IMvxTextProvider, ICultureProvider
     {
         private readonly ResourceManager _manager;
         private CultureInfo _culture;

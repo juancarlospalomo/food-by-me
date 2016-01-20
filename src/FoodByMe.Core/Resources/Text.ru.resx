@@ -147,4 +147,88 @@
   <data name="CookingStepsLabel" xml:space="preserve">
     <value>Способ приготовления</value>
   </data>
+  <data name="ReferenceMeasurePiece" xml:space="preserve">
+    <value>штук</value>
+  </data>
+  <data name="ReferenceMeasureCup" xml:space="preserve">
+    <value>стакан</value>
+  </data>
+  <data name="ReferenceMeasureTeaSpoon" xml:space="preserve">
+    <value>чайная ложка</value>
+  </data>
+  <data name="ReferenceMeasureTableSpoon" xml:space="preserve">
+    <value>столовая ложка</value>
+  </data>
+  <data name="ReferenceMeasureKilogram" xml:space="preserve">
+    <value>килограмм</value>
+  </data>
+  <data name="ReferenceMeasureGram" xml:space="preserve">
+    <value>грамм</value>
+  </data>
+  <data name="ReferenceMeasureMilligram" xml:space="preserve">
+    <value>миллиграмм</value>
+  </data>
+  <data name="ReferenceMeasureMilliliter" xml:space="preserve">
+    <value>миллилитр</value>
+  </data>
+  <data name="ReferenceMeasureLiter" xml:space="preserve">
+    <value>литр</value>
+  </data>
+  <data name="ReferenceMeasureTaste" xml:space="preserve">
+    <value>по вкусу</value>
+  </data>
+  <data name="ReferenceMeasurePinch" xml:space="preserve">
+    <value>щепотка</value>
+  </data>
+  <data name="ReferenceMeasurePieceShort" xml:space="preserve">
+    <value>шт</value>
+  </data>
+  <data name="ReferenceMeasureCupShort" xml:space="preserve">
+    <value>ст</value>
+  </data>
+  <data name="ReferenceMeasureTeaSpoonShort" xml:space="preserve">
+    <value>ч. л</value>
+  </data>
+  <data name="ReferenceMeasureTableSpoonShort" xml:space="preserve">
+    <value>ст. л</value>
+  </data>
+  <data name="ReferenceMeasureKilogramShort" xml:space="preserve">
+    <value>кг</value>
+  </data>
+  <data name="ReferenceMeasureGramShort" xml:space="preserve">
+    <value>г</value>
+  </data>
+  <data name="ReferenceMeasureMilligramShort" xml:space="preserve">
+    <value>мг</value>
+  </data>
+  <data name="ReferenceMeasureMilliliterShort" xml:space="preserve">
+    <value>мл</value>
+  </data>
+  <data name="ReferenceMeasureLiterShort" xml:space="preserve">
+    <value>л</value>
+  </data>
+  <data name="ReferenceMeasureTasteShort" xml:space="preserve">
+    <value>по вкусу</value>
+  </data>
+  <data name="ReferenceMeasurePinchShort" xml:space="preserve">
+    <value>щепотка</value>
+  </data>
+  <data name="ReferenceCategoryAppetizers" xml:space="preserve">
+    <value>Закуски</value>
+  </data>
+  <data name="ReferenceCategoryDinner" xml:space="preserve">
+    <value>Горячие блюда</value>
+  </data>
+  <data name="ReferenceCategoryDesserts" xml:space="preserve">
+    <value>Десетры</value>
+  </data>
+  <data name="ReferenceCategoryDrinks" xml:space="preserve">
+    <value>Напитки</value>
+  </data>
+  <data name="ReferenceCategorySalads" xml:space="preserve">
+    <value>Салаты</value>
+  </data>
+  <data name="ReferenceCategoryOther" xml:space="preserve">
+    <value>Другие блюда</value>
+  </data>
 </root>

@@ -1,5 +1,6 @@
 using FoodByMe.Core.Framework;
 using FoodByMe.Core.Resources;
+using FoodByMe.Core.Services;
 using FoodByMe.Core.ViewModels;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Localization;
@@ -17,7 +18,12 @@ namespace FoodByMe.Core
                 .AsInterfaces()
                 .RegisterAsLazySingleton();
 
-            Mvx.RegisterSingleton<IMvxTextProvider>(new ResxTextProvider(Text.ResourceManager));
+            var textProvider = new ResxTextProvider(Text.ResourceManager);
+            Mvx.RegisterSingleton<IMvxTextProvider>(textProvider);
+            Mvx.RegisterSingleton<ICultureProvider>(textProvider);
+
+            var dbSettings = new DatabaseSettings("FoodByMe.db3");
+            Mvx.RegisterSingleton(dbSettings);
 
             RegisterAppStart<MainViewModel>();
         }

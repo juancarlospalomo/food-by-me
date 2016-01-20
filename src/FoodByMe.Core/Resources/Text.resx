@@ -147,4 +147,88 @@
   <data name="CookingStepsLabel" xml:space="preserve">
     <value>Cooking steps</value>
   </data>
+  <data name="ReferenceMeasurePiece" xml:space="preserve">
+    <value>piece</value>
+  </data>
+  <data name="ReferenceMeasureCup" xml:space="preserve">
+    <value>cups</value>
+  </data>
+  <data name="ReferenceMeasureTeaSpoon" xml:space="preserve">
+    <value>tea spoon</value>
+  </data>
+  <data name="ReferenceMeasureTableSpoon" xml:space="preserve">
+    <value>table spoon</value>
+  </data>
+  <data name="ReferenceMeasureKilogram" xml:space="preserve">
+    <value>kilogramm</value>
+  </data>
+  <data name="ReferenceMeasureGram" xml:space="preserve">
+    <value>gram</value>
+  </data>
+  <data name="ReferenceMeasureMilligram" xml:space="preserve">
+    <value>milligram</value>
+  </data>
+  <data name="ReferenceMeasureMilliliter" xml:space="preserve">
+    <value>milliliter</value>
+  </data>
+  <data name="ReferenceMeasureLiter" xml:space="preserve">
+    <value>liter</value>
+  </data>
+  <data name="ReferenceMeasureTaste" xml:space="preserve">
+    <value>by taste</value>
+  </data>
+  <data name="ReferenceMeasurePinch" xml:space="preserve">
+    <value>pinch</value>
+  </data>
+  <data name="ReferenceMeasurePieceShort" xml:space="preserve">
+    <value>pcs</value>
+  </data>
+  <data name="ReferenceMeasureCupShort" xml:space="preserve">
+    <value>cups</value>
+  </data>
+  <data name="ReferenceMeasureTeaSpoonShort" xml:space="preserve">
+    <value>tsp</value>
+  </data>
+  <data name="ReferenceMeasureTableSpoonShort" xml:space="preserve">
+    <value>tbsp</value>
+  </data>
+  <data name="ReferenceMeasureKilogramShort" xml:space="preserve">
+    <value>kg</value>
+  </data>
+  <data name="ReferenceMeasureGramShort" xml:space="preserve">
+    <value>g</value>
+  </data>
+  <data name="ReferenceMeasureMilligramShort" xml:space="preserve">
+    <value>mg</value>
+  </data>
+  <data name="ReferenceMeasureMilliliterShort" xml:space="preserve">
+    <value>ml</value>
+  </data>
+  <data name="ReferenceMeasureLiterShort" xml:space="preserve">
+    <value>l</value>
+  </data>
+  <data name="ReferenceMeasureTasteShort" xml:space="preserve">
+    <value>taste</value>
+  </data>
+  <data name="ReferenceMeasurePinchShort" xml:space="preserve">
+    <value>pinch</value>
+  </data>
+  <data name="ReferenceCategoryAppetizers" xml:space="preserve">
+    <value>Appetizers</value>
+  </data>
+  <data name="ReferenceCategoryDinner" xml:space="preserve">
+    <value>Dinner</value>
+  </data>
+  <data name="ReferenceCategoryDesserts" xml:space="preserve">
+    <value>Desserts</value>
+  </data>
+  <data name="ReferenceCategoryDrinks" xml:space="preserve">
+    <value>Drinks</value>
+  </data>
+  <data name="ReferenceCategorySalads" xml:space="preserve">
+    <value>Salads</value>
+  </data>
+  <data name="ReferenceCategoryOther" xml:space="preserve">
+    <value>Other</value>
+  </data>
 </root>

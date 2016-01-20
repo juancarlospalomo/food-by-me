@@ -1,11 +1,7 @@
-﻿namespace FoodByMe.Core.Contracts
+﻿namespace FoodByMe.Core.Contracts.Data
 {
     public class RecipeCategory
     {
-        internal RecipeCategory()
-        {
-        }
-
         public int Id { get; internal set; }
 
         public string Title { get; internal set; }

@@ -4,7 +4,7 @@ using SQLite.Net.Attributes;
 namespace FoodByMe.Core.Services.Data.Types
 {
     [Table("Version")]
-    public class VersionTable
+    public class VersionRow
     {
         [PrimaryKey]
         public int Version { get; set; }
