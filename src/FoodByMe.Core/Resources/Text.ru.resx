@@ -231,4 +231,7 @@
   <data name="ReferenceCategoryOther" xml:space="preserve">
     <value>Другие блюда</value>
   </data>
+  <data name="ReferenceCategoryBaking" xml:space="preserve">
+    <value>Выпечка</value>
+  </data>
 </root>

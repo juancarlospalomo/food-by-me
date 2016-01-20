@@ -231,4 +231,7 @@
   <data name="ReferenceCategoryOther" xml:space="preserve">
     <value>Other</value>
   </data>
+  <data name="ReferenceCategoryBaking" xml:space="preserve">
+    <value>Baking</value>
+  </data>
 </root>

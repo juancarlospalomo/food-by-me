@@ -38,7 +38,13 @@ namespace FoodByMe.Core.Services.Data
         {
             var categories = new List<RecipeCategory>
             {
-                new RecipeCategory {Id = 1, Title = Text.ReferenceCategoryAppetizers}
+                new RecipeCategory {Id = 1, Title = Text.ReferenceCategoryAppetizers},
+                new RecipeCategory {Id = 2, Title = Text.ReferenceCategoryBaking},
+                new RecipeCategory {Id = 3, Title = Text.ReferenceCategoryDesserts},
+                new RecipeCategory {Id = 4, Title = Text.ReferenceCategoryDinner},
+                new RecipeCategory {Id = 5, Title = Text.ReferenceCategoryDrinks},
+                new RecipeCategory {Id = 6, Title = Text.ReferenceCategoryOther},
+                new RecipeCategory {Id = 7, Title = Text.ReferenceCategorySalads}
             };
             return categories;
         }
@@ -52,6 +58,66 @@ namespace FoodByMe.Core.Services.Data
                     Id = 1,
                     Title = Text.ReferenceMeasureCup,
                     ShortTitle = Text.ReferenceMeasureCupShort
+                },
+                new Measure
+                {
+                    Id = 2,
+                    Title = Text.ReferenceMeasureGram,
+                    ShortTitle = Text.ReferenceMeasureGramShort
+                },
+                new Measure
+                {
+                    Id = 3,
+                    Title = Text.ReferenceMeasureKilogram,
+                    ShortTitle = Text.ReferenceMeasureKilogramShort
+                },
+                new Measure
+                {
+                    Id = 4,
+                    Title = Text.ReferenceMeasureLiter,
+                    ShortTitle = Text.ReferenceMeasureLiterShort
+                },
+                new Measure
+                {
+                    Id = 5,
+                    Title = Text.ReferenceMeasureMilligram,
+                    ShortTitle = Text.ReferenceMeasureMilligramShort
+                },
+                new Measure
+                {
+                    Id = 6,
+                    Title = Text.ReferenceMeasureMilliliter,
+                    ShortTitle = Text.ReferenceMeasureMilliliterShort
+                },
+                new Measure
+                {
+                    Id = 7,
+                    Title = Text.ReferenceMeasurePiece,
+                    ShortTitle = Text.ReferenceMeasurePieceShort
+                },
+                new Measure
+                {
+                    Id = 8,
+                    Title = Text.ReferenceMeasurePinch,
+                    ShortTitle = Text.ReferenceMeasurePinchShort
+                },
+                new Measure
+                {
+                    Id = 9,
+                    Title = Text.ReferenceMeasureTableSpoon,
+                    ShortTitle = Text.ReferenceMeasureTableSpoonShort
+                },
+                new Measure
+                {
+                    Id = 10,
+                    Title = Text.ReferenceMeasureTaste,
+                    ShortTitle = Text.ReferenceMeasureTasteShort
+                },
+                new Measure
+                {
+                    Id = 11,
+                    Title = Text.ReferenceMeasureTeaSpoon,
+                    ShortTitle = Text.ReferenceMeasureTeaSpoonShort
                 }
             };
             return measures;
