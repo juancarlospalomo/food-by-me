@@ -2,6 +2,6 @@
 {
     internal interface IUpdate
     {
-        void Apply();
+        void Apply(UpdateContext context);
     }
 }

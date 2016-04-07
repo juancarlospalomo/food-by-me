@@ -1,9 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace FoodByMe.Core.Services.Data.Types
 {
     public class RecipeBlob
     {
+        public DateTime CreatedAt { get; set; }
+
+        public DateTime LastModifiedAt { get; set; }
+
         public string Title { get; set; }
 
         public bool IsFavorite { get; set; }

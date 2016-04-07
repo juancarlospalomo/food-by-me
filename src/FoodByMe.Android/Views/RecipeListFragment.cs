@@ -6,7 +6,7 @@ using Android.Support.V4.View;
 using Android.Support.V7.Widget;
 using Android.Views;
 using FoodByMe.Core.ViewModels;
-using MvvmCross.Droid.Support.V7.Fragging.Attributes;
+using MvvmCross.Droid.Shared.Attributes;
 using MvvmCross.Droid.Support.V7.RecyclerView;
 using SearchView = Android.Support.V7.Widget.SearchView;
 

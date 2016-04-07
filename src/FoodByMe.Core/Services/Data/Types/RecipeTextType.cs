@@ -7,6 +7,8 @@
         Title = 2,
         Notes = 3,
         Ingredient = 4,
-        CookingSteps = 5
+        CookingSteps = 5,
+        CreatedDate = 6,
+        LastModifiedDate = 7
     }
 }

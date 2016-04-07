@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace FoodByMe.Core.Contracts.Data
 {
@@ -8,9 +9,15 @@ namespace FoodByMe.Core.Contracts.Data
         {
             CookingSteps = new List<string>();
             Ingredients = new List<Ingredient>();
+            CreatedAt = new DateTime();
+            LastModifiedAt = CreatedAt;
         }
 
         public int Id { get; internal set; }
+
+        public DateTime CreatedAt { get; set; }
+
+        public DateTime LastModifiedAt { get; set; }
 
         public string Title { get; set; }
 

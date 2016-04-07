@@ -42,7 +42,8 @@ namespace FoodByMe.Core.Services.Data.Indexing
                 fields.Add(new RecipeTextFieldRow
                 {
                     Type = RecipeTextType.CategoryId,
-                    Value = recipe.Category.Id.ToString(CultureInfo.InvariantCulture)
+                    Value = recipe.Category.Id.ToString(CultureInfo.InvariantCulture),
+                    IsSearchable = false
                 });
             }
             if (recipe.IsFavorite)
@@ -75,6 +76,18 @@ namespace FoodByMe.Core.Services.Data.Indexing
                     Value = x.Title.Trim()
                 }));
             }
+            fields.Add(new RecipeTextFieldRow
+            {
+                IsSearchable = false,
+                Type = RecipeTextType.CreatedDate,
+                Value = recipe.CreatedAt.ToString("O")
+            });
+            fields.Add(new RecipeTextFieldRow
+            {
+                IsSearchable = false,
+                Type = RecipeTextType.LastModifiedDate,
+                Value = recipe.LastModifiedAt.ToString("O")
+            });
             foreach (var field in fields)
             {
                 field.RecipeId = recipe.Id;

@@ -31,6 +31,7 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
+                android:text="Shit happens"
                 local:popupTheme="@style/ThemeOverlay.AppCompat.Light"
                 local:layout_collapseMode="pin" />
         </android.support.design.widget.CollapsingToolbarLayout>
@@ -53,17 +54,18 @@
                     android:id="@+id/input_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    local:MvxLang="Hint RecipeNameLabel" />
+                    local:MvxLang="Hint RecipeNameLabel"
+                    local:MvxBind="Text Title" />
             </android.support.design.widget.TextInputLayout>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/TextView.Form.Label"
                 local:MvxLang="Text CategoryLabel" />
-            <MvvmCross.Droid.Support.V7.AppCompat.widget.MvxAppCompatSpinner
+            <mvvmcross.droid.support.v7.appcompat.widget.MvxAppCompatSpinner
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                local:MvxBind="ItemsSource Categories" />
+                local:MvxBind="ItemsSource Categories; SelectedItem Category" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -79,11 +81,13 @@
                     android:layout_gravity="right"
                     android:textSize="@dimen/font_small"
                     android:textColor="@color/accent_text"
-                    android:text="2:15" />
+                    local:MvxBind="Text CookingTimeInMinutes, Converter=CookingTime" />
             </LinearLayout>
             <SeekBar
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:max="159"
+                local:MvxBind="Progress CookingTimeSliderValue" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -125,18 +129,20 @@
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/input_layout_password"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 local:hintTextAppearance="@style/Text.Form.LabelHint">
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:inputType="textMultiLine"
+                    android:gravity="top"
                     android:minLines="3"
                     local:MvxLang="Hint NotesLabel" />
             </android.support.design.widget.TextInputLayout>
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
     <android.support.design.widget.FloatingActionButton
+        android:id="@+id/choose_photo_button"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         local:layout_anchor="@id/appbar"

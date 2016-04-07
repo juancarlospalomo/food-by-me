@@ -23,7 +23,7 @@ namespace FoodByMe.Core.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Text {
+    public class Text {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -37,7 +37,7 @@ namespace FoodByMe.Core.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("FoodByMe.Core.Resources.Text", typeof(Text).GetTypeInfo().Assembly);
@@ -52,7 +52,7 @@ namespace FoodByMe.Core.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -64,7 +64,7 @@ namespace FoodByMe.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Add more.
         /// </summary>
-        internal static string AddIngredientButton {
+        public static string AddIngredientButton {
             get {
                 return ResourceManager.GetString("AddIngredientButton", resourceCulture);
             }
@@ -73,16 +73,25 @@ namespace FoodByMe.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Add step.
         /// </summary>
-        internal static string AddStepButton {
+        public static string AddStepButton {
             get {
                 return ResourceManager.GetString("AddStepButton", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Category.
         /// </summary>
-        internal static string CategoryLabel {
+        public static string CategoryLabel {
             get {
                 return ResourceManager.GetString("CategoryLabel", resourceCulture);
             }
@@ -91,7 +100,7 @@ namespace FoodByMe.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Cooking steps.
         /// </summary>
-        internal static string CookingStepsLabel {
+        public static string CookingStepsLabel {
             get {
                 return ResourceManager.GetString("CookingStepsLabel", resourceCulture);
             }
@@ -100,16 +109,25 @@ namespace FoodByMe.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Cooking time.
         /// </summary>
-        internal static string CookingTimeLabel {
+        public static string CookingTimeLabel {
             get {
                 return ResourceManager.GetString("CookingTimeLabel", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to h.
+        /// </summary>
+        public static string HoursShort {
+            get {
+                return ResourceManager.GetString("HoursShort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ingredient.
         /// </summary>
-        internal static string IngredientLabel {
+        public static string IngredientLabel {
             get {
                 return ResourceManager.GetString("IngredientLabel", resourceCulture);
             }
@@ -118,25 +136,61 @@ namespace FoodByMe.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Ingredients.
         /// </summary>
-        internal static string IngredientsLabel {
+        public static string IngredientsLabel {
             get {
                 return ResourceManager.GetString("IngredientsLabel", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to min.
+        /// </summary>
+        public static string MinutesShort {
+            get {
+                return ResourceManager.GetString("MinutesShort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Notes.
         /// </summary>
-        internal static string NotesLabel {
+        public static string NotesLabel {
             get {
                 return ResourceManager.GetString("NotesLabel", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Pick a photo.
+        /// </summary>
+        public static string PickPhoto {
+            get {
+                return ResourceManager.GetString("PickPhoto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Take a photo.
+        /// </summary>
+        public static string PickPhotoCamera {
+            get {
+                return ResourceManager.GetString("PickPhotoCamera", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose an image.
+        /// </summary>
+        public static string PickPhotoGallery {
+            get {
+                return ResourceManager.GetString("PickPhotoGallery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Qty.
         /// </summary>
-        internal static string QuantityLabel {
+        public static string QuantityLabel {
             get {
                 return ResourceManager.GetString("QuantityLabel", resourceCulture);
             }
@@ -145,7 +199,7 @@ namespace FoodByMe.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Recipe name.
         /// </summary>
-        internal static string RecipeNameLabel {
+        public static string RecipeNameLabel {
             get {
                 return ResourceManager.GetString("RecipeNameLabel", resourceCulture);
             }
@@ -154,16 +208,25 @@ namespace FoodByMe.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Appetizers.
         /// </summary>
-        internal static string ReferenceCategoryAppetizers {
+        public static string ReferenceCategoryAppetizers {
             get {
                 return ResourceManager.GetString("ReferenceCategoryAppetizers", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Baking.
+        /// </summary>
+        public static string ReferenceCategoryBaking {
+            get {
+                return ResourceManager.GetString("ReferenceCategoryBaking", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Desserts.
         /// </summary>
-        internal static string ReferenceCategoryDesserts {
+        public static string ReferenceCategoryDesserts {
             get {
                 return ResourceManager.GetString("ReferenceCategoryDesserts", resourceCulture);
             }
@@ -172,7 +235,7 @@ namespace FoodByMe.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Dinner.
         /// </summary>
-        internal static string ReferenceCategoryDinner {
+        public static string ReferenceCategoryDinner {
             get {
                 return ResourceManager.GetString("ReferenceCategoryDinner", resourceCulture);
             }
@@ -181,7 +244,7 @@ namespace FoodByMe.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Drinks.
         /// </summary>
-        internal static string ReferenceCategoryDrinks {
+        public static string ReferenceCategoryDrinks {
             get {
                 return ResourceManager.GetString("ReferenceCategoryDrinks", resourceCulture);
             }
@@ -190,7 +253,7 @@ namespace FoodByMe.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Other.
         /// </summary>
-        internal static string ReferenceCategoryOther {
+        public static string ReferenceCategoryOther {
             get {
                 return ResourceManager.GetString("ReferenceCategoryOther", resourceCulture);
             }
@@ -199,7 +262,7 @@ namespace FoodByMe.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Salads.
         /// </summary>
-        internal static string ReferenceCategorySalads {
+        public static string ReferenceCategorySalads {
             get {
                 return ResourceManager.GetString("ReferenceCategorySalads", resourceCulture);
             }
@@ -208,7 +271,7 @@ namespace FoodByMe.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to cups.
         /// </summary>
-        internal static string ReferenceMeasureCup {
+        public static string ReferenceMeasureCup {
             get {
                 return ResourceManager.GetString("ReferenceMeasureCup", resourceCulture);
             }
@@ -217,7 +280,7 @@ namespace FoodByMe.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to cups.
         /// </summary>
-        internal static string ReferenceMeasureCupShort {
+        public static string ReferenceMeasureCupShort {
             get {
                 return ResourceManager.GetString("ReferenceMeasureCupShort", resourceCulture);
             }
@@ -226,7 +289,7 @@ namespace FoodByMe.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to gram.
         /// </summary>
-        internal static string ReferenceMeasureGram {
+        public static string ReferenceMeasureGram {
             get {
                 return ResourceManager.GetString("ReferenceMeasureGram", resourceCulture);
             }
@@ -235,7 +298,7 @@ namespace FoodByMe.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to g.
         /// </summary>
-        internal static string ReferenceMeasureGramShort {
+        public static string ReferenceMeasureGramShort {
             get {
                 return ResourceManager.GetString("ReferenceMeasureGramShort", resourceCulture);
             }
@@ -244,7 +307,7 @@ namespace FoodByMe.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to kilogramm.
         /// </summary>
-        internal static string ReferenceMeasureKilogram {
+        public static string ReferenceMeasureKilogram {
             get {
                 return ResourceManager.GetString("ReferenceMeasureKilogram", resourceCulture);
             }
@@ -253,7 +316,7 @@ namespace FoodByMe.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to kg.
         /// </summary>
-        internal static string ReferenceMeasureKilogramShort {
+        public static string ReferenceMeasureKilogramShort {
             get {
                 return ResourceManager.GetString("ReferenceMeasureKilogramShort", resourceCulture);
             }
@@ -262,7 +325,7 @@ namespace FoodByMe.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to liter.
         /// </summary>
-        internal static string ReferenceMeasureLiter {
+        public static string ReferenceMeasureLiter {
             get {
                 return ResourceManager.GetString("ReferenceMeasureLiter", resourceCulture);
             }
@@ -271,7 +334,7 @@ namespace FoodByMe.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to l.
         /// </summary>
-        internal static string ReferenceMeasureLiterShort {
+        public static string ReferenceMeasureLiterShort {
             get {
                 return ResourceManager.GetString("ReferenceMeasureLiterShort", resourceCulture);
             }
@@ -280,7 +343,7 @@ namespace FoodByMe.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to milligram.
         /// </summary>
-        internal static string ReferenceMeasureMilligram {
+        public static string ReferenceMeasureMilligram {
             get {
                 return ResourceManager.GetString("ReferenceMeasureMilligram", resourceCulture);
             }
@@ -289,7 +352,7 @@ namespace FoodByMe.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to mg.
         /// </summary>
-        internal static string ReferenceMeasureMilligramShort {
+        public static string ReferenceMeasureMilligramShort {
             get {
                 return ResourceManager.GetString("ReferenceMeasureMilligramShort", resourceCulture);
             }
@@ -298,7 +361,7 @@ namespace FoodByMe.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to milliliter.
         /// </summary>
-        internal static string ReferenceMeasureMilliliter {
+        public static string ReferenceMeasureMilliliter {
             get {
                 return ResourceManager.GetString("ReferenceMeasureMilliliter", resourceCulture);
             }
@@ -307,7 +370,7 @@ namespace FoodByMe.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to ml.
         /// </summary>
-        internal static string ReferenceMeasureMilliliterShort {
+        public static string ReferenceMeasureMilliliterShort {
             get {
                 return ResourceManager.GetString("ReferenceMeasureMilliliterShort", resourceCulture);
             }
@@ -316,7 +379,7 @@ namespace FoodByMe.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to piece.
         /// </summary>
-        internal static string ReferenceMeasurePiece {
+        public static string ReferenceMeasurePiece {
             get {
                 return ResourceManager.GetString("ReferenceMeasurePiece", resourceCulture);
             }
@@ -325,7 +388,7 @@ namespace FoodByMe.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to pcs.
         /// </summary>
-        internal static string ReferenceMeasurePieceShort {
+        public static string ReferenceMeasurePieceShort {
             get {
                 return ResourceManager.GetString("ReferenceMeasurePieceShort", resourceCulture);
             }
@@ -334,7 +397,7 @@ namespace FoodByMe.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to pinch.
         /// </summary>
-        internal static string ReferenceMeasurePinch {
+        public static string ReferenceMeasurePinch {
             get {
                 return ResourceManager.GetString("ReferenceMeasurePinch", resourceCulture);
             }
@@ -343,7 +406,7 @@ namespace FoodByMe.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to pinch.
         /// </summary>
-        internal static string ReferenceMeasurePinchShort {
+        public static string ReferenceMeasurePinchShort {
             get {
                 return ResourceManager.GetString("ReferenceMeasurePinchShort", resourceCulture);
             }
@@ -352,7 +415,7 @@ namespace FoodByMe.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to table spoon.
         /// </summary>
-        internal static string ReferenceMeasureTableSpoon {
+        public static string ReferenceMeasureTableSpoon {
             get {
                 return ResourceManager.GetString("ReferenceMeasureTableSpoon", resourceCulture);
             }
@@ -361,7 +424,7 @@ namespace FoodByMe.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to tbsp.
         /// </summary>
-        internal static string ReferenceMeasureTableSpoonShort {
+        public static string ReferenceMeasureTableSpoonShort {
             get {
                 return ResourceManager.GetString("ReferenceMeasureTableSpoonShort", resourceCulture);
             }
@@ -370,7 +433,7 @@ namespace FoodByMe.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to by taste.
         /// </summary>
-        internal static string ReferenceMeasureTaste {
+        public static string ReferenceMeasureTaste {
             get {
                 return ResourceManager.GetString("ReferenceMeasureTaste", resourceCulture);
             }
@@ -379,7 +442,7 @@ namespace FoodByMe.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to taste.
         /// </summary>
-        internal static string ReferenceMeasureTasteShort {
+        public static string ReferenceMeasureTasteShort {
             get {
                 return ResourceManager.GetString("ReferenceMeasureTasteShort", resourceCulture);
             }
@@ -388,7 +451,7 @@ namespace FoodByMe.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to tea spoon.
         /// </summary>
-        internal static string ReferenceMeasureTeaSpoon {
+        public static string ReferenceMeasureTeaSpoon {
             get {
                 return ResourceManager.GetString("ReferenceMeasureTeaSpoon", resourceCulture);
             }
@@ -397,9 +460,18 @@ namespace FoodByMe.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to tsp.
         /// </summary>
-        internal static string ReferenceMeasureTeaSpoonShort {
+        public static string ReferenceMeasureTeaSpoonShort {
             get {
                 return ResourceManager.GetString("ReferenceMeasureTeaSpoonShort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Step #.
+        /// </summary>
+        public static string StepNo {
+            get {
+                return ResourceManager.GetString("StepNo", resourceCulture);
             }
         }
     }

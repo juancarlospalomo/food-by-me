@@ -6,7 +6,7 @@
     <TextView
         style="@style/TextView.ListIndex"
         android:layout_marginLeft="@dimen/spacing_small"
-        android:text="1" />
+        local:MvxBind="Text Position" />
     <EditText
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -14,11 +14,12 @@
         android:layout_marginLeft="@dimen/spacing_small"
         android:inputType="textMultiLine"
         android:minLines="3"
-        local:MvxLang="Hint IngredientLabel" />
+        local:MvxBind="Text Text; Hint Label" />
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="@dimen/spacing_small"
-        android:background="@drawable/ic_delete_black_24dp" />
+        android:background="@drawable/ic_delete_black_24dp"
+        local:MvxBind="Click DeleteCommand" />
 </LinearLayout>

@@ -2,6 +2,7 @@ using FoodByMe.Core.Framework;
 using FoodByMe.Core.Resources;
 using FoodByMe.Core.Services;
 using FoodByMe.Core.Services.Data;
+using FoodByMe.Core.Services.Updates;
 using FoodByMe.Core.ViewModels;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Localization;
@@ -25,6 +26,7 @@ namespace FoodByMe.Core
 
             var dbSettings = new DatabaseSettings("FoodByMe.db3");
             Mvx.RegisterSingleton(dbSettings);
+            Mvx.RegisterType<UpdateContext, UpdateContext>();
 
             RegisterAppStart<MainViewModel>();
         }

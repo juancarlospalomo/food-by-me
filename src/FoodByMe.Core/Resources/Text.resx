@@ -231,4 +231,28 @@
   <data name="ReferenceCategoryOther" xml:space="preserve">
     <value>Other</value>
   </data>
+  <data name="ReferenceCategoryBaking" xml:space="preserve">
+    <value>Baking</value>
+  </data>
+  <data name="HoursShort" xml:space="preserve">
+    <value>h</value>
+  </data>
+  <data name="MinutesShort" xml:space="preserve">
+    <value>min</value>
+  </data>
+  <data name="StepNo" xml:space="preserve">
+    <value>Step #</value>
+  </data>
+  <data name="PickPhotoGallery" xml:space="preserve">
+    <value>Choose an image</value>
+  </data>
+  <data name="PickPhotoCamera" xml:space="preserve">
+    <value>Take a photo</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="PickPhoto" xml:space="preserve">
+    <value>Pick a photo</value>
+  </data>
 </root>

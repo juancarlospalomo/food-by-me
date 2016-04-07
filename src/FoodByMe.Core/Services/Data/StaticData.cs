@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using FoodByMe.Core.Contracts;
 using FoodByMe.Core.Contracts.Data;
 using FoodByMe.Core.Resources;
 
@@ -38,7 +39,13 @@ namespace FoodByMe.Core.Services.Data
         {
             var categories = new List<RecipeCategory>
             {
-                new RecipeCategory {Id = 1, Title = Text.ReferenceCategoryAppetizers}
+                new RecipeCategory {Id = Constants.Categories.Appetizers, Title = Text.ReferenceCategoryAppetizers},
+                new RecipeCategory {Id = Constants.Categories.Baking, Title = Text.ReferenceCategoryBaking},
+                new RecipeCategory {Id = Constants.Categories.Desserts, Title = Text.ReferenceCategoryDesserts},
+                new RecipeCategory {Id = Constants.Categories.Dinner, Title = Text.ReferenceCategoryDinner},
+                new RecipeCategory {Id = Constants.Categories.Drinks, Title = Text.ReferenceCategoryDrinks},
+                new RecipeCategory {Id = Constants.Categories.Other, Title = Text.ReferenceCategoryOther},
+                new RecipeCategory {Id = Constants.Categories.Salads, Title = Text.ReferenceCategorySalads}
             };
             return categories;
         }
@@ -49,9 +56,69 @@ namespace FoodByMe.Core.Services.Data
             {
                 new Measure
                 {
-                    Id = 1,
+                    Id = Constants.Measures.Cup,
                     Title = Text.ReferenceMeasureCup,
                     ShortTitle = Text.ReferenceMeasureCupShort
+                },
+                new Measure
+                {
+                    Id = Constants.Measures.Gram,
+                    Title = Text.ReferenceMeasureGram,
+                    ShortTitle = Text.ReferenceMeasureGramShort
+                },
+                new Measure
+                {
+                    Id = Constants.Measures.Kilogram,
+                    Title = Text.ReferenceMeasureKilogram,
+                    ShortTitle = Text.ReferenceMeasureKilogramShort
+                },
+                new Measure
+                {
+                    Id = Constants.Measures.Liter,
+                    Title = Text.ReferenceMeasureLiter,
+                    ShortTitle = Text.ReferenceMeasureLiterShort
+                },
+                new Measure
+                {
+                    Id = Constants.Measures.Milligram,
+                    Title = Text.ReferenceMeasureMilligram,
+                    ShortTitle = Text.ReferenceMeasureMilligramShort
+                },
+                new Measure
+                {
+                    Id = Constants.Measures.Milliliter,
+                    Title = Text.ReferenceMeasureMilliliter,
+                    ShortTitle = Text.ReferenceMeasureMilliliterShort
+                },
+                new Measure
+                {
+                    Id = Constants.Measures.Piece,
+                    Title = Text.ReferenceMeasurePiece,
+                    ShortTitle = Text.ReferenceMeasurePieceShort
+                },
+                new Measure
+                {
+                    Id = Constants.Measures.Pinch,
+                    Title = Text.ReferenceMeasurePinch,
+                    ShortTitle = Text.ReferenceMeasurePinchShort
+                },
+                new Measure
+                {
+                    Id = Constants.Measures.TableSpoon,
+                    Title = Text.ReferenceMeasureTableSpoon,
+                    ShortTitle = Text.ReferenceMeasureTableSpoonShort
+                },
+                new Measure
+                {
+                    Id = Constants.Measures.TeaSpoon,
+                    Title = Text.ReferenceMeasureTeaSpoon,
+                    ShortTitle = Text.ReferenceMeasureTeaSpoonShort
+                },
+                new Measure
+                {
+                    Id = Constants.Measures.Taste,
+                    Title = Text.ReferenceMeasureTaste,
+                    ShortTitle = Text.ReferenceMeasureTasteShort
                 }
             };
             return measures;

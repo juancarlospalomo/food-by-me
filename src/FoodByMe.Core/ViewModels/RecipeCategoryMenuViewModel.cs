@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Windows.Input;
-using FoodByMe.Core.Messages;
-using FoodByMe.Core.Model;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Plugins.Messenger;
 
@@ -18,14 +15,6 @@ namespace FoodByMe.Core.ViewModels
                 throw new ArgumentNullException(nameof(messenger));
             }
             _messenger = messenger;
-        }
-
-        public ICommand ChooseCategoryCommand => new MvxCommand<RecipeCategory>(ChooseCategory);
-
-        private void ChooseCategory(RecipeCategory category)
-        {
-            var message = new CategoryChosenMessage(this, category);
-            _messenger.Publish(message);
         }
     }
 }

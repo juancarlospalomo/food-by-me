@@ -1,11 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
 using Android.Graphics;
-using Android.Graphics.Drawables;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.V7.App;
@@ -14,27 +8,22 @@ using Android.Views;
 using Android.Widget;
 using FoodByMe.Core.ViewModels;
 using MvvmCross.Binding.Droid.Views;
-using MvvmCross.Droid.Support.V7.Fragging.Attributes;
+using MvvmCross.Droid.Shared.Attributes;
 using MvvmCross.Platform;
 using MvvmCross.Platform.Platform;
 
 namespace FoodByMe.Android.Views
 {
-    [MvxFragment(typeof(RecipeDisplayViewModel), Resource.Id.content_frame)]
+    [MvxFragment(typeof (RecipeDisplayViewModel), Resource.Id.content_frame)]
     [Register("foodbyme.android.views.RecipeDisplayFragment")]
     public class RecipeDisplayFragment : ContentFragment<RecipeDisplayViewModel>
     {
-
-        public RecipeDisplayFragment()
-        {
-        }
-
         public int AdjustAlpha(int color, float factor)
         {
-            int alpha = (int) Math.Round(Color.GetAlphaComponent(color) * factor);
-            int red = Color.GetRedComponent(color);
-            int green = Color.GetGreenComponent(color);
-            int blue = Color.GetBlueComponent(color);
+            var alpha = (int) Math.Round(Color.GetAlphaComponent(color)*factor);
+            var red = Color.GetRedComponent(color);
+            var green = Color.GetGreenComponent(color);
+            var blue = Color.GetBlueComponent(color);
             return Color.Argb(alpha, red, green, blue);
         }
 
@@ -73,7 +62,6 @@ namespace FoodByMe.Android.Views
 
         public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
         {
-            
             inflater.Inflate(Resource.Menu.recipe_display_menu, menu);
             base.OnCreateOptionsMenu(menu, inflater);
         }
@@ -86,7 +74,6 @@ namespace FoodByMe.Android.Views
         public override void OnStart()
         {
             base.OnStart();
-            
         }
 
         protected override int FragmentId => Resource.Layout.fragment_recipe_display;

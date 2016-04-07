@@ -9,6 +9,7 @@ using Android.Support.V4.Widget;
 using Android.Views;
 using FoodByMe.Android.Framework.Caching;
 using FoodByMe.Core.ViewModels;
+using MvvmCross.Droid.Shared.Caching;
 using MvvmCross.Droid.Support.V7.AppCompat;
 using MvvmCross.Droid.Support.V7.Fragging.Caching;
 using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;

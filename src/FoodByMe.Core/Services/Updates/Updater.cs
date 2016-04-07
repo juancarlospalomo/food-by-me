@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using FoodByMe.Core.Services.Data;
 using FoodByMe.Core.Services.Data.Types;
+using MvvmCross.Platform;
 using MvvmCross.Platform.Platform;
 using SQLite.Net;
 
@@ -36,6 +37,8 @@ namespace FoodByMe.Core.Services.Updates
 
         public void UpdateToLatestVersion()
         {
+            var context = Mvx.Resolve<UpdateContext>();
+            context.Connection = _connection;
             var version = GetCurrentVersion();
             var updates = GetPendingUpdates(version);
             foreach (var update in updates)
@@ -47,7 +50,7 @@ namespace FoodByMe.Core.Services.Updates
                 {
                     _connection.RunInTransaction(() =>
                     {
-                        code.Apply();
+                        code.Apply(context);
                         var row = new VersionRow { Tag = meta.Tag, Timestamp = new DateTime(), Version = meta.Version };
                         _connection.Insert(row);
                     });
@@ -84,7 +87,7 @@ namespace FoodByMe.Core.Services.Updates
             var updates = types
                 .OrderBy(x => x.Meta.Version)
                 .Where(x => x.Meta.Version > baseVersion)
-                .Select(x => Tuple.Create((IUpdate)Activator.CreateInstance(x.Type.AsType(), _connection), x.Meta));
+                .Select(x => Tuple.Create((IUpdate)Activator.CreateInstance(x.Type.AsType()), x.Meta));
             return updates;
         }
 

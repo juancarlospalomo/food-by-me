@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using FoodByMe.Android.Views;
 using FoodByMe.Core.ViewModels;
+using MvvmCross.Droid.Shared.Caching;
 using MvvmCross.Droid.Support.V7.Fragging.Caching;
 
 namespace FoodByMe.Android.Framework.Caching

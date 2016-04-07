@@ -91,7 +91,7 @@ namespace FoodByMe.Core.Services.Data
                     var fields = FieldExtractor.Extract(recipe);
                     _connection.InsertAll(fields);
                     var searchFields = fields
-                        .Where(x => x.Type != RecipeTextType.CategoryId)
+                        .Where(x => x.IsSearchable)
                         .Select(x => new RecipeTextSearchRow
                         {
                             Id = x.Id,
@@ -109,7 +109,7 @@ namespace FoodByMe.Core.Services.Data
             var row = recipe.ToRecipeRow();
             var fields = FieldExtractor.Extract(recipe);
             var searchFields = fields
-                .Where(x => x.Type != RecipeTextType.CategoryId)
+                .Where(x => x.IsSearchable)
                 .Select(x => new RecipeTextSearchRow
                 {
                     Id = x.Id,

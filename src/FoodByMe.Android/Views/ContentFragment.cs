@@ -1,5 +1,6 @@
 ﻿using Android.Content.Res;
 using Android.OS;
+using Android.Support.V7.App;
 using Android.Support.V7.Widget;
 using Android.Views;
 using MvvmCross.Binding.Droid.BindingContext;
@@ -11,6 +12,7 @@ namespace FoodByMe.Android.Views
     public abstract class ContentFragment : MvxFragment, View.IOnClickListener
     {
         private Toolbar _toolbar;
+
         public MvxActionBarDrawerToggle DrawerToggle;
 
         protected ContentFragment()
@@ -21,10 +23,9 @@ namespace FoodByMe.Android.Views
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            var ignore = base.OnCreateView(inflater, container, savedInstanceState);
+            base.OnCreateView(inflater, container, savedInstanceState);
 
             var view = this.BindingInflate(FragmentId, null);
-
             _toolbar = view.FindViewById<Toolbar>(Resource.Id.toolbar);
             
             if (_toolbar != null)
@@ -50,6 +51,8 @@ namespace FoodByMe.Android.Views
 
         protected abstract int FragmentId { get; }
 
+        protected ActionBar ActionBar => ((MainActivity) Activity).SupportActionBar;
+       
         public override void OnConfigurationChanged(Configuration newConfig)
         {
             base.OnConfigurationChanged(newConfig);
@@ -68,10 +71,7 @@ namespace FoodByMe.Android.Views
         public void OnClick(View v)
         {
             Activity.OnBackPressed();
-            var x = v;
         }
     }
-
-    
 }
 

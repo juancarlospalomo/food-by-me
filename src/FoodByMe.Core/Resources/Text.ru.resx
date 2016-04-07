@@ -231,4 +231,28 @@
   <data name="ReferenceCategoryOther" xml:space="preserve">
     <value>Другие блюда</value>
   </data>
+  <data name="ReferenceCategoryBaking" xml:space="preserve">
+    <value>Выпечка</value>
+  </data>
+  <data name="HoursShort" xml:space="preserve">
+    <value>ч</value>
+  </data>
+  <data name="MinutesShort" xml:space="preserve">
+    <value>мин</value>
+  </data>
+  <data name="StepNo" xml:space="preserve">
+    <value>Шаг №</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="PickPhotoGallery" xml:space="preserve">
+    <value>Выбрать фотографию</value>
+  </data>
+  <data name="PickPhotoCamera" xml:space="preserve">
+    <value>Запустить камеру</value>
+  </data>
+  <data name="PickPhoto" xml:space="preserve">
+    <value>Выбрать фото</value>
+  </data>
 </root>

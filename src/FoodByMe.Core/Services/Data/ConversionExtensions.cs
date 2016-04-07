@@ -69,6 +69,8 @@ namespace FoodByMe.Core.Services.Data
         {
             var blob = new RecipeBlob
             {
+                CreatedAt = recipe.CreatedAt,
+                LastModifiedAt = recipe.LastModifiedAt,
                 Title = recipe.Title,
                 ImageUri = recipe.ImageUri,
                 Notes = recipe.Notes,

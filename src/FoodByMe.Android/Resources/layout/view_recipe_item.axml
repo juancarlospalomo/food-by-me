@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:local="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_height="wrap_content"
     android:padding="@dimen/spacing_normal">
     <Mvx.MvxImageView
         android:id="@+id/recipe_item_iv"
@@ -25,12 +25,13 @@
         android:textAppearance="@style/Text.ListItem.Primary"
         android:maxLines="1"
         android:ellipsize="end"
-        android:text="Recipe Name which can also be a lenghty string with many words" />
+        local:MvxBind="Text Title" />
     <ToggleButton
         android:id="@+id/recipe_item_favorite_btn"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        style="@style/Button.Favorite" />
+        style="@style/Button.Favorite"
+        local:MvxBind="Click ToggleFavoriteTagCommand; Checked IsFavorite" />
     <TextView
         android:id="@+id/recipe_item_summary_tv"
         android:layout_below="@id/recipe_item_title_tv"
@@ -41,5 +42,5 @@
         android:textAppearance="@style/Text.ListItem.Secondary"
         android:maxLines="2"
         android:ellipsize="end"
-        android:text="Recipe description which can be event longer than recipe name and take a lot of space and even go more than one line in length oh so many words" />
+        local:MvxBind="Text Description" />
 </RelativeLayout>

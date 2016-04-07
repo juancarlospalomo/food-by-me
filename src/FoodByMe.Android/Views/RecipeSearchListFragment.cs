@@ -1,13 +1,9 @@
-﻿using System;
-using Android.OS;
+﻿using Android.OS;
 using Android.Runtime;
-using Android.Support.Design.Widget;
-using Android.Support.V4.View;
 using Android.Support.V7.Widget;
 using Android.Views;
-using Android.Widget;
 using FoodByMe.Core.ViewModels;
-using MvvmCross.Droid.Support.V7.Fragging.Attributes;
+using MvvmCross.Droid.Shared.Attributes;
 using MvvmCross.Droid.Support.V7.RecyclerView;
 
 namespace FoodByMe.Android.Views

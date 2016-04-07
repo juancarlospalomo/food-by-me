@@ -23,7 +23,7 @@ namespace FoodByMe.Android.Views
         public override void InitializationComplete()
         {
             var updateService = Mvx.Resolve<IUpdateService>();
-            updateService.UpdateToLatestVersionAsync().Wait();
+            updateService.UpdateToLatestVersion();
             base.InitializationComplete();
         }
     }

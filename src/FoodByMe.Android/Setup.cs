@@ -4,9 +4,13 @@ using System.Reflection;
 using System.Threading;
 using Android.Content;
 using FoodByMe.Android.Framework;
+using FoodByMe.Core.Framework;
+using FoodByMe.Core.Resources;
+using MvvmCross.Binding.Bindings.Target.Construction;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Droid.Platform;
-using MvvmCross.Droid.Support.V7.Fragging.Presenter;
+using MvvmCross.Droid.Shared.Presenter;
+using MvvmCross.Droid.Support.V7.AppCompat;
 using MvvmCross.Droid.Views;
 using MvvmCross.Localization;
 using MvvmCross.Platform.Converters;
@@ -24,6 +28,7 @@ namespace FoodByMe.Android
         protected override IMvxApplication CreateApp()
         {
             Thread.CurrentThread.CurrentUICulture = new CultureInfo("ru-RU");
+            Text.Culture = new CultureInfo("ru-RU");
             return new Core.App();
         }
 
@@ -36,6 +41,12 @@ namespace FoodByMe.Android
 			typeof(global::Android.Support.V4.View.ViewPager).Assembly,
 			typeof(MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView).Assembly
 		};
+
+        protected override IEnumerable<Assembly> ValueConverterAssemblies => 
+            new List<Assembly>(base.ValueConverterAssemblies)
+        {
+            typeof (CookingTimeValueConverter).Assembly
+        };
 
         protected override IMvxAndroidViewPresenter CreateViewPresenter()
         {
@@ -51,6 +62,12 @@ namespace FoodByMe.Android
         {
             base.FillValueConverters(registry);
             registry.AddOrOverwrite("Language", new MvxLanguageConverter());
+        }
+
+        protected override void FillTargetFactories(IMvxTargetBindingFactoryRegistry registry)
+        {
+            base.FillTargetFactories(registry);
+            MvxAppCompatSetupHelper.FillTargetFactories(registry);
         }
     }
 }

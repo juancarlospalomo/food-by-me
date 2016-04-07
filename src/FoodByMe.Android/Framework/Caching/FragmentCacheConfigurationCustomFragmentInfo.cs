@@ -1,3 +1,4 @@
+using MvvmCross.Droid.Shared.Caching;
 using MvvmCross.Droid.Support.V7.Fragging.Caching;
 
 namespace FoodByMe.Android.Framework.Caching
