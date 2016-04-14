@@ -1,26 +1,69 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Threading.Tasks;
+using FoodByMe.Core.Contracts;
+using FoodByMe.Core.Contracts.Data;
+using FoodByMe.Core.Contracts.Messages;
 using MvvmCross.Core.ViewModels;
+using MvvmCross.Platform;
+using MvvmCross.Platform.Platform;
+using MvvmCross.Plugins.Messenger;
 
 namespace FoodByMe.Core.ViewModels
 {
-    public class RecipeDetailedListViewModel : MvxViewModel
+    public class RecipeDetailedListViewModel : BaseViewModel
     {
-        public ObservableCollection<RecipeDisplayViewModel> Recipes { get; }
+        private readonly IRecipeCollectionService _recipeService;
+        private RecipeQuery _query;
+
+        public ObservableCollection<RecipeDisplayViewModel> Recipes { get; private set; }
 
         public RecipeDisplayViewModel SelectedRecipe { get; private set; }
 
-        public RecipeDetailedListViewModel()
+        public IMvxCommand DeleteCommand => new MvxAsyncCommand(Delete);
+
+        public IMvxCommand EditCommand => new MvxCommand(Edit);
+
+        private void Edit()
         {
+            throw new System.NotImplementedException();
+        }
+
+        private async Task Delete()
+        {
+            await _recipeService.RemoveRecipeAsync(SelectedRecipe.Id);
+            ShowViewModel<RecipeListViewModel>();
+        }
+
+        public int SelectedRecipeIndex => Recipes.IndexOf(SelectedRecipe);
+
+        public RecipeDetailedListViewModel(IRecipeCollectionService recipeService)
+        {
+            if (recipeService == null)
+            {
+                throw new ArgumentNullException(nameof(recipeService));
+            }
+            _recipeService = recipeService;
             Recipes = new ObservableCollection<RecipeDisplayViewModel>();
         }
 
-        public override void Start()
+        public void Init(RecipeDetailedListParameters parameters)
         {
-            base.Start();
             Recipes.Clear();
-            Recipes.Add(new RecipeDisplayViewModel());
-            Recipes.Add(new RecipeDisplayViewModel());
-            SelectedRecipe = new RecipeDisplayViewModel();
+            _query = new RecipeQuery
+            {
+                CategoryId = parameters.CategoryId,
+                IsFavorite = parameters.IsFavorite,
+                SearchTerm = parameters.SearchTerm
+            };
+            var recipes = _recipeService.SearchRecipesAsync(_query).Result;
+            foreach (var recipe in recipes)
+            {
+                Recipes.Add(recipe.ToRecipeDisplayViewModel());
+            }
+            SelectedRecipe = Recipes.First(x => x.Id == parameters.RecipeId);
         }
     }
 }

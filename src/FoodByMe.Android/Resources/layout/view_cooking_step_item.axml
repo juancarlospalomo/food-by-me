@@ -7,10 +7,10 @@
     <TextView
         style="@style/TextView.ListIndex"
         android:layout_marginLeft="@dimen/spacing_small"
-        android:text="1" />
+        local:MvxBind="Text Position" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/spacing_small"
-        android:text="Замесить много много теста а потом просто добавить воды и вкусного варенья побольше" />
+        local:MvxBind="Text Text"/>
 </LinearLayout>

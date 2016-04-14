@@ -51,6 +51,10 @@ namespace FoodByMe.Android.Views
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
+            if (item.ItemId == Resource.Id.save_recipe_menu_item)
+            {
+                ViewModel.SaveRecipeCommand.Execute(null);
+            }
             return base.OnOptionsItemSelected(item);
         }
 

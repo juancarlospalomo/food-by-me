@@ -6,6 +6,8 @@ namespace FoodByMe.Core.Contracts
     {
         Recipe FindRecipe(int id);
 
+        void RemoveRecipe(int id);
+
         Recipe SaveRecipe(Recipe recipe);
     }
 }

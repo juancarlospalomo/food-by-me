@@ -13,31 +13,21 @@ namespace FoodByMe.Core.ViewModels
         private readonly IMvxMessenger _messenger;
         private bool _isFavorite;
 
-        public static RecipeListItemViewModel Create(Recipe recipe, IMvxMessenger messenger)
-        {
-            return new RecipeListItemViewModel(messenger)
-            {
-                _isFavorite = recipe.IsFavorite,
-                Id = recipe.Id,
-                Title = recipe.Title,
-                Description = recipe.Notes ?? GetDescriptionFromIngredients(recipe.Ingredients),
-                CookingMinutes = recipe.CookingMinutes,
-            };
-        }
-
-        private RecipeListItemViewModel(IMvxMessenger messenger)
+        public RecipeListItemViewModel(IMvxMessenger messenger)
         {
             _messenger = messenger;
             _messenger.Subscribe<RecipeFavoriteTagChanged>(OnFavoriteTagChanged);
         }
 
-        internal int Id { get; private set; }
+        internal int Id { get; set; }
 
-        public string Title { get; private set; }
+        public string Title { get; set; }
 
-        public string Description { get; private set; }
+        public string ImageUrl { get; set; }
 
-        public int CookingMinutes { get; private set; }
+        public string Description { get; set; }
+
+        public int CookingMinutes { get; set; }
 
         public bool IsFavorite
         {
@@ -70,12 +60,6 @@ namespace FoodByMe.Core.ViewModels
             {
                 IsFavorite = message.IsFavorite;
             }
-        }
-
-        private static string GetDescriptionFromIngredients(IEnumerable<Ingredient> ingredients)
-        {
-            var texts = ingredients.Select(x => $"{x.Title} {x.Quantity}{x.Measure.ShortTitle}");
-            return string.Join(", ", texts);
         }
     }
 }

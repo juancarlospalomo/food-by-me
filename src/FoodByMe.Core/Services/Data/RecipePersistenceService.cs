@@ -45,6 +45,26 @@ namespace FoodByMe.Core.Services.Data
             _queryParser = new QueryParser(cultureProvider);
         }
 
+        public void RemoveRecipe(int id)
+        {
+            if (_isDisposed)
+            {
+                throw new ObjectDisposedException(nameof(RecipePersistenceService));
+            }
+            using (_connection.Lock())
+            {
+                _connection.RunInTransaction(() =>
+                {
+                    //Remove all fields
+                    var mapping = _connection.GetMapping<RecipeTextFieldRow>();
+                    _connection.Execute($"DELETE FROM {mapping.TableName} WHERE RecipeId = ?", id);
+
+                    //Remove recipe
+                    _connection.Delete<RecipeRow>(id);
+                });
+            }
+        }
+
         public Recipe SaveRecipe(Recipe recipe)
         {
             if (_isDisposed)

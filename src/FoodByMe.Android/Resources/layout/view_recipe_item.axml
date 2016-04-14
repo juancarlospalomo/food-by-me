@@ -7,7 +7,9 @@
     <Mvx.MvxImageView
         android:id="@+id/recipe_item_iv"
         android:layout_width="50dp"
-        android:layout_height="50dp" />
+        android:layout_height="50dp"
+        android:layout_marginRight="@dimen/spacing_normal"
+        local:MvxBind="ImageUrl ImageUrl" />
     <TextView
         android:id="@+id/recipe_item_time_tv"
         android:layout_alignParentRight="true"
@@ -15,7 +17,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="@style/Text.ListItem.Tag"
         android:maxLines="1"
-        android:text="2h 30m" />
+        local:MvxBind="Text CookingMinutes, Converter=CookingTime"/>
     <TextView
         android:id="@+id/recipe_item_title_tv"
         android:layout_toRightOf="@id/recipe_item_iv"

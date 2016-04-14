@@ -32,7 +32,8 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentRight="true"
                     android:alpha="0.8"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="centerCrop"
+                    local:MvxBind="ImageUrl ImageUri" />
                 <LinearLayout
                     android:id="@+id/recipe_display_title_layout"
                     android:layout_width="match_parent"
@@ -47,13 +48,13 @@
                         android:layout_marginTop="16dp"
                         android:layout_marginLeft="50dp"
                         android:textSize="20dp"
-                        android:text="Пирог с яблоками" />
+                        local:MvxBind="Text Title" />
                     <TextView
                         android:id="@+id/display_recipe_category_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="50dp"
-                        android:text="Десерты" />
+                        local:MvxBind="Text Category" />
                 </LinearLayout>
             </RelativeLayout>
         </android.support.design.widget.CollapsingToolbarLayout>
@@ -83,7 +84,7 @@
                     android:layout_gravity="right|top"
                     style="@style/TextView.Form.Label.Accent"
                     android:textColor="@color/accent_text"
-                    android:text="2:15" />
+                    local:MvxBind="Text CookingMinutes, Converter=CookingTime" />
             </LinearLayout>
             <TextView
                 android:layout_width="match_parent"
@@ -115,7 +116,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Какой-то возможно очень длинный текст, который я надиктовал в телефон потому что это прикольно или что-нибудь еще" />
+                android:layout_marginLeft="@dimen/spacing_small"
+                local:MvxBind="Text Notes" />
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 </android.support.design.widget.CoordinatorLayout>

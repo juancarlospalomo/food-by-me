@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using FoodByMe.Core.Contracts;
 using FoodByMe.Core.Contracts.Data;
@@ -14,7 +13,7 @@ namespace FoodByMe.Core.ViewModels
 {
     public class RecipeListViewModel : BaseViewModel
     {
-        private RecipeQuery _query;
+        private readonly RecipeQuery _query;
         private readonly IRecipeCollectionService _recipeService;
         private readonly IMvxMessenger _messenger;
         private ObservableCollection<RecipeListItemViewModel> _recipes;
@@ -81,7 +80,13 @@ namespace FoodByMe.Core.ViewModels
 
         private void ShowRecipe(RecipeListItemViewModel recipe)
         {
-            ShowViewModel<RecipeDetailedListViewModel>();
+            ShowViewModel<RecipeDetailedListViewModel>(new RecipeDetailedListParameters
+            {
+                RecipeId = recipe.Id,
+                CategoryId = _query.CategoryId,
+                IsFavorite = _query.IsFavorite,
+                SearchTerm = _query.SearchTerm
+            });
         }
 
         private void AddRecipe()
@@ -103,23 +108,28 @@ namespace FoodByMe.Core.ViewModels
         {
         }
 
-        private void OnRecipeAdded(RecipeAdded recipe)
+        private void OnRecipeAdded(RecipeAdded @event)
         {
-            
+            Recipes.Add(@event.Recipe.ToRecipeListItemViewModel(_messenger));
         }
 
         private void OnRecipeUpdated(RecipeUpdated obj)
         {
         }
 
-        private void OnRecipeRemoved(RecipeRemoved obj)
+        private void OnRecipeRemoved(RecipeRemoved @event)
         {
+            var recipe = Recipes.FirstOrDefault(x => x.Id == @event.RecipeId);
+            if (recipe != null)
+            {
+                Recipes.Remove(recipe);
+            }
         }
 
         private async void Refresh(RecipeQuery query)
         {
             var recipes = await _recipeService.SearchRecipesAsync(query);
-            var items = recipes.Select(x => RecipeListItemViewModel.Create(x, _messenger));
+            var items = recipes.Select(x => x.ToRecipeListItemViewModel(_messenger));
             Recipes = new ObservableCollection<RecipeListItemViewModel>(items);            
         }
     }

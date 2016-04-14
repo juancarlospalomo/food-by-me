@@ -23,11 +23,12 @@ namespace FoodByMe.Core.ViewModels
         private readonly IRecipeCollectionService _recipeService;
         private IReadOnlyList<Measure> _measures;
 
+        private string _notes;
         private string _title;
         private RecipeCategory _category;
         private int _cookingTimeSliderValue;
+        private string _photoPath;
         
-
         public RecipeEditViewModel(IMvxMessenger messenger, IRecipeCollectionService recipeService)
         {
             if (recipeService == null)
@@ -46,7 +47,6 @@ namespace FoodByMe.Core.ViewModels
             Subscriptions.Add(_messenger.Subscribe<CookingStepRemoving>(OnCookingStepRemoving));
         }
         
-
         public string Title
         {
             get { return _title; }
@@ -54,6 +54,26 @@ namespace FoodByMe.Core.ViewModels
             {
                 _title = value;
                 RaisePropertyChanged(() => Title);
+            }
+        }
+
+        public string Notes
+        {
+            get { return _notes; }
+            set
+            {
+                _notes = value;
+                RaisePropertyChanged(() => Notes);
+            }
+        }
+
+        public string PhotoPath
+        {
+            get { return _photoPath; }
+            set
+            {
+                _photoPath = value;
+                RaisePropertyChanged(() => PhotoPath);
             }
         }
 
@@ -90,6 +110,8 @@ namespace FoodByMe.Core.ViewModels
 
         public ICommand ChoosePhotoCommand => new MvxAsyncCommand(ChoosePhoto);
 
+        public ICommand SaveRecipeCommand => new MvxAsyncCommand(SaveRecipe, CanSaveRecipe);
+
         public ICommand AddIngredientCommand => new MvxCommand(AddIngredient);
 
         public ICommand AddStepCommand => new MvxCommand(AddStep);
@@ -112,15 +134,38 @@ namespace FoodByMe.Core.ViewModels
             }
         }
 
+        private bool CanSaveRecipe()
+        {
+            return !string.IsNullOrEmpty(Title);
+        }
+
+        private async Task SaveRecipe()
+        {
+            var recipe = this.ToRecipe();
+            await _recipeService.SaveRecipeAsync(recipe);
+            ShowViewModel<RecipeListViewModel>();
+        }
+
         private async Task TakePhoto()
         {
             var options = new StoreCameraMediaOptions();
             var file = await CrossMedia.Current.TakePhotoAsync(options);
+            SetPhoto(file);
         }
 
         private async Task ChoosePhoto()
         {
             var file = await CrossMedia.Current.PickPhotoAsync();
+            SetPhoto(file);
+        }
+
+        private void SetPhoto(MediaFile file)
+        {
+            if (file == null)
+            {
+                return;
+            }
+            PhotoPath = file.Path;
         }
 
         private void AddStep()
@@ -155,7 +200,7 @@ namespace FoodByMe.Core.ViewModels
             UpdatePositions(Ingredients);
         }
 
-        private void UpdatePositions(IReadOnlyList<IPositionable> collection)
+        private static void UpdatePositions(IReadOnlyList<IPositionable> collection)
         {
             for (var i = 0; i < collection.Count; i++)
             {

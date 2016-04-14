@@ -56,14 +56,24 @@ namespace FoodByMe.Core.Services
             }
             return Task.Run(() =>
             {
-                var add = recipe.Id != default(int);
-                if (!add)
+                var add = recipe.Id == default(int);
+                if (add)
                 {
-                    recipe.LastModifiedAt = new DateTime();
+                    recipe.CreatedAt = new DateTime();
                 }
+                recipe.LastModifiedAt = new DateTime();
                 recipe = _recipePersistenceService.SaveRecipe(recipe);
                 var message = add ? (MvxMessage) new RecipeAdded(this, recipe) : new RecipeUpdated(this, recipe);
                 _messenger.Publish(message);
+            });
+        }
+
+        public Task RemoveRecipeAsync(int recipeId)
+        {
+            return Task.Run(() =>
+            {
+                _recipePersistenceService.RemoveRecipe(recipeId);
+                _messenger.Publish(new RecipeRemoved(this, recipeId));
             });
         }
 

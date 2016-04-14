@@ -2320,6 +2320,9 @@ namespace FoodByMe.Android
 			// aapt resource value: 0x7f060032
 			public const int right = 2131099698;
 			
+			// aapt resource value: 0x7f0600a2
+			public const int save_recipe_menu_item = 2131099810;
+			
 			// aapt resource value: 0x7f060019
 			public const int screen = 2131099673;
 			
@@ -2362,8 +2365,8 @@ namespace FoodByMe.Android
 			// aapt resource value: 0x7f060064
 			public const int search_plate = 2131099748;
 			
-			// aapt resource value: 0x7f0600a2
-			public const int search_recipes_menu_item = 2131099810;
+			// aapt resource value: 0x7f0600a3
+			public const int search_recipes_menu_item = 2131099811;
 			
 			// aapt resource value: 0x7f060065
 			public const int search_src_text = 2131099749;

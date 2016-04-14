@@ -1,46 +1,33 @@
 using System;
 using System.Collections.Generic;
+using FoodByMe.Core.Contracts.Messages;
+using MvvmCross.Core.ViewModels;
+using MvvmCross.Plugins.Messenger;
 
 namespace FoodByMe.Core.ViewModels
 {
     public class RecipeDisplayViewModel : BaseViewModel
     {
-        private string _title;
-
         public RecipeDisplayViewModel()
         {
-            var r = new Random();
-            _title = $"Recipe ${r.Next()}";
             Ingredients = new List<IngredientDisplayViewModel>();
             CookingSteps = new List<CookingStepDisplayViewModel>();
         }
 
-        public string Title
-        {
-            get { return _title; }
-            set
-            {
-                _title = value;
-                RaisePropertyChanged(() => Title);
-            }
-        }
+        public int Id { get; set; }
 
-        public List<IngredientDisplayViewModel> Ingredients { get; private set; }
+        public string Title { get; set; }
 
-        public List<CookingStepDisplayViewModel> CookingSteps { get; private set; }
+        public int CookingMinutes { get; set; }
 
-        public override void Start()
-        {
-            base.Start();
-            Ingredients.Clear();
-            Ingredients.Add(new IngredientDisplayViewModel());
-            Ingredients.Add(new IngredientDisplayViewModel());
-            Ingredients.Add(new IngredientDisplayViewModel());
-            CookingSteps.Clear();
-            CookingSteps.Add(new CookingStepDisplayViewModel());
-            CookingSteps.Add(new CookingStepDisplayViewModel());
-            CookingSteps.Add(new CookingStepDisplayViewModel());
-            CookingSteps.Add(new CookingStepDisplayViewModel());
-        }
+        public string Category { get; set; }
+
+        public string ImageUri { get; set; }
+
+        public string Notes { get; set; }
+
+        public List<IngredientDisplayViewModel> Ingredients { get; set; }
+
+        public List<CookingStepDisplayViewModel> CookingSteps { get; set; }
     }
 }

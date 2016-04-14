@@ -12,6 +12,8 @@ namespace FoodByMe.Core.Contracts
 
         Task SaveRecipeAsync(Recipe recipe);
 
+        Task RemoveRecipeAsync(int recipeId);
+
         Task ToggleRecipeFavoriteTagAsync(int recipeId, bool isFavorite);
 
         IReferenceBookService ReferenceBook { get; }

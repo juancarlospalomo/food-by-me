@@ -223,6 +223,7 @@
     <Compile Include="Bootstrap\VisibilityPluginBootstrap.cs" />
     <Compile Include="Framework\MvxFixedFragmentStatePagerAdapter.cs" />
     <Compile Include="Framework\FixedFragmentStatePagerAdapter.cs" />
+    <Compile Include="Framework\ObservableCollectionFragmentStatePagerAdapter.cs" />
     <Compile Include="MainApplication.cs" />
     <Compile Include="Views\ContentFragment%271.cs" />
     <Compile Include="Framework\Caching\FragmentCacheConfigurationCustomFragmentInfo.cs" />
