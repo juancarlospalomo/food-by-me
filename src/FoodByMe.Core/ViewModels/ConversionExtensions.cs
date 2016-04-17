@@ -31,6 +31,7 @@ namespace FoodByMe.Core.ViewModels
                 .ToList();
             return new Recipe
             {
+                Id = vm.Id,
                 Title = vm.Title,
                 ImageUri = vm.PhotoPath,
                 Category = vm.Category,

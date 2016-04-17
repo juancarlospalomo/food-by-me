@@ -4,7 +4,7 @@
     {
         public int? CategoryId { get; set; }
 
-        public bool? IsFavorite { get; set; }
+        public bool OnlyFavorite { get; set; }
 
         public string SearchTerm { get; set; }
 

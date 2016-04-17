@@ -3,11 +3,16 @@ using Android.OS;
 using Android.Runtime;
 using Android.Support.Design.Widget;
 using Android.Support.V4.View;
+using Android.Support.V7.App;
 using Android.Support.V7.Widget;
 using Android.Views;
+using FoodByMe.Core.Contracts;
+using FoodByMe.Core.Resources;
 using FoodByMe.Core.ViewModels;
 using MvvmCross.Droid.Shared.Attributes;
 using MvvmCross.Droid.Support.V7.RecyclerView;
+using MvvmCross.Platform;
+using MvvmCross.Plugins.Messenger;
 using SearchView = Android.Support.V7.Widget.SearchView;
 
 namespace FoodByMe.Android.Views
@@ -16,7 +21,15 @@ namespace FoodByMe.Android.Views
     [Register("foodbyme.android.views.RecipeListFragment")]
     public class RecipeListFragment : ContentFragment<RecipeListViewModel>
     {
-        private IDisposable _itemSelectedToken;
+        private MvxSubscriptionToken _recipeListLoadedToken;
+        private readonly IReferenceBookService _referenceBook;
+
+        public RecipeListFragment()
+        {
+            var messenger = Mvx.Resolve<IMvxMessenger>();
+            _referenceBook = Mvx.Resolve<IReferenceBookService>();
+            _recipeListLoadedToken = messenger.Subscribe<RecipeListLoaded>(OnRecipeListLoaded);
+        }
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -34,8 +47,6 @@ namespace FoodByMe.Android.Views
             base.OnCreateOptionsMenu(menu, inflater);
         }
 
-        
-
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = base.OnCreateView(inflater, container, savedInstanceState);
@@ -47,22 +58,10 @@ namespace FoodByMe.Android.Views
                 var layoutManager = new LinearLayoutManager(Activity);
                 recyclerView.SetLayoutManager(layoutManager);
             }
-
-            //_itemSelectedToken = ViewModel.WeakSubscribe(() => ViewModel.SelectedItem,
-            //    (sender, args) => {
-            //        if (ViewModel.SelectedItem != null)
-            //            Toast.MakeText(Activity,
-            //                $"Selected: {ViewModel.SelectedItem.Title}",
-            //                ToastLength.Short).Show();
-            //    });
-
-            //var swipeToRefresh = view.FindViewById<MvxSwipeRefreshLayout>(Resource.Id.refresher);
-            //var appBar = Activity.FindViewById<AppBarLayout>(Resource.Id.appbar);
-            //if (appBar != null)
-            //    appBar.OffsetChanged += (sender, args) => swipeToRefresh.Enabled = args.VerticalOffset == 0;
-
             return view;
         }
+
+        protected override int FragmentId => Resource.Layout.fragment_recipe_list;
 
         private void OnSearchSubmitted(object sender, SearchView.QueryTextSubmitEventArgs e)
         {
@@ -70,13 +69,26 @@ namespace FoodByMe.Android.Views
             e.Handled = true;
         }
 
-        protected override int FragmentId => Resource.Layout.fragment_recipe_list;
-
-        public override void OnDestroyView()
+        private void OnRecipeListLoaded(RecipeListLoaded @event)
         {
-            base.OnDestroyView();
-            //_itemSelectedToken.Dispose();
-            //_itemSelectedToken = null;
+            var compatActivity = (AppCompatActivity) Activity;
+            if (compatActivity.SupportActionBar == null)
+            {
+                return;
+            }
+            if (@event.Parameters.IsFavoriteSelected)
+            {
+                compatActivity.SupportActionBar.Title = Text.FavoritesLabel;
+            }
+            else if (@event.Parameters.CategorySelected)
+            {
+                var category = _referenceBook.LookupCategory(@event.Parameters.CategoryId);
+                compatActivity.SupportActionBar.Title = category.Title;
+            }
+            else
+            {
+                compatActivity.SupportActionBar.Title = Text.AllRecipesLabel;
+            }
         }
     }
 }

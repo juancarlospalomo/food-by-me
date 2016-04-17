@@ -46,6 +46,10 @@ namespace FoodByMe.Core.ViewModels
             Subscriptions.Add(_messenger.Subscribe<IngredientRemoving>(OnIngredientRemoving));
             Subscriptions.Add(_messenger.Subscribe<CookingStepRemoving>(OnCookingStepRemoving));
         }
+
+        public int Id { get; set; }
+
+        public bool IsFavorite { get; set; }
         
         public string Title
         {
@@ -100,7 +104,11 @@ namespace FoodByMe.Core.ViewModels
             }
         }
 
-        public int CookingTimeInMinutes => CalculateCookingTimeInMinutes(_cookingTimeSliderValue);
+        public int CookingTimeInMinutes
+        {
+            get { return CookingMinutesSliderConverter.ToMinutes(CookingTimeSliderValue); }
+            set { CookingTimeSliderValue = CookingMinutesSliderConverter.FromMinutes(value); }
+        }
 
         public ObservableCollection<IngredientEditViewModel> Ingredients { get; }
 
@@ -116,21 +124,72 @@ namespace FoodByMe.Core.ViewModels
 
         public ICommand AddStepCommand => new MvxCommand(AddStep);
 
-        public override void Start()
+        public void Init(RecipeEditParameters parameters)
         {
-            base.Start();
             _measures = _recipeService.ReferenceBook.ListMeasures();
             Categories = _recipeService.ReferenceBook.ListCategories();
-            Category = Categories.FirstOrDefault();
-            Ingredients.Clear();
-            Steps.Clear();
-            for (var i = 0; i < DefaultIngredients; i++)
+            if (parameters?.RecipeId != null && parameters?.RecipeId != default (int))
             {
-                AddIngredient();
+                InitEditMode(parameters.RecipeId);
             }
-            for (var i = 0; i < DefaultSteps; i++)
+            else
             {
-                AddStep();
+                InitAddMode();
+            }
+        }
+
+        private void InitAddMode()
+        {
+            Id = default(int);
+            IsFavorite = false;
+            Title = null;
+            Category = Categories.FirstOrDefault();
+            Notes = null;
+            CookingTimeSliderValue = 0;
+            var steps = Enumerable.Range(0, DefaultSteps)
+                .Select(i => new CookingStepEditViewModel(_messenger, i + 1))
+                .ToList();
+            Steps.Clear();
+            foreach (var step in steps)
+            {
+                Steps.Add(step);
+            }
+            var ingredients = Enumerable.Range(0, DefaultIngredients)
+                .Select(i => new IngredientEditViewModel(_messenger, _measures, i + 1))
+                .ToList();
+            Ingredients.Clear();
+            foreach (var ingredient in ingredients)
+            {
+                Ingredients.Add(ingredient);
+            }
+        }
+
+        private void InitEditMode(int recipeId)
+        {
+            var recipe = _recipeService.FindRecipeAsync(recipeId).Result;
+            Id = recipeId;
+            IsFavorite = recipe.IsFavorite;
+            Title = recipe.Title;
+            Category = recipe.Category;
+            CookingTimeInMinutes = recipe.CookingMinutes;
+            Notes = recipe.Notes;
+            Ingredients.Clear();
+            for (var i = 0; i < recipe.Ingredients.Count; i++)
+            {
+                Ingredients.Add(new IngredientEditViewModel(_messenger, _measures, i + 1)
+                {
+                    Title = recipe.Ingredients[i].Title,
+                    Measure = recipe.Ingredients[i].Measure,
+                    Quantity = recipe.Ingredients[i].Quantity
+                });
+            }
+            Steps.Clear();
+            for (var i = 0; i < recipe.CookingSteps.Count; i++)
+            {
+                Steps.Add(new CookingStepEditViewModel(_messenger, i + 1)
+                {
+                    Text = recipe.CookingSteps[i]
+                });
             }
         }
 
@@ -143,7 +202,7 @@ namespace FoodByMe.Core.ViewModels
         {
             var recipe = this.ToRecipe();
             await _recipeService.SaveRecipeAsync(recipe);
-            ShowViewModel<RecipeListViewModel>();
+            ShowViewModel<RecipeListViewModel>(new RecipeListParameters());
         }
 
         private async Task TakePhoto()
@@ -206,18 +265,6 @@ namespace FoodByMe.Core.ViewModels
             {
                 collection[i].Position = i + 1;
             }
-        }
-
-        private static int CalculateCookingTimeInMinutes(int sliderValue)
-        {
-            const int min = 1;
-            const int threshold = 20;
-            const int multiplier = 5;
-            sliderValue = sliderValue + min;
-            var value = sliderValue <= threshold
-                ? sliderValue
-                : threshold + (sliderValue - threshold)*multiplier;
-            return value;
         }
     }
 }

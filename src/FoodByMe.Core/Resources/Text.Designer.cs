@@ -80,11 +80,29 @@ namespace FoodByMe.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All Recipes.
+        /// </summary>
+        public static string AllRecipesLabel {
+            get {
+                return ResourceManager.GetString("AllRecipesLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         public static string Cancel {
             get {
                 return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Categories.
+        /// </summary>
+        public static string CategoriesLabel {
+            get {
+                return ResourceManager.GetString("CategoriesLabel", resourceCulture);
             }
         }
         
@@ -112,6 +130,15 @@ namespace FoodByMe.Core.Resources {
         public static string CookingTimeLabel {
             get {
                 return ResourceManager.GetString("CookingTimeLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Favorites.
+        /// </summary>
+        public static string FavoritesLabel {
+            get {
+                return ResourceManager.GetString("FavoritesLabel", resourceCulture);
             }
         }
         

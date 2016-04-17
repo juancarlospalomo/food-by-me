@@ -24,8 +24,9 @@
             public const int Desserts = 3;
             public const int Dinner = 4;
             public const int Drinks = 5;
-            public const int Other = 6;
-            public const int Salads = 7;
+            public const int Salads = 6;
+            public const int Other = 7;
+            
         }
     }
 }

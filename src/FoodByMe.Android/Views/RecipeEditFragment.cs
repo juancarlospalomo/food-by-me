@@ -40,6 +40,7 @@ namespace FoodByMe.Android.Views
             _chooseImageButton = view.FindViewById<FloatingActionButton>(Resource.Id.choose_photo_button);
             _chooseImageButton.Click += OnChooseImageButtonClick;
             ViewModel.PropertyChanged += OnViewModelPropertyChanged;
+            _toolbarLayout.Title = ViewModel.Title;
             return view;
         }
 

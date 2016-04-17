@@ -220,7 +220,7 @@
     <value>Горячие блюда</value>
   </data>
   <data name="ReferenceCategoryDesserts" xml:space="preserve">
-    <value>Десетры</value>
+    <value>Десерты</value>
   </data>
   <data name="ReferenceCategoryDrinks" xml:space="preserve">
     <value>Напитки</value>
@@ -254,5 +254,14 @@
   </data>
   <data name="PickPhoto" xml:space="preserve">
     <value>Выбрать фото</value>
+  </data>
+  <data name="AllRecipesLabel" xml:space="preserve">
+    <value>Все рецепты</value>
+  </data>
+  <data name="CategoriesLabel" xml:space="preserve">
+    <value>Категории</value>
+  </data>
+  <data name="FavoritesLabel" xml:space="preserve">
+    <value>Любимые</value>
   </data>
 </root>

@@ -112,6 +112,7 @@
     <Compile Include="Services\Updates\UpdateService.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\ConversionExtensions.cs" />
+    <Compile Include="ViewModels\CookingMinutesSliderConverter.cs" />
     <Compile Include="ViewModels\CookingStepDisplayViewModel.cs" />
     <Compile Include="ViewModels\CookingStepEditViewModel.cs" />
     <Compile Include="ViewModels\FirstViewModel.cs" />
@@ -119,7 +120,10 @@
     <Compile Include="ViewModels\IngredientEditViewModel.cs" />
     <Compile Include="ViewModels\IPositionable.cs" />
     <Compile Include="ViewModels\RecipeDetailedListParameters.cs" />
+    <Compile Include="ViewModels\RecipeEditParameters.cs" />
     <Compile Include="ViewModels\RecipeListItemViewModel.cs" />
+    <Compile Include="ViewModels\RecipeListLoaded.cs" />
+    <Compile Include="ViewModels\RecipeListParameters.cs" />
     <Compile Include="ViewModels\RecipeListViewModel.cs" />
     <Compile Include="ViewModels\RecipeDetailedListViewModel.cs" />
     <Compile Include="ViewModels\RecipeCategoryMenuViewModel.cs" />

@@ -46,6 +46,7 @@ namespace FoodByMe.Android.Views
 
         private void OnPageSelected(object sender, ViewPager.PageSelectedEventArgs e)
         {
+            ViewModel.SelectedRecipeIndex = e.Position;
             var actionBar = (Activity as AppCompatActivity)?.SupportActionBar;
             if (actionBar != null)
             {
@@ -59,6 +60,9 @@ namespace FoodByMe.Android.Views
             {
                 case Resource.Id.delete_recipe_menu_item:
                     ViewModel.DeleteCommand.Execute();
+                    break;
+                case Resource.Id.edit_recipe_menu_item:
+                    ViewModel.EditCommand.Execute();
                     break;
             }
             return base.OnOptionsItemSelected(item);

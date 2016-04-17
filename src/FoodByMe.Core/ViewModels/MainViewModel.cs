@@ -1,4 +1,6 @@
-﻿using MvvmCross.Core.ViewModels;
+﻿using System;
+using MvvmCross.Core.ViewModels;
+using MvvmCross.Platform;
 
 namespace FoodByMe.Core.ViewModels
 {
@@ -11,7 +13,7 @@ namespace FoodByMe.Core.ViewModels
         public void Load()
         {
             ShowViewModel<RecipeCategoryMenuViewModel>();
-            ShowViewModel<RecipeListViewModel>();
+            ShowViewModel<RecipeListViewModel>(new RecipeListParameters());
         }
     }
 }

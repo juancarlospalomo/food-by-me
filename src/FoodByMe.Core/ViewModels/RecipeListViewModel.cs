@@ -13,7 +13,7 @@ namespace FoodByMe.Core.ViewModels
 {
     public class RecipeListViewModel : BaseViewModel
     {
-        private readonly RecipeQuery _query;
+        private RecipeQuery _query;
         private readonly IRecipeCollectionService _recipeService;
         private readonly IMvxMessenger _messenger;
         private ObservableCollection<RecipeListItemViewModel> _recipes;
@@ -58,24 +58,16 @@ namespace FoodByMe.Core.ViewModels
 
         public ICommand AddRecipeCommand => new MvxCommand(AddRecipe);
 
-        public override void Start()
+        public void Init(RecipeListParameters parameters)
         {
+            _query = parameters == null ? new RecipeQuery() : new RecipeQuery
+            {
+                CategoryId = parameters.CategorySelected ? parameters.CategoryId : (int?) null,
+                OnlyFavorite = parameters.IsFavoriteSelected,
+                SearchTerm = parameters.SearchTerm
+            };
             Refresh(_query);
-        }
-
-        protected override void InitFromBundle(IMvxBundle parameters)
-        {
-            base.InitFromBundle(parameters);
-        }
-
-        protected override void SaveStateToBundle(IMvxBundle bundle)
-        {
-            base.SaveStateToBundle(bundle);
-        }
-
-        protected override void ReloadFromBundle(IMvxBundle state)
-        {
-            base.ReloadFromBundle(state);
+            _messenger.Publish(new RecipeListLoaded(this, parameters));
         }
 
         private void ShowRecipe(RecipeListItemViewModel recipe)
@@ -83,15 +75,16 @@ namespace FoodByMe.Core.ViewModels
             ShowViewModel<RecipeDetailedListViewModel>(new RecipeDetailedListParameters
             {
                 RecipeId = recipe.Id,
-                CategoryId = _query.CategoryId,
-                IsFavorite = _query.IsFavorite,
+                CategoryId = _query.CategoryId ?? default(int),
+                CategorySelected = _query.CategoryId.HasValue,
+                IsFavoriteSelected = _query.OnlyFavorite,
                 SearchTerm = _query.SearchTerm
             });
         }
 
         private void AddRecipe()
         {
-            ShowViewModel<RecipeEditViewModel>();
+            ShowViewModel<RecipeEditViewModel>(new RecipeEditParameters());
         }
 
         private void SearchRecipes(string query)
@@ -113,8 +106,15 @@ namespace FoodByMe.Core.ViewModels
             Recipes.Add(@event.Recipe.ToRecipeListItemViewModel(_messenger));
         }
 
-        private void OnRecipeUpdated(RecipeUpdated obj)
+        private void OnRecipeUpdated(RecipeUpdated @event)
         {
+            var old = _recipes.FirstOrDefault(x => x.Id == @event.Recipe.Id);
+            if (old == null)
+            {
+                return;
+            }
+            var index = _recipes.IndexOf(old);
+            Recipes[index] = @event.Recipe.ToRecipeListItemViewModel(_messenger);
         }
 
         private void OnRecipeRemoved(RecipeRemoved @event)

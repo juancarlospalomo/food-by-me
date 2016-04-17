@@ -255,4 +255,13 @@
   <data name="PickPhoto" xml:space="preserve">
     <value>Pick a photo</value>
   </data>
+  <data name="AllRecipesLabel" xml:space="preserve">
+    <value>All Recipes</value>
+  </data>
+  <data name="CategoriesLabel" xml:space="preserve">
+    <value>Categories</value>
+  </data>
+  <data name="FavoritesLabel" xml:space="preserve">
+    <value>Favorites</value>
+  </data>
 </root>

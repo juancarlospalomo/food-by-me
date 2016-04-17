@@ -44,8 +44,8 @@ namespace FoodByMe.Core.Services.Data
                 new RecipeCategory {Id = Constants.Categories.Desserts, Title = Text.ReferenceCategoryDesserts},
                 new RecipeCategory {Id = Constants.Categories.Dinner, Title = Text.ReferenceCategoryDinner},
                 new RecipeCategory {Id = Constants.Categories.Drinks, Title = Text.ReferenceCategoryDrinks},
+                new RecipeCategory {Id = Constants.Categories.Salads, Title = Text.ReferenceCategorySalads},
                 new RecipeCategory {Id = Constants.Categories.Other, Title = Text.ReferenceCategoryOther},
-                new RecipeCategory {Id = Constants.Categories.Salads, Title = Text.ReferenceCategorySalads}
             };
             return categories;
         }

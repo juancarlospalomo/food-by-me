@@ -52,7 +52,6 @@
                 android:layout_height="wrap_content"
                 local:hintTextAppearance="@style/Text.Form.LabelHint">
                 <EditText
-                    android:id="@+id/input_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     local:MvxLang="Hint RecipeNameLabel"

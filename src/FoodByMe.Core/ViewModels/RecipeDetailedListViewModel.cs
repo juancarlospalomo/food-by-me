@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,8 +6,6 @@ using FoodByMe.Core.Contracts;
 using FoodByMe.Core.Contracts.Data;
 using FoodByMe.Core.Contracts.Messages;
 using MvvmCross.Core.ViewModels;
-using MvvmCross.Platform;
-using MvvmCross.Platform.Platform;
 using MvvmCross.Plugins.Messenger;
 
 namespace FoodByMe.Core.ViewModels
@@ -17,27 +14,6 @@ namespace FoodByMe.Core.ViewModels
     {
         private readonly IRecipeCollectionService _recipeService;
         private RecipeQuery _query;
-
-        public ObservableCollection<RecipeDisplayViewModel> Recipes { get; private set; }
-
-        public RecipeDisplayViewModel SelectedRecipe { get; private set; }
-
-        public IMvxCommand DeleteCommand => new MvxAsyncCommand(Delete);
-
-        public IMvxCommand EditCommand => new MvxCommand(Edit);
-
-        private void Edit()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        private async Task Delete()
-        {
-            await _recipeService.RemoveRecipeAsync(SelectedRecipe.Id);
-            ShowViewModel<RecipeListViewModel>();
-        }
-
-        public int SelectedRecipeIndex => Recipes.IndexOf(SelectedRecipe);
 
         public RecipeDetailedListViewModel(IRecipeCollectionService recipeService)
         {
@@ -49,13 +25,21 @@ namespace FoodByMe.Core.ViewModels
             Recipes = new ObservableCollection<RecipeDisplayViewModel>();
         }
 
+        public ObservableCollection<RecipeDisplayViewModel> Recipes { get; }
+
+        public int SelectedRecipeIndex { get; set; }
+
+        public IMvxCommand DeleteCommand => new MvxAsyncCommand(Delete);
+
+        public IMvxCommand EditCommand => new MvxCommand(Edit);
+
         public void Init(RecipeDetailedListParameters parameters)
         {
             Recipes.Clear();
             _query = new RecipeQuery
             {
-                CategoryId = parameters.CategoryId,
-                IsFavorite = parameters.IsFavorite,
+                CategoryId = parameters.CategorySelected ? parameters.CategoryId : (int?)null,
+                OnlyFavorite = parameters.IsFavoriteSelected,
                 SearchTerm = parameters.SearchTerm
             };
             var recipes = _recipeService.SearchRecipesAsync(_query).Result;
@@ -63,7 +47,22 @@ namespace FoodByMe.Core.ViewModels
             {
                 Recipes.Add(recipe.ToRecipeDisplayViewModel());
             }
-            SelectedRecipe = Recipes.First(x => x.Id == parameters.RecipeId);
+            var selected = Recipes.First(x => x.Id == parameters.RecipeId);
+            var index = Recipes.IndexOf(selected);
+            SelectedRecipeIndex = index;
+        }
+
+        private void Edit()
+        {
+            var id = Recipes[SelectedRecipeIndex].Id;
+            ShowViewModel<RecipeEditViewModel>(new RecipeEditParameters {RecipeId = id});
+        }
+
+        private async Task Delete()
+        {
+            var id = Recipes[SelectedRecipeIndex].Id;
+            await _recipeService.RemoveRecipeAsync(id);
+            ShowViewModel<RecipeListViewModel>();
         }
     }
 }
