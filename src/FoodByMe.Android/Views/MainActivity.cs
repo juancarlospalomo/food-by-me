@@ -123,7 +123,6 @@ namespace FoodByMe.Android.Views
             if (DrawerLayout != null && DrawerLayout.IsDrawerOpen(GravityCompat.Start))
             {
                 DrawerLayout.CloseDrawers();
-
             }
             else
             {

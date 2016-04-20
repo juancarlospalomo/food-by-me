@@ -6,7 +6,6 @@ using FoodByMe.Core.Contracts;
 using FoodByMe.Core.Contracts.Data;
 using FoodByMe.Core.Contracts.Messages;
 using MvvmCross.Core.ViewModels;
-using MvvmCross.Plugins.Messenger;
 
 namespace FoodByMe.Core.ViewModels
 {
@@ -63,6 +62,29 @@ namespace FoodByMe.Core.ViewModels
             var id = Recipes[SelectedRecipeIndex].Id;
             await _recipeService.RemoveRecipeAsync(id);
             ShowViewModel<RecipeListViewModel>();
+        }
+
+        private void OnRecipeUpdated(RecipeUpdated @event)
+        {
+            var recipe = Recipes.FirstOrDefault(x => x.Id == @event.Recipe.Id);
+            // Ugly but true
+            recipe.Title = @event.Recipe.Title;
+            recipe.Category = @event.Recipe.Category.Title;
+            recipe.CookingMinutes = @event.Recipe.CookingMinutes;
+            recipe.CookingSteps = @event.Recipe.CookingSteps
+                .Select((x, i) => new CookingStepDisplayViewModel {Position = i + 1, Text = x})
+                .ToList();
+            recipe.ImageUri = @event.Recipe.ImageUri;
+            recipe.Ingredients = @event.Recipe.Ingredients
+                .Select((x, i) => new IngredientDisplayViewModel
+                {
+                    Measure = x.Measure,
+                    Title = x.Title,
+                    Quantity = x.Quantity,
+                    Position = i + 1
+                })
+                .ToList();
+            recipe.Notes = @event.Recipe.Notes;
         }
     }
 }

@@ -59,7 +59,7 @@ namespace FoodByMe.Core.Services.Data
             if (!string.IsNullOrEmpty(query.SearchTerm))
             {
                 parameters.Add(query.SearchTerm);
-                filters.Add("RecipeTextField MATCH ?");
+                filters.Add("RecipeTextSearch MATCH ?");
             }
             var filtersSql = filters.Count > 0
                 ? $"WHERE {string.Join("AND", filters)}"

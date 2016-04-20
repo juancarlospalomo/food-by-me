@@ -36,6 +36,8 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Contracts\Data\Ingredient.cs" />
+    <Compile Include="Contracts\IPictureOptimizer.cs" />
+    <Compile Include="Contracts\IPictureStorageService.cs" />
     <Compile Include="Contracts\IRecipeCollectionService.cs" />
     <Compile Include="Contracts\IRecipePersistenceService.cs" />
     <Compile Include="Contracts\ISearchService.cs" />
@@ -95,6 +97,7 @@
     <Compile Include="Contracts\IReferenceBookService.cs" />
     <Compile Include="Services\Data\StaticData.cs" />
     <Compile Include="Services\Data\Types\IngredientBlob.cs" />
+    <Compile Include="Services\PictureStorageService.cs" />
     <Compile Include="Services\RecipeCollectionService.cs" />
     <Compile Include="Services\Updates\02_DefaultRecipesUpdate.cs" />
     <Compile Include="Services\Updates\IUpdate.cs" />

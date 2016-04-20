@@ -3,11 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using Android.App;
 using Android.Support.V4.App;
 using FoodByMe.Android.Views;
 using Java.Lang;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Platform.Core;
+using Fragment = Android.Support.V4.App.Fragment;
+using FragmentManager = Android.Support.V4.App.FragmentManager;
 
 namespace FoodByMe.Android.Framework
 {
@@ -51,7 +54,7 @@ namespace FoodByMe.Android.Framework
         private void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
             _cache.Clear();
-            NotifyDataSetChanged();
+            Application.SynchronizationContext.Post(x => NotifyDataSetChanged(), null);
         }
     }
 }

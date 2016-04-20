@@ -11,7 +11,7 @@ namespace FoodByMe.Android.Views
 {
     public abstract class ContentFragment : MvxFragment, View.IOnClickListener
     {
-        private Toolbar _toolbar;
+        protected Toolbar Toolbar;
 
         public MvxActionBarDrawerToggle DrawerToggle;
 
@@ -26,18 +26,20 @@ namespace FoodByMe.Android.Views
             base.OnCreateView(inflater, container, savedInstanceState);
 
             var view = this.BindingInflate(FragmentId, null);
-            _toolbar = view.FindViewById<Toolbar>(Resource.Id.toolbar);
+            Toolbar = view.FindViewById<Toolbar>(Resource.Id.toolbar);
             
-            if (_toolbar != null)
+            if (Toolbar != null)
             {
-                ((MainActivity)Activity).SetSupportActionBar(_toolbar);
+                ((MainActivity)Activity).SetSupportActionBar(Toolbar);
+                Toolbar.Title = "123";
+                ((MainActivity) Activity).SupportActionBar.Title = "123";
                 ((MainActivity)Activity).SupportActionBar.SetDisplayHomeAsUpEnabled(true);
 
 
                 DrawerToggle = new MvxActionBarDrawerToggle(
                     Activity,                               // host Activity
                     ((MainActivity)Activity).DrawerLayout,  // DrawerLayout object
-                    _toolbar,                               // nav drawer icon to replace 'Up' caret
+                    Toolbar,                               // nav drawer icon to replace 'Up' caret
                     Resource.String.drawer_open,            // "open drawer" description
                     Resource.String.drawer_close            // "close drawer" description
                 );
@@ -56,7 +58,7 @@ namespace FoodByMe.Android.Views
         public override void OnConfigurationChanged(Configuration newConfig)
         {
             base.OnConfigurationChanged(newConfig);
-            if (_toolbar != null)
+            if (Toolbar != null)
                 DrawerToggle.OnConfigurationChanged(newConfig);
         }
 
@@ -64,7 +66,7 @@ namespace FoodByMe.Android.Views
         {
 
             base.OnActivityCreated(savedInstanceState);
-            if (_toolbar != null)
+            if (Toolbar != null)
                 DrawerToggle.SyncState();
         }
 

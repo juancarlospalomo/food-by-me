@@ -4,6 +4,8 @@ using System.Reflection;
 using System.Threading;
 using Android.Content;
 using FoodByMe.Android.Framework;
+using FoodByMe.Android.Utilities;
+using FoodByMe.Core.Contracts;
 using FoodByMe.Core.Framework;
 using FoodByMe.Core.Resources;
 using MvvmCross.Binding.Bindings.Target.Construction;
@@ -13,6 +15,7 @@ using MvvmCross.Droid.Shared.Presenter;
 using MvvmCross.Droid.Support.V7.AppCompat;
 using MvvmCross.Droid.Views;
 using MvvmCross.Localization;
+using MvvmCross.Platform;
 using MvvmCross.Platform.Converters;
 using MvvmCross.Platform.Platform;
 
@@ -41,6 +44,12 @@ namespace FoodByMe.Android
 			typeof(global::Android.Support.V4.View.ViewPager).Assembly,
 			typeof(MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView).Assembly
 		};
+
+        protected override void InitializeFirstChance()
+        {
+            Mvx.RegisterSingleton(typeof(IPictureOptimizer), () => new PictureOptimizer());
+            base.InitializeFirstChance();
+        }
 
         protected override IEnumerable<Assembly> ValueConverterAssemblies => 
             new List<Assembly>(base.ValueConverterAssemblies)

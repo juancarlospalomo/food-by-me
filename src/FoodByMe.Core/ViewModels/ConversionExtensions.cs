@@ -32,6 +32,7 @@ namespace FoodByMe.Core.ViewModels
             return new Recipe
             {
                 Id = vm.Id,
+                IsFavorite = vm.IsFavorite,
                 Title = vm.Title,
                 ImageUri = vm.PhotoPath,
                 Category = vm.Category,

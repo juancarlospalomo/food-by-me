@@ -21,6 +21,7 @@ namespace FoodByMe.Core.ViewModels
 
         private readonly IMvxMessenger _messenger;
         private readonly IRecipeCollectionService _recipeService;
+        private readonly IPictureStorageService _pictureStorage;
         private IReadOnlyList<Measure> _measures;
 
         private string _notes;
@@ -29,17 +30,24 @@ namespace FoodByMe.Core.ViewModels
         private int _cookingTimeSliderValue;
         private string _photoPath;
         
-        public RecipeEditViewModel(IMvxMessenger messenger, IRecipeCollectionService recipeService)
+        public RecipeEditViewModel(IMvxMessenger messenger, 
+            IRecipeCollectionService recipeService,
+            IPictureStorageService pictureStorage)
         {
             if (recipeService == null)
             {
                 throw new ArgumentNullException(nameof(recipeService));
+            }
+            if (pictureStorage == null)
+            {
+                throw new ArgumentNullException(nameof(pictureStorage));
             }
             if (messenger == null)
             {
                 throw new ArgumentNullException(nameof(messenger));
             }
             _recipeService = recipeService;
+            _pictureStorage = pictureStorage;
             _messenger = messenger;
             Ingredients = new ObservableCollection<IngredientEditViewModel>();
             Steps = new ObservableCollection<CookingStepEditViewModel>();
@@ -171,6 +179,7 @@ namespace FoodByMe.Core.ViewModels
             IsFavorite = recipe.IsFavorite;
             Title = recipe.Title;
             Category = recipe.Category;
+            PhotoPath = recipe.ImageUri;
             CookingTimeInMinutes = recipe.CookingMinutes;
             Notes = recipe.Notes;
             Ingredients.Clear();
@@ -183,6 +192,10 @@ namespace FoodByMe.Core.ViewModels
                     Quantity = recipe.Ingredients[i].Quantity
                 });
             }
+            if (Ingredients.Count == 0)
+            {
+                Ingredients.Add(new IngredientEditViewModel(_messenger, _measures, 1));
+            }
             Steps.Clear();
             for (var i = 0; i < recipe.CookingSteps.Count; i++)
             {
@@ -190,6 +203,10 @@ namespace FoodByMe.Core.ViewModels
                 {
                     Text = recipe.CookingSteps[i]
                 });
+            }
+            if (Steps.Count == 0)
+            {
+                Steps.Add(new CookingStepEditViewModel(_messenger, 1));
             }
         }
 
@@ -209,22 +226,27 @@ namespace FoodByMe.Core.ViewModels
         {
             var options = new StoreCameraMediaOptions();
             var file = await CrossMedia.Current.TakePhotoAsync(options);
-            SetPhoto(file);
+            await SetPhotoAsync(file);
         }
 
         private async Task ChoosePhoto()
         {
             var file = await CrossMedia.Current.PickPhotoAsync();
-            SetPhoto(file);
+            await SetPhotoAsync(file);
         }
 
-        private void SetPhoto(MediaFile file)
+        private async Task SetPhotoAsync(MediaFile file)
         {
             if (file == null)
             {
                 return;
             }
-            PhotoPath = file.Path;
+            if (!string.IsNullOrEmpty(PhotoPath))
+            {
+                await _pictureStorage.DeleteAsync(PhotoPath);
+            }
+            var path = await _pictureStorage.SaveAsync(file.Path);
+            PhotoPath = path;
         }
 
         private void AddStep()

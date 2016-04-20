@@ -1,8 +1,4 @@
-using System;
 using System.Collections.Generic;
-using FoodByMe.Core.Contracts.Messages;
-using MvvmCross.Core.ViewModels;
-using MvvmCross.Plugins.Messenger;
 
 namespace FoodByMe.Core.ViewModels
 {

@@ -50,6 +50,7 @@ namespace FoodByMe.Android.Views
             var actionBar = (Activity as AppCompatActivity)?.SupportActionBar;
             if (actionBar != null)
             {
+                
                 actionBar.Title = _viewPager.Adapter.GetPageTitle(e.Position);
             }
         }

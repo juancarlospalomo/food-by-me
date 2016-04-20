@@ -7,6 +7,7 @@ using Android.Support.V7.App;
 using Android.Support.V7.Widget;
 using Android.Views;
 using FoodByMe.Core.Contracts;
+using FoodByMe.Core.Contracts.Data;
 using FoodByMe.Core.Resources;
 using FoodByMe.Core.ViewModels;
 using MvvmCross.Droid.Shared.Attributes;
@@ -21,14 +22,12 @@ namespace FoodByMe.Android.Views
     [Register("foodbyme.android.views.RecipeListFragment")]
     public class RecipeListFragment : ContentFragment<RecipeListViewModel>
     {
-        private MvxSubscriptionToken _recipeListLoadedToken;
         private readonly IReferenceBookService _referenceBook;
 
         public RecipeListFragment()
         {
             var messenger = Mvx.Resolve<IMvxMessenger>();
             _referenceBook = Mvx.Resolve<IReferenceBookService>();
-            _recipeListLoadedToken = messenger.Subscribe<RecipeListLoaded>(OnRecipeListLoaded);
         }
 
         public override void OnCreate(Bundle savedInstanceState)
@@ -50,8 +49,8 @@ namespace FoodByMe.Android.Views
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = base.OnCreateView(inflater, container, savedInstanceState);
-       
             var recyclerView = view.FindViewById<MvxRecyclerView>(Resource.Id.recipe_list_recycler_view);
+            Toolbar.Title = GetTitle(ViewModel.Query);
             if (recyclerView != null)
             {
                 recyclerView.HasFixedSize = true;
@@ -66,29 +65,22 @@ namespace FoodByMe.Android.Views
         private void OnSearchSubmitted(object sender, SearchView.QueryTextSubmitEventArgs e)
         {
             ViewModel.SearchRecipesCommand.Execute(e.Query);
+            Toolbar.Title = GetTitle(ViewModel.Query);
             e.Handled = true;
         }
 
-        private void OnRecipeListLoaded(RecipeListLoaded @event)
+        private string GetTitle(RecipeQuery query)
         {
-            var compatActivity = (AppCompatActivity) Activity;
-            if (compatActivity.SupportActionBar == null)
+            if (query.OnlyFavorite)
             {
-                return;
+                return Text.FavoritesLabel;
             }
-            if (@event.Parameters.IsFavoriteSelected)
+            if (query.CategoryId != null)
             {
-                compatActivity.SupportActionBar.Title = Text.FavoritesLabel;
+                var category = _referenceBook.LookupCategory(query.CategoryId.Value);
+                return category.Title;
             }
-            else if (@event.Parameters.CategorySelected)
-            {
-                var category = _referenceBook.LookupCategory(@event.Parameters.CategoryId);
-                compatActivity.SupportActionBar.Title = category.Title;
-            }
-            else
-            {
-                compatActivity.SupportActionBar.Title = Text.AllRecipesLabel;
-            }
+            return Text.AllRecipesLabel;
         }
     }
 }
