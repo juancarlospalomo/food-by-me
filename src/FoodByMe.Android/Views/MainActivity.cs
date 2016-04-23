@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Android.App;
 using Android.Content.PM;
@@ -11,7 +10,6 @@ using FoodByMe.Android.Framework.Caching;
 using FoodByMe.Core.ViewModels;
 using MvvmCross.Droid.Shared.Caching;
 using MvvmCross.Droid.Support.V7.AppCompat;
-using MvvmCross.Droid.Support.V7.Fragging.Caching;
 using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
 
 namespace FoodByMe.Android.Views
@@ -21,7 +19,7 @@ namespace FoodByMe.Android.Views
         Theme = "@style/AppTheme",
         LaunchMode = LaunchMode.SingleTop,
         Name = "foodbyme.android.views.MainActivity"
-    )]
+        )]
     public class MainActivity : MvxCachingFragmentCompatActivity<MainViewModel>
     {
         public DrawerLayout DrawerLayout;
@@ -35,24 +33,26 @@ namespace FoodByMe.Android.Views
             DrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
 
             if (bundle == null)
+            {
                 ViewModel.Load();
+            }
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            switch (item.ItemId)
+            if (item.ItemId != global::Android.Resource.Id.Home)
             {
-                case global::Android.Resource.Id.Home:
-                    DrawerLayout.OpenDrawer(GravityCompat.Start);
-                    return true;
+                return base.OnOptionsItemSelected(item);
             }
-            
-            return base.OnOptionsItemSelected(item);
+            DrawerLayout.OpenDrawer(GravityCompat.Start);
+            return true;
         }
 
         public override IFragmentCacheConfiguration BuildFragmentCacheConfiguration()
         {
-            return new FragmentCacheConfigurationCustomFragmentInfo(); // custom FragmentCacheConfiguration is used because custom IMvxFragmentInfo is used -> CustomFragmentInfo
+            // custom FragmentCacheConfiguration is used because custom IMvxFragmentInfo is used -> CustomFragmentInfo
+            return new FragmentCacheConfigurationCustomFragmentInfo();
+                
         }
 
         public override void OnFragmentCreated(IMvxCachedFragmentInfo fragmentInfo, FragmentTransaction transaction)
@@ -68,16 +68,32 @@ namespace FoodByMe.Android.Views
         public override void OnFragmentPopped(IList<IMvxCachedFragmentInfo> currentFragmentsInfo)
         {
             base.OnFragmentPopped(currentFragmentsInfo);
-            OnFragmentChanged(currentFragmentsInfo.Last());
+            var visible = currentFragmentsInfo
+                .Select(x => new
+                {
+                    Fragment = SupportFragmentManager.FindFragmentByTag(x.Tag),
+                    Info = x
+                })
+                .Where(x => x.Fragment != null)
+                .Where(x => x.Fragment.GetType() != typeof(SidebarFragment))
+                .FirstOrDefault(x => x.Fragment.IsVisible);
+            if (visible != null)
+            {
+                OnFragmentChanged(visible.Info);
+            }
         }
 
         private void CheckIfMenuIsNeeded(CustomFragmentInfo myCustomInfo)
         {
             //If not root, we will block the menu sliding gesture and show the back button on top
             if (myCustomInfo == null || myCustomInfo.IsRoot)
-                ShowHamburguerMenu();
+            {
+                ShowHamburgerMenu();
+            }
             else
+            {
                 ShowBackButton();
+            }
         }
 
         private void ShowBackButton()
@@ -95,17 +111,13 @@ namespace FoodByMe.Android.Views
             DrawerLayout.SetDrawerLockMode(DrawerLayout.LockModeLockedClosed);
         }
 
-        private void ShowHamburguerMenu()
+        private void ShowHamburgerMenu()
         {
-            //TODO set toggle indicator as enabled 
-            //this.DrawerToggle.DrawerIndicatorEnabled = true;
-
             var fr = SupportFragmentManager.FindFragmentById(Resource.Id.content_frame) as ContentFragment;
             if (fr?.DrawerToggle != null)
             {
                 fr.DrawerToggle.DrawerIndicatorEnabled = true;
             }
-
             //Unlock the menu sliding gesture
             DrawerLayout.SetDrawerLockMode(DrawerLayout.LockModeUnlocked);
         }
@@ -129,17 +141,5 @@ namespace FoodByMe.Android.Views
                 base.OnBackPressed();
             }
         }
-    }
-
-    public class CustomFragmentInfo : MvxCachedFragmentInfo
-    {
-        public CustomFragmentInfo(string tag, Type fragmentType, Type viewModelType, bool cacheFragment, bool addToBackstack = false,
-            bool isRoot = false)
-            : base(tag, fragmentType, viewModelType, cacheFragment, addToBackstack)
-        {
-            IsRoot = isRoot;
-        }
-
-        public bool IsRoot { get; set; }
     }
 }

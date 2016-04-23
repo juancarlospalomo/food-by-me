@@ -1,9 +1,8 @@
 using MvvmCross.Droid.Shared.Caching;
-using MvvmCross.Droid.Support.V7.Fragging.Caching;
 
 namespace FoodByMe.Android.Framework.Caching
 {
-    class FragmentCacheConfigurationCustomFragmentInfo : FragmentCacheConfiguration<MainActivityFragmentCacheInfoFactory.SerializableCustomFragmentInfo>
+    internal class FragmentCacheConfigurationCustomFragmentInfo : FragmentCacheConfiguration<MainActivityFragmentCacheInfoFactory.SerializableCustomFragmentInfo>
     {
         private readonly MainActivityFragmentCacheInfoFactory _mainActivityFragmentCacheInfoFactory;
         public FragmentCacheConfigurationCustomFragmentInfo()

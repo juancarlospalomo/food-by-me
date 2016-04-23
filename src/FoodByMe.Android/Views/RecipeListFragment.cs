@@ -26,7 +26,6 @@ namespace FoodByMe.Android.Views
 
         public RecipeListFragment()
         {
-            var messenger = Mvx.Resolve<IMvxMessenger>();
             _referenceBook = Mvx.Resolve<IReferenceBookService>();
         }
 
@@ -42,8 +41,18 @@ namespace FoodByMe.Android.Views
             var item = menu.FindItem(Resource.Id.search_recipes_menu_item);
             var searchView = (SearchView) MenuItemCompat.GetActionView(item);
             searchView.QueryTextSubmit += OnSearchSubmitted;
+            searchView.QueryTextChange += OnSearchChanged;
 
             base.OnCreateOptionsMenu(menu, inflater);
+        }
+
+        private void OnSearchChanged(object sender, SearchView.QueryTextChangeEventArgs e)
+        {
+            if (string.IsNullOrEmpty(e.NewText))
+            {
+                ViewModel.SearchRecipesCommand.Execute(e.NewText);
+            }
+            e.Handled = true;
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)

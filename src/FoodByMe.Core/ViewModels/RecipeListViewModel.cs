@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Windows.Input;
 using FoodByMe.Core.Contracts;
 using FoodByMe.Core.Contracts.Data;
 using FoodByMe.Core.Contracts.Messages;
 using MvvmCross.Core.ViewModels;
+using MvvmCross.Platform;
 using MvvmCross.Plugins.Messenger;
 
 namespace FoodByMe.Core.ViewModels
@@ -51,6 +53,8 @@ namespace FoodByMe.Core.ViewModels
             }
         }
 
+        public bool IsEmpty => Recipes.Count == 0;
+
         public RecipeQuery Query { get; private set; }
 
         public ICommand SearchRecipesCommand => new MvxCommand<string>(SearchRecipes);
@@ -89,7 +93,7 @@ namespace FoodByMe.Core.ViewModels
 
         private void SearchRecipes(string query)
         {
-            Query = new RecipeQuery {SearchTerm = query};
+            Query = new RecipeQuery {SearchTerm = string.IsNullOrEmpty(query) ? null : query};
             Refresh(Query);
         }
 
@@ -100,7 +104,21 @@ namespace FoodByMe.Core.ViewModels
 
         private void OnRecipeFavoriteTagChanged(RecipeFavoriteTagChanged message)
         {
+            if (!Query.OnlyFavorite)
+            {
+                return;
+            }
+            var recipe = Recipes.FirstOrDefault(x => x.Id == message.RecipeId);
+            if (recipe != null)
+            {
+                Recipes.Remove(recipe);
+            }
+            if (Recipes.Count == 0)
+            {
+                RaisePropertyChanged(() => IsEmpty);
+            }
         }
+
 
         private void OnRecipeAdded(RecipeAdded @event)
         {
@@ -131,7 +149,8 @@ namespace FoodByMe.Core.ViewModels
         {
             var recipes = await _recipeService.SearchRecipesAsync(query);
             var items = recipes.Select(x => x.ToRecipeListItemViewModel(_messenger));
-            Recipes = new ObservableCollection<RecipeListItemViewModel>(items);            
+            Recipes = new ObservableCollection<RecipeListItemViewModel>(items);
+            RaisePropertyChanged(() => IsEmpty);            
         }
     }
 }

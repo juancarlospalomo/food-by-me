@@ -179,6 +179,42 @@ namespace FoodByMe.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to My recipe.
+        /// </summary>
+        public static string NewRecipeTitle {
+            get {
+                return ResourceManager.GetString("NewRecipeTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click the pencil to add cooking steps.
+        /// </summary>
+        public static string NoCookingStepsText {
+            get {
+                return ResourceManager.GetString("NoCookingStepsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click the pencil to add ingredients.
+        /// </summary>
+        public static string NoIngredientsText {
+            get {
+                return ResourceManager.GetString("NoIngredientsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There are no recipes here yet. Press the button to add one.
+        /// </summary>
+        public static string NoRecipesText {
+            get {
+                return ResourceManager.GetString("NoRecipesText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Notes.
         /// </summary>
         public static string NotesLabel {

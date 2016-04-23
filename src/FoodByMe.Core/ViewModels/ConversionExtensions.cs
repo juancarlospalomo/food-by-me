@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using FoodByMe.Core.Contracts;
 using FoodByMe.Core.Contracts.Data;
 using MvvmCross.Plugins.Messenger;
 
@@ -83,9 +84,32 @@ namespace FoodByMe.Core.ViewModels
                 IsFavorite = recipe.IsFavorite,
                 Title = recipe.Title,
                 Description = description,
-                ImageUrl = recipe.ImageUri,
+                ImageUrl = recipe.ImageUri ?? GetDefaultImagePath(recipe.Category.Id),
                 CookingMinutes = recipe.CookingMinutes
             };
+        }
+
+        private static string GetDefaultImagePath(int id)
+        {
+            switch (id)
+            {
+                case Constants.Categories.Appetizers:
+                    return "res:ic_app_appetizers";
+                case Constants.Categories.Baking:
+                    return "res:ic_app_bakery";
+                case Constants.Categories.Desserts:
+                    return "res:ic_app_desserts";
+                case Constants.Categories.Dinner:
+                    return "res:ic_app_hot_dishes";
+                case Constants.Categories.Drinks:
+                    return "res:ic_app_drinks";
+                case Constants.Categories.Other:
+                    return "res:ic_app_other";
+                case Constants.Categories.Salads:
+                    return "res:ic_app_salads";
+                default:
+                    return "res:ic_app_other";
+            }
         }
 
         private static string GetDescriptionFromIngredient(Ingredient ingredient)

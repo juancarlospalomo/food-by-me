@@ -6,6 +6,7 @@ using FoodByMe.Core.Contracts;
 using FoodByMe.Core.Contracts.Data;
 using FoodByMe.Core.Contracts.Messages;
 using MvvmCross.Core.ViewModels;
+using MvvmCross.Plugins.Messenger;
 
 namespace FoodByMe.Core.ViewModels
 {
@@ -13,14 +14,16 @@ namespace FoodByMe.Core.ViewModels
     {
         private readonly IRecipeCollectionService _recipeService;
         private RecipeQuery _query;
+        private MvxSubscriptionToken _token;
 
-        public RecipeDetailedListViewModel(IRecipeCollectionService recipeService)
+        public RecipeDetailedListViewModel(IMvxMessenger messenger, IRecipeCollectionService recipeService)
         {
             if (recipeService == null)
             {
                 throw new ArgumentNullException(nameof(recipeService));
             }
             _recipeService = recipeService;
+            _token = messenger.Subscribe<RecipeUpdated>(OnRecipeUpdated);
             Recipes = new ObservableCollection<RecipeDisplayViewModel>();
         }
 

@@ -80,16 +80,17 @@ namespace FoodByMe.Core.Services.Data.Indexing
             {
                 IsSearchable = false,
                 Type = RecipeTextType.CreatedDate,
-                Value = recipe.CreatedAt.ToString("O")
+                Value = recipe.CreatedAt.ToString("s")
             });
             fields.Add(new RecipeTextFieldRow
             {
                 IsSearchable = false,
                 Type = RecipeTextType.LastModifiedDate,
-                Value = recipe.LastModifiedAt.ToString("O")
+                Value = recipe.LastModifiedAt.ToString("s")
             });
             foreach (var field in fields)
             {
+                field.Value = field.Value?.Trim()?.ToLower();
                 field.RecipeId = recipe.Id;
             }
             return fields.ToList();

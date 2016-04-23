@@ -25,6 +25,8 @@ namespace FoodByMe.Core.ViewModels
 
         public string ImageUrl { get; set; }
 
+        public string DefaultImageUrl { get; set; }
+
         public string Description { get; set; }
 
         public int CookingMinutes { get; set; }

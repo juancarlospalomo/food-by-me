@@ -59,9 +59,9 @@ namespace FoodByMe.Core.Services
                 var add = recipe.Id == default(int);
                 if (add)
                 {
-                    recipe.CreatedAt = new DateTime();
+                    recipe.CreatedAt = DateTime.Now;
                 }
-                recipe.LastModifiedAt = new DateTime();
+                recipe.LastModifiedAt = DateTime.Now;
                 recipe = _recipePersistenceService.SaveRecipe(recipe);
                 var message = add ? (MvxMessage) new RecipeAdded(this, recipe) : new RecipeUpdated(this, recipe);
                 _messenger.Publish(message);

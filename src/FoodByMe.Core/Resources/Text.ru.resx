@@ -264,4 +264,16 @@
   <data name="FavoritesLabel" xml:space="preserve">
     <value>Любимые</value>
   </data>
+  <data name="NoRecipesText" xml:space="preserve">
+    <value>Здесь пока нет рецептов. Нажмите на кнопку, чтобы добавить</value>
+  </data>
+  <data name="NewRecipeTitle" xml:space="preserve">
+    <value>Мой рецепт</value>
+  </data>
+  <data name="NoIngredientsText" xml:space="preserve">
+    <value>Нажмите на карандаш, чтобы добавить ингредиенты</value>
+  </data>
+  <data name="NoCookingStepsText" xml:space="preserve">
+    <value>Нажмите на карандаш и добавьте шаги</value>
+  </data>
 </root>

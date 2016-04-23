@@ -39,6 +39,8 @@ namespace FoodByMe.Core.Services.Updates
                 {
                     Title = "Обычная колбаса",
                     Category = referenceBook.LookupCategory(Constants.Categories.Appetizers),
+                    CreatedAt = DateTime.Now,
+                    LastModifiedAt = DateTime.Now,
                     CookingMinutes = 20,
                     CookingSteps = new List<string>
                     {
@@ -53,6 +55,8 @@ namespace FoodByMe.Core.Services.Updates
                 new Recipe
                 {
                     Title = "Сырнички",
+                    CreatedAt = DateTime.Now,
+                    LastModifiedAt = DateTime.Now,
                     Notes = "Моя очень важная записочка",
                     CookingMinutes = 150,
                     Category = referenceBook.LookupCategory(Constants.Categories.Appetizers),

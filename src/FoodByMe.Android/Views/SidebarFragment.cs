@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.Design.Widget;
-using Android.Support.V7.App;
 using Android.Views;
 using FoodByMe.Core.Contracts;
 using FoodByMe.Core.Contracts.Data;
@@ -13,7 +12,7 @@ using FoodByMe.Core.Resources;
 using FoodByMe.Core.ViewModels;
 using MvvmCross.Binding.Droid.BindingContext;
 using MvvmCross.Droid.Shared.Attributes;
-using MvvmCross.Droid.Support.V7.Fragging.Fragments;
+using MvvmCross.Droid.Support.V4;
 using MvvmCross.Platform;
 using MvvmCross.Plugins.Messenger;
 

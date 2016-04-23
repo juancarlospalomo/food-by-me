@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using FoodByMe.Android.Views;
 using FoodByMe.Core.ViewModels;
 using MvvmCross.Droid.Shared.Caching;
-using MvvmCross.Droid.Support.V7.Fragging.Caching;
 
 namespace FoodByMe.Android.Framework.Caching
 {
@@ -35,6 +34,11 @@ namespace FoodByMe.Android.Framework.Caching
                 typeof (RecipeEditViewModel).ToString(),
                 new CustomFragmentInfo(typeof (RecipeEditViewModel).Name, typeof (RecipeEditFragment),
                     typeof (RecipeEditViewModel), isRoot: false, addToBackstack: true, cacheFragment:false)
+            },
+            {
+                typeof (RecipeDisplayViewModel).ToString(),
+                new CustomFragmentInfo(typeof (RecipeDisplayViewModel).Name, typeof (RecipeDisplayFragment),
+                    typeof (RecipeDisplayViewModel), isRoot: false, addToBackstack: true, cacheFragment:false)
             }
         };
 

@@ -7,6 +7,7 @@ using FoodByMe.Core.Framework;
 using FoodByMe.Core.Services.Data.Indexing;
 using FoodByMe.Core.Services.Data.Serialization;
 using FoodByMe.Core.Services.Data.Types;
+using MvvmCross.Platform;
 using MvvmCross.Plugins.Sqlite;
 using SQLite.Net;
 
@@ -58,7 +59,9 @@ namespace FoodByMe.Core.Services.Data
             }
             if (!string.IsNullOrEmpty(query.SearchTerm))
             {
-                parameters.Add(query.SearchTerm);
+                var q = _parser.Parse(query.SearchTerm);
+                parameters.Add(q);
+                Mvx.Trace($"Query: {q}");
                 filters.Add("RecipeTextSearch MATCH ?");
             }
             var filtersSql = filters.Count > 0

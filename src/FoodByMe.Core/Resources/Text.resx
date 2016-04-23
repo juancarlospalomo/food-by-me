@@ -264,4 +264,16 @@
   <data name="FavoritesLabel" xml:space="preserve">
     <value>Favorites</value>
   </data>
+  <data name="NoRecipesText" xml:space="preserve">
+    <value>There are no recipes here yet. Press the button to add one</value>
+  </data>
+  <data name="NewRecipeTitle" xml:space="preserve">
+    <value>My recipe</value>
+  </data>
+  <data name="NoIngredientsText" xml:space="preserve">
+    <value>Click the pencil to add ingredients</value>
+  </data>
+  <data name="NoCookingStepsText" xml:space="preserve">
+    <value>Click the pencil to add cooking steps</value>
+  </data>
 </root>

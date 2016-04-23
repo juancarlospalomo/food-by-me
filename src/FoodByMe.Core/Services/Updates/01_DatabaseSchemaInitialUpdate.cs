@@ -13,13 +13,18 @@ namespace FoodByMe.Core.Services.Updates
             connection.CreateTable<RecipeRow>();
             connection.CreateTable<RecipeTextFieldRow>();
             connection.Execute("CREATE VIRTUAL TABLE RecipeTextSearch USING fts4(content='RecipeTextField', Value)");
-            connection.Execute(@"CREATE TRIGGER FtsTriggerUpdate BEFORE UPDATE ON RecipeTextField BEGIN
+            connection.Execute(@"CREATE TRIGGER FtsTriggerBeforeUpdate BEFORE UPDATE ON RecipeTextField BEGIN
                                      DELETE FROM RecipeTextSearch WHERE docid=old.rowid;
                                  END;");
-            connection.Execute(@"CREATE TRIGGER FtsTriggerDelete BEFORE DELETE ON RecipeTextField BEGIN
+            connection.Execute(@"CREATE TRIGGER FtsTriggerBeforeDelete BEFORE DELETE ON RecipeTextField BEGIN
                                       DELETE FROM RecipeTextSearch WHERE docid=old.rowid;
-                                  END;");
-
+                                 END;");
+            connection.Execute(@"CREATE TRIGGER FtsTriggerAfterUpdate AFTER UPDATE ON RecipeTextField BEGIN
+                                      INSERT INTO RecipeTextSearch(docid, Value) VALUES(new.rowid, new.Value);
+                                 END;");
+            connection.Execute(@"CREATE TRIGGER FtsTriggerAfterInsert AFTER INSERT ON RecipeTextField BEGIN
+                                      INSERT INTO RecipeTextSearch(docid, Value) VALUES(new.rowid, new.Value);
+                                 END;");
         }
     }
 }

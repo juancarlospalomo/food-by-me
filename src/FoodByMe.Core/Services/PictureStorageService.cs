@@ -47,7 +47,7 @@ namespace FoodByMe.Core.Services
                 return _folder;
             }
             _folder = await FileSystem.Current.LocalStorage
-                .CreateFolderAsync("FoodByMe", CreationCollisionOption.OpenIfExists)
+                .CreateFolderAsync("Pictures", CreationCollisionOption.OpenIfExists)
                 .ConfigureAwait(false);
             return _folder;
         }

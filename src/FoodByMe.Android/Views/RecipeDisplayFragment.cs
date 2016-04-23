@@ -2,14 +2,13 @@ using System;
 using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
-using Android.Support.V7.App;
 using Android.Views;
 using FoodByMe.Core.ViewModels;
 using MvvmCross.Droid.Shared.Attributes;
 
 namespace FoodByMe.Android.Views
 {
-    [MvxFragment(typeof (RecipeDisplayViewModel), Resource.Id.content_frame)]
+    [MvxFragment(typeof (MainViewModel), Resource.Id.content_frame)]
     [Register("foodbyme.android.views.RecipeDisplayFragment")]
     public class RecipeDisplayFragment : ContentFragment<RecipeDisplayViewModel>
     {
