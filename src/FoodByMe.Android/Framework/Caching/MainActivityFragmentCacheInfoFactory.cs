@@ -26,11 +26,6 @@ namespace FoodByMe.Android.Framework.Caching
                     typeof (RecipeListViewModel), isRoot: true, cacheFragment:false)
             },
             {
-                typeof (RecipeSearchListViewModel).ToString(),
-                new CustomFragmentInfo(typeof (RecipeSearchListViewModel).Name, typeof (RecipeSearchListFragment),
-                    typeof (RecipeSearchListViewModel), isRoot: false, addToBackstack: true, cacheFragment:false)
-            },
-            {
                 typeof (RecipeEditViewModel).ToString(),
                 new CustomFragmentInfo(typeof (RecipeEditViewModel).Name, typeof (RecipeEditFragment),
                     typeof (RecipeEditViewModel), isRoot: false, addToBackstack: true, cacheFragment:false)

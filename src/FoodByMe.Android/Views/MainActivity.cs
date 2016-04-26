@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Android.App;
 using Android.Content.PM;
@@ -19,7 +20,7 @@ namespace FoodByMe.Android.Views
         Theme = "@style/AppTheme",
         LaunchMode = LaunchMode.SingleTop,
         Name = "foodbyme.android.views.MainActivity"
-        )]
+    )]
     public class MainActivity : MvxCachingFragmentCompatActivity<MainViewModel>
     {
         public DrawerLayout DrawerLayout;
@@ -67,19 +68,39 @@ namespace FoodByMe.Android.Views
 
         public override void OnFragmentPopped(IList<IMvxCachedFragmentInfo> currentFragmentsInfo)
         {
-            base.OnFragmentPopped(currentFragmentsInfo);
-            var visible = currentFragmentsInfo
-                .Select(x => new
-                {
-                    Fragment = SupportFragmentManager.FindFragmentByTag(x.Tag),
-                    Info = x
-                })
-                .Where(x => x.Fragment != null)
-                .Where(x => x.Fragment.GetType() != typeof(SidebarFragment))
-                .FirstOrDefault(x => x.Fragment.IsVisible);
-            if (visible != null)
+            var visible = SupportFragmentManager.Fragments
+                .Where(x => x.GetType() != typeof(SidebarFragment))
+                .FirstOrDefault(x => x.IsVisible);
+            if (visible == null)
             {
-                OnFragmentChanged(visible.Info);
+                return;
+            }
+            CheckIfMenuIsNeeded(visible.GetType());
+            //var visible = currentFragmentsInfo
+            //    .Select(x => new
+            //    {
+            //        Fragment = SupportFragmentManager.FindFragmentByTag(x.Tag),
+            //        Info = x
+            //    })
+            //    .Where(x => x.Fragment != null)
+            //    .Where(x => x.Fragment.GetType() != typeof(SidebarFragment))
+            //    .FirstOrDefault(x => x.Fragment.IsVisible);
+            //if (visible != null)
+            //{
+            //    OnFragmentChanged(visible.Info);
+            //}
+        }
+
+        private void CheckIfMenuIsNeeded(Type fragmentType)
+        {
+            //If not root, we will block the menu sliding gesture and show the back button on top
+            if (fragmentType == typeof(RecipeListFragment))
+            {
+                ShowHamburgerMenu();
+            }
+            else
+            {
+                ShowBackButton();
             }
         }
 

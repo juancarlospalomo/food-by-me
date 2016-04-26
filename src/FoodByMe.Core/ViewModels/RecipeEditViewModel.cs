@@ -142,16 +142,18 @@ namespace FoodByMe.Core.ViewModels
             }
             else
             {
-                InitAddMode();
+                InitAddMode(parameters?.CategoryId);
             }
         }
 
-        private void InitAddMode()
+        private void InitAddMode(int? categoryId)
         {
             Id = default(int);
             IsFavorite = false;
             Title = null;
-            Category = Categories.FirstOrDefault();
+            Category = categoryId == null
+                ? Categories.FirstOrDefault()
+                : Categories.FirstOrDefault(x => x.Id == categoryId.Value);
             Notes = null;
             CookingTimeSliderValue = 0;
             var steps = Enumerable.Range(0, DefaultSteps)

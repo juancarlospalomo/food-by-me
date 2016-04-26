@@ -89,6 +89,27 @@ namespace FoodByMe.Core.ViewModels
             };
         }
 
+        public static RecipeListParameters ToRecipeListParameters(this RecipeQuery query)
+        {
+            return new RecipeListParameters
+            {
+                CategoryId = query.CategoryId.GetValueOrDefault(0),
+                CategorySelected = query.CategoryId != null,
+                IsFavoriteSelected = query.OnlyFavorite,
+                SearchTerm = query.SearchTerm
+            };
+        }
+
+        public static RecipeQuery ToQuery(this RecipeListParameters parameters)
+        {
+            return new RecipeQuery
+            {
+                CategoryId = parameters.CategorySelected ? parameters.CategoryId : (int?) null,
+                OnlyFavorite = parameters.IsFavoriteSelected,
+                SearchTerm = parameters.SearchTerm
+            };
+        }
+
         private static string GetDefaultImagePath(int id)
         {
             switch (id)

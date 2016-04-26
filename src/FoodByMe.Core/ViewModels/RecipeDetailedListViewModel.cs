@@ -70,6 +70,10 @@ namespace FoodByMe.Core.ViewModels
         private void OnRecipeUpdated(RecipeUpdated @event)
         {
             var recipe = Recipes.FirstOrDefault(x => x.Id == @event.Recipe.Id);
+            if (recipe == null)
+            {
+                return;
+            }
             // Ugly but true
             recipe.Title = @event.Recipe.Title;
             recipe.Category = @event.Recipe.Category.Title;

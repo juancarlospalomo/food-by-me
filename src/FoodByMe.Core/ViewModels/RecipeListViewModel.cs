@@ -65,12 +65,18 @@ namespace FoodByMe.Core.ViewModels
 
         public void Init(RecipeListParameters parameters)
         {
-            Query = parameters == null ? new RecipeQuery() : new RecipeQuery
-            {
-                CategoryId = parameters.CategorySelected ? parameters.CategoryId : (int?) null,
-                OnlyFavorite = parameters.IsFavoriteSelected,
-                SearchTerm = parameters.SearchTerm
-            };
+            Query = parameters == null ? new RecipeQuery() : parameters.ToQuery();
+            Refresh(Query);
+        }
+
+        public RecipeListParameters SaveState()
+        {
+            return Query.ToRecipeListParameters();
+        }
+
+        public void RestoreState(RecipeListParameters parameters)
+        {
+            Query = parameters == null ? new RecipeQuery() : parameters.ToQuery();
             Refresh(Query);
         }
 
@@ -88,7 +94,7 @@ namespace FoodByMe.Core.ViewModels
 
         private void AddRecipe()
         {
-            ShowViewModel<RecipeEditViewModel>(new RecipeEditParameters());
+            ShowViewModel<RecipeEditViewModel>(new RecipeEditParameters {CategoryId = Query.CategoryId.GetValueOrDefault(0)});
         }
 
         private void SearchRecipes(string query)
